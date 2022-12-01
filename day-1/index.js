@@ -1,22 +1,5 @@
 import "../lib.js";
-import { input } from "./input.js";
-
-const testInput = `
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
-`;
+import { testInput, input } from "./input.js";
 
 /**
  * transform data from input into an array of the summed values per reindeer and sorted in descending order
