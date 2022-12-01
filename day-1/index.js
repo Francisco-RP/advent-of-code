@@ -1,4 +1,4 @@
-import { sum } from "../lib.js";
+import "../lib.js";
 import { input } from "./input.js";
 /*
 Santa's reindeer typically eat regular reindeer food, but they need a lot of magical energy to
@@ -74,17 +74,25 @@ const testInput = `
 `;
 
 /**
+ * transform data from input into an array of the summed values per reindeer and sorted in descending order
+ * @param {string} data
+ * @returns {number[]}
+ */
+function getTotals(data) {
+  return data
+    .trim()
+    .split(/\n\s*\n/)
+    .map((r) => r.trim().split("\n").map(Number).sum())
+    .sort((a, b) => b - a);
+}
+
+/**
  *
  * @param {string} data
  * @returns {number}
  */
 function mostCalories(data) {
-  return data
-    .trim()
-    .split(/\n\s*\n/)
-    .map((r) => sum(r.trim().split("\n").map(Number)))
-    .sort((a, b) => a - b)
-    .pop();
+  return getTotals(data).shift();
 }
 
 // test first
@@ -118,14 +126,7 @@ total?
  * @returns {number}
  */
 function top3(data) {
-  return sum(
-    data
-      .trim()
-      .split(/\n\s*\n/)
-      .map((r) => sum(r.trim().split("\n").map(Number)))
-      .sort((a, b) => b - a)
-      .slice(0, 3)
-  );
+  return getTotals(data).slice(0, 3).sum();
 }
 
 // test
