@@ -1,3 +1,4 @@
+import assert from "node:assert/strict";
 import "../lib.js";
 import { testInput, input } from "./input.js";
 
@@ -27,7 +28,7 @@ function mostCalories(data) {
 }
 
 // test first
-console.assert(mostCalories(testInput) === 24000);
+assert.equal(mostCalories(testInput), 24000);
 console.log("passed");
 
 // get answer for part 1
@@ -46,7 +47,7 @@ function top3(data) {
 }
 
 // test
-console.assert(top3(testInput) === 45000);
+assert.equal(top3(testInput), 45000);
 console.log("passed");
 
 // answer
