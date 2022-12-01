@@ -51,22 +51,7 @@ above, this is 24000 (carried by the fourth Elf).
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 */
 
-/**
- *
- * @param {string} input
- * @returns {number}
- */
-function mostCalories(input) {
-  return input
-    .trim()
-    .split(/\n\s*\n/)
-    .map((r) => sum(r.trim().split("\n").map(Number)))
-    .sort((a, b) => a - b)
-    .pop();
-}
-
-function test1() {
-  const testInput = `
+const testInput = `
 1000
 2000
 3000
@@ -83,12 +68,25 @@ function test1() {
 10000
 `;
 
-  console.assert(mostCalories(testInput) === 24000);
-  console.log("passed");
+/**
+ *
+ * @param {string} data
+ * @returns {number}
+ */
+function mostCalories(data) {
+  return data
+    .trim()
+    .split(/\n\s*\n/)
+    .map((r) => sum(r.trim().split("\n").map(Number)))
+    .sort((a, b) => a - b)
+    .pop();
 }
 
-test1();
+// test first
+console.assert(mostCalories(testInput) === 24000);
+console.log("passed");
 
+// get answer for part 1
 console.log("part 1:", mostCalories(input));
 
 /**
@@ -107,13 +105,16 @@ by these three elves is 45000.
 
 Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in
 total?
+*/
 
-
+/**
+ *
+ * @param {string} data
+ * @returns {number}
  */
-
-function top3(input) {
+function top3(data) {
   return sum(
-    input
+    data
       .trim()
       .split(/\n\s*\n/)
       .map((r) => sum(r.trim().split("\n").map(Number)))
@@ -122,28 +123,9 @@ function top3(input) {
   );
 }
 
-function test2() {
-  const testInput = `
-1000
-2000
-3000
+// test
+console.assert(top3(testInput) === 45000);
+console.log("passed");
 
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
-`;
-
-  console.assert(top3(testInput) === 45000);
-  console.log("passed");
-}
-
-test2();
-
+// answer
 console.log("part 2:", top3(input));
