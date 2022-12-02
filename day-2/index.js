@@ -41,21 +41,20 @@ const draw = {
 };
 const draw2 = flipKeys(draw);
 
-// A for Rock
-// B for Paper
-// C for Scissors.
-
-// X for Rock,
-// Y for Paper
-// Z for Scissors.
-
-// Your total score is the sum of your scores for each round.
-
-// The score for a single round is the score for the shape you selected (1 for Rock, 2 for Paper,
-// and 3 for Scissors) plus the score for the outcome of the round (0 if you lost, 3 if the round
-// was a draw, and 6 if you won).
-
-// test = 15
+/**
+ * Convert the string input into an array of tuples and use the getScore function to get score of
+ * each round, then retun it all summed up
+ * @param {string} input
+ * @param {(round: [string, string]) => number} getScore
+ */
+function getScores(input, getScore) {
+  return input
+    .trim()
+    .split("\n")
+    .map((line) => line.trim().split(" "))
+    .map((pair) => getScore(pair))
+    .sum();
+}
 
 /**
  * @param {[string, string]} round
@@ -73,24 +72,12 @@ function scorePart1([them, you]) {
   }
 }
 
-/**
- *
- * @param {string} input
- * @param {(round: [string, string]) => number} getScore
- */
-function getScores(input, getScore) {
-  return input
-    .trim()
-    .split("\n")
-    .map((line) => line.trim().split(" "))
-    .map((pair) => getScore(pair))
-    .sum();
-}
-
+// test
 assert.equal(getScores(testInput, scorePart1), 15);
-console.log("test 1 passed");
-
+// show result
 console.log("Result 1:", getScores(input, scorePart1));
+// test with final data to make sure refactoring didn't break anything
+assert.equal(getScores(input, scorePart1), 10816);
 
 /*
  X means you need to lose, 
@@ -125,7 +112,9 @@ function scorePart2([them, you]) {
   return scores[myPlay] + scores.won;
 }
 
+// test
 assert.equal(getScores(testInput, scorePart2), 12);
-console.log("test 2 passed");
-
+// get result
 console.log("Result 2:", getScores(input, scorePart2));
+// test with final data to make sure refactoring didn't break anything
+assert.equal(getScores(input, scorePart2), 11657);
