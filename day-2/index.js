@@ -58,7 +58,7 @@ const lose = {
 const draw = {
   X: "A", // rock X === rock A
   Y: "B", // paper Y === paper B
-  Z: "C", // scissors C === scissors C
+  Z: "C", // scissors Z === scissors C
 };
 
 /**
