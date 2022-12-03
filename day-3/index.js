@@ -26,7 +26,7 @@ function findItems(input) {
       const sharedType = left
         .split("")
         .filter((char) => right.includes(char))
-        .dedupe()
+        .dedupe() // <- new, in my lib.js
         .pop();
       return toInt(sharedType);
     })
@@ -58,7 +58,13 @@ function searchGroup(group) {
 }
 
 function findBadges(input) {
-  return input.trim().split("\n").chunk(3).map(searchGroup).map(toInt).sum();
+  return input
+    .trim()
+    .split("\n")
+    .chunk(3) // <- new, in my lib.js
+    .map(searchGroup)
+    .map(toInt)
+    .sum();
 }
 
 // test
