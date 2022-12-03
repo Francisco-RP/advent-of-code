@@ -26,7 +26,6 @@ function findItems(input) {
       const sharedType = left
         .split("")
         .filter((char) => right.includes(char))
-        .dedupe() // <- new, in my lib.js
         .pop();
       return toInt(sharedType);
     })
@@ -53,7 +52,6 @@ function searchGroup(group) {
   return group[0]
     .split("")
     .filter((char) => group[1].includes(char) && group[2].includes(char))
-    .dedupe()
     .pop();
 }
 

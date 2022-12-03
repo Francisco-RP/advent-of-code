@@ -2,16 +2,6 @@ Array.prototype.sum = function () {
   return this.reduce((a, b) => a + b, 0);
 };
 
-Array.prototype.dedupe = function () {
-  const arr = [];
-  this.forEach((item) => {
-    if (!arr.includes(item)) {
-      arr.push(item);
-    }
-  });
-  return arr;
-};
-
 /**
  * Take a flat array and split it into chunks of `size` length
  * @param {unknown[]} size size of each chunk
