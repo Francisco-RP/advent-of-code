@@ -5,7 +5,6 @@ import { testInput, input } from "./input.js";
 // https://adventofcode.com/2022/day/4
 
 /**
- *
  * @param {string} group
  * @returns {[number, number]}
  */
@@ -14,7 +13,6 @@ function parseRange(group) {
 }
 
 /**
- *
  * @param {[string,string]} param0
  * @returns {boolean}
  */
@@ -66,13 +64,18 @@ function pairsOverlapped([group1, group2]) {
   const [r1min, r1max] = parseRange(group1);
   const [r2min, r2max] = parseRange(group2);
 
+  // create 2 arrays and fill them with the numbers for each range
+  // example:'5-7,7-9' becomes [5,6,7], [7,8,9]
+
   const arr1 = Array(r1max - r1min + 1)
     .fill(0)
     .map((_, i) => i + r1min);
+
   const arr2 = Array(r2max - r2min + 1)
     .fill(0)
     .map((_, i) => i + r2min);
 
+  // and then we iterate over one array and see if the other array contains the same number
   return arr1.some((n) => arr2.includes(n));
 }
 
