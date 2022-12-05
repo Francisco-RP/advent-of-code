@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { getResult } from "../lib.js";
 
 const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 
@@ -92,12 +93,7 @@ function crateMover9000(crates) {
 // test
 assert.equal(crateMover9000(testInput), "CMZ");
 
-console.time("part 1");
-const resultPart1 = crateMover9000(input);
-console.timeEnd("part 1");
-
-assert.equal(resultPart1, "QNNTGTPFN");
-console.log("Result 1:", resultPart1);
+getResult(crateMover9000, input, "part 1", "QNNTGTPFN");
 
 /*********************************
  * Part 2
@@ -128,9 +124,4 @@ function crateMover9001(crates) {
 // test
 assert.equal(crateMover9001(testInput), "MCD");
 
-console.time("part 2");
-const resultPart2 = crateMover9001(input);
-console.timeEnd("part 2");
-
-assert.equal(resultPart2, "GGNPJBTTR");
-console.log("Result 2:", resultPart2);
+getResult(crateMover9001, input, "part 2", "GGNPJBTTR");
