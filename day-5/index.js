@@ -29,10 +29,11 @@ function getMoves(moves) {
 function makeStacks(stacks) {
   const lines = stacks
     .split("\n")
-    .filter((e) => !!e)
-    .slice(0, -1)
+    .filter((e) => !!e) // cant use trim so this gets rid of completely empty lines
+    .slice(0, -1) // remove the last row with the stack numbers
     .map((line) => line.match(stacksRe));
 
+  // re-order everything to put items in their proper stacks
   // create array of arrays, where each array represents a stack
   // index 0 is the bottom of the stack
   const stacked = [];
@@ -44,7 +45,7 @@ function makeStacks(stacks) {
       }
       const val = col[j].trim();
       if (val) {
-        stacked[j].unshift(col[j].replace(/[\[\]]/g, "").trim());
+        stacked[j].unshift(col[j]);
       }
     }
   }
@@ -67,7 +68,11 @@ function crateMover9000(crates) {
       stacks[mv.to - 1].push(stacks[mv.from - 1].pop());
     }
   }
-  return stacks.map((s) => s.pop()).join("");
+
+  return stacks
+    .map((s) => s.pop())
+    .join("")
+    .replace(/[\[\] ]/g, "");
 }
 
 // test
@@ -97,7 +102,10 @@ function crateMover9001(crates) {
     stacks[mv.to - 1] = stacks[mv.to - 1].concat(toMove);
   });
 
-  return stacks.map((s) => s.pop()).join("");
+  return stacks
+    .map((s) => s.pop())
+    .join("")
+    .replace(/[\[\] ]/g, "");
 }
 
 // test
