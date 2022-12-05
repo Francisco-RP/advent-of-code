@@ -1,12 +1,10 @@
 import assert from "node:assert/strict";
-import "../lib.js";
 import { testInput, input } from "./input.js";
 
 const movesRe = new RegExp("move (\\d+) from (\\d+) to (\\d+)");
 const stacksRe = new RegExp("(\\[[A-Z]\\] ?|    ?)", "g");
 
 /**
- *
  * @param {string} moves
  * @returns {Array<{amount: number, from: number, to: number}>}
  */
@@ -25,7 +23,6 @@ function getMoves(moves) {
 }
 
 /**
- *
  * @param {string} stacks
  * @returns {string[][]} each array in the array represents a stack
  */
@@ -55,9 +52,8 @@ function makeStacks(stacks) {
 }
 
 /**
- *
  * @param {string} crates
- * @@returns {string}
+ * @returns {string}
  */
 function crateMover9000(crates) {
   const [s, m] = crates.split(/\n\s*\n/);
@@ -86,9 +82,8 @@ console.log("Result 1:", resultPart1);
  */
 
 /**
- *
  * @param {string} crates
- * @@returns {string}
+ * @returns {string}
  */
 function crateMover9001(crates) {
   const [s, m] = crates.split(/\n\s*\n/);
