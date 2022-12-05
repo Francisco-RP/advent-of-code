@@ -1,6 +1,25 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import "../lib.js";
-import { testInput, input } from "./input.js";
+
+const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+
+export const testInput = `
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+`;
 
 /**
  * transform data from input into an array of the summed values per reindeer and sorted in descending order

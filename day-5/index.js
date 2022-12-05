@@ -1,5 +1,19 @@
 import assert from "node:assert/strict";
-import { testInput, input } from "./input.js";
+import fs from "node:fs";
+
+const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+
+// spaces in the input are important!
+const testInput = `
+    [D]    
+[N] [C]    
+[Z] [M] [P]
+ 1   2   3 
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2`;
 
 const movesRe = new RegExp("move (\\d+) from (\\d+) to (\\d+)");
 const stacksRe = new RegExp("(\\[[A-Z]\\] ?|    ?)", "g");

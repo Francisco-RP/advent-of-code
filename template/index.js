@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import "../lib.js";
-import { testInput, input } from "./input.js";
+
+const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+const testInput = ``;
 
 function doThing(input) {}
 
