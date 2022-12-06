@@ -9,7 +9,7 @@ const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
  *
  * @param {string} str the input string
  * @param {number} length total length of unique characters
- * @returns {string|number}
+ * @returns {number}
  */
 function unique(str, length = 4) {
   str = str.trim();
