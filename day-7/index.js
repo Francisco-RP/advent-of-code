@@ -106,6 +106,10 @@ function parseLine(line) {
   }
 }
 
+/***********************************************************************
+ * Part 1
+ */
+
 /**
  * recursively sum totals of dirs that are <= 100000
  * travels from starting node down through all of its children
