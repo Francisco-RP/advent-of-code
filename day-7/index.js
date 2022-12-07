@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
+/***********************************************************************
+ * Input data
+ */
+
 const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = `
 $ cd /
@@ -26,6 +30,10 @@ $ ls
 8033020 d.log
 5626152 d.ext
 7214296 k`;
+
+/***********************************************************************
+ * Shared functions/classes
+ */
 
 class Node {
   constructor(name, parent) {
@@ -70,39 +78,54 @@ class Node {
   }
 }
 
-let directory;
-let currentNode;
-
-function handleCommand(cmdLine) {
-  const [cmd, arg] = cmdLine.substring(2).split(" ");
-  if (cmd !== "cd") return;
-
-  // only 'cd' is important, 'ls' can be ignored
-  if (arg === "..") {
-    currentNode = currentNode.parent;
-  } else {
-    currentNode = currentNode.findDir(arg);
+class Directory {
+  /**
+   * @param {Node} startingNode
+   * @param {string} str the starting input string
+   */
+  constructor(startingNode, str) {
+    this.topLevel = startingNode;
+    this.currentNode = startingNode;
+    str.trim().split("\n").splice(1).forEach(this.parseLine.bind(this));
   }
-}
 
-function handleList(line) {
-  const [info, name] = line.split(" ");
-  if (info === "dir") {
-    currentNode.addDir(new Node(name, currentNode));
-  } else {
-    // tracking files is not important, we only really need their size
-    currentNode.updateTotal(Number(info));
+  /**
+   * @param {string} cmdLine
+   */
+  handleCommand(cmdLine) {
+    const [cmd, arg] = cmdLine.substring(2).split(" ");
+    if (cmd !== "cd") return;
+
+    // only 'cd' is important, 'ls' can be ignored
+    if (arg === "..") {
+      this.currentNode = this.currentNode.parent;
+    } else {
+      this.currentNode = this.currentNode.findDir(arg);
+    }
   }
-}
 
-/**
- * @param {string} line
- */
-function parseLine(line) {
-  if (line.startsWith("$")) {
-    handleCommand(line);
-  } else {
-    handleList(line);
+  /**
+   * @param {string} line
+   */
+  handleList(line) {
+    const [info, name] = line.split(" ");
+    if (info === "dir") {
+      this.currentNode.addDir(new Node(name, this.currentNode));
+    } else {
+      // tracking files is not important, we only really need their size
+      this.currentNode.updateTotal(Number(info));
+    }
+  }
+
+  /**
+   * @param {string} line
+   */
+  parseLine(line) {
+    if (line.startsWith("$")) {
+      this.handleCommand(line);
+    } else {
+      this.handleList(line);
+    }
   }
 }
 
@@ -137,16 +160,8 @@ function getSum(n) {
  * @returns {number}
  */
 function part1(str) {
-  // always reset the starting node at the beginning
-  // I don't like this because it's a side effect but for now this will do
-  directory = new Node("/");
-  currentNode = directory;
-
-  // build the tree of nodes with their totals.
-  // skip `$ cd /` because we already created the starting node and it never occurs again
-  str.trim().split("\n").splice(1).forEach(parseLine);
-
-  return getSum(directory);
+  const directory = new Directory(new Node("/"), str);
+  return getSum(directory.topLevel);
 }
 
 // test
@@ -163,8 +178,8 @@ console.log("Result 1:", result1);
  * Part 2
  */
 
-const disk = 70000000;
-const needed = 30000000;
+const DISK_SPACE = 70000000;
+const NEEDED = 30000000;
 
 /**
  * Find all directories that are when added to the difference, is over the needed amount
@@ -177,7 +192,7 @@ function getAllTotals(n, diff) {
   let options = [];
   for (let i = 0; i < n.subDirs.length; i++) {
     const dir = n.subDirs[i];
-    if (diff + dir.total > needed) {
+    if (diff + dir.total > NEEDED) {
       options.push(dir.total);
     }
     if (dir.subDirs.length) {
@@ -192,23 +207,15 @@ function getAllTotals(n, diff) {
  * @returns {number}
  */
 function part2(str) {
-  // always reset the starting node at the beginning
-  // I don't like this because it's a side effect but for now this will do
-  directory = new Node("/");
-  currentNode = directory;
-
-  // build the tree of nodes with their totals.
-  // skip `$ cd /` because we already created the starting node and it never occurs again
-  str.trim().split("\n").splice(1).forEach(parseLine);
+  const directory = new Directory(new Node("/"), str);
 
   // get array of possible dir totals that could be deleted, sort them and get the smallest one
-  return getAllTotals(directory, disk - directory.total)
+  return getAllTotals(directory.topLevel, DISK_SPACE - directory.topLevel.total)
     .sort((a, b) => b - a)
     .pop();
 }
 
 // test
-console.log(part2(testInput));
 assert.equal(part2(testInput), 24933642);
 
 console.time("Part 2");
