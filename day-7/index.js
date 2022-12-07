@@ -182,7 +182,7 @@ const DISK_SPACE = 70000000;
 const NEEDED = 30000000;
 
 /**
- * Find all directories that are when added to the difference, is over the needed amount
+ * Find all directories that when added to the difference, is over the needed amount
  * recursively travels from starting node down through all of its children
  * @param {Node} n current Node
  * @param {number} diff how much is left in the disk space overall (total disk space - top level dir's '/' total)
