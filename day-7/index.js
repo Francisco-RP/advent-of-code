@@ -40,20 +40,32 @@ class Node {
     /**
      * @type {Node[]}
      */
-    this.dirs = [];
+    this.subDirs = [];
     this.total = 0;
   }
 
+  /**
+   * @param {Node} dirNode
+   */
   addDir(dirNode) {
-    this.dirs.push(dirNode);
+    this.subDirs.push(dirNode);
   }
 
+  /**
+   * @param {string} name
+   * @returns {Node}
+   */
   findDir(name) {
-    return this.dirs.find((d) => d.name === name);
+    return this.subDirs.find((d) => d.name === name);
   }
 
+  /**
+   * @param {number*} size
+   */
   updateTotal(size) {
     this.total += size;
+
+    // add size to the parent as well, this will continue up the tree to each parent node
     this.parent?.updateTotal(size);
   }
 }
@@ -63,12 +75,13 @@ let currentNode;
 
 function handleCommand(cmdLine) {
   const [cmd, arg] = cmdLine.substring(2).split(" ");
-  if (cmd === "cd") {
-    if (arg === "..") {
-      currentNode = currentNode.parent;
-    } else {
-      currentNode = currentNode.findDir(arg);
-    }
+  if (cmd !== "cd") return;
+
+  // only 'cd' is important, 'ls' can be ignored
+  if (arg === "..") {
+    currentNode = currentNode.parent;
+  } else {
+    currentNode = currentNode.findDir(arg);
   }
 }
 
@@ -77,36 +90,36 @@ function handleList(line) {
   if (info === "dir") {
     currentNode.addDir(new Node(name, currentNode));
   } else {
+    // tracking files is not important, we only really need their size
     currentNode.updateTotal(Number(info));
   }
 }
 
 /**
- *
  * @param {string} line
  */
 function parseLine(line) {
   if (line.startsWith("$")) {
     handleCommand(line);
-    return;
+  } else {
+    handleList(line);
   }
-
-  handleList(line);
 }
 
 /**
- *
+ * recursively sum totals of dirs that are <= 100000
+ * travels from starting node down through all of its children
  * @param {Node} n
- * @returns
+ * @returns {number}
  */
 function getSum(n) {
   let total = 0;
-  for (let i = 0; i < n.dirs.length; i++) {
-    const dir = n.dirs[i];
+  for (let i = 0; i < n.subDirs.length; i++) {
+    const dir = n.subDirs[i];
     if (dir.total <= 100000) {
       total += dir.total;
     }
-    if (dir.dirs.length) {
+    if (dir.subDirs.length) {
       total += getSum(dir);
     }
   }
@@ -120,9 +133,14 @@ function getSum(n) {
  * @returns {number}
  */
 function part1(str) {
+  // always reset the starting node at the beginning
+  // I don't like this because it's a side effect but for now this will do
   directory = new Node("/");
   currentNode = directory;
+
+  // build the tree of nodes with their totals.
   str.trim().split("\n").splice(1).forEach(parseLine);
+
   return getSum(directory);
 }
 
@@ -144,18 +162,20 @@ const disk = 70000000;
 const needed = 30000000;
 
 /**
- * @param {Node} n
- * @param {number} diff
+ * Find all directories that are when added to the difference, is over the needed amount
+ * recursively travels from starting node down through all of its children
+ * @param {Node} n current Node
+ * @param {number} diff how much is left in the disk space overall (total disk space - top level dir's '/' total)
  * @return {number}
  */
 function getAllTotals(n, diff) {
   let options = [];
-  for (let i = 0; i < n.dirs.length; i++) {
-    const dir = n.dirs[i];
+  for (let i = 0; i < n.subDirs.length; i++) {
+    const dir = n.subDirs[i];
     if (diff + dir.total > needed) {
       options.push(dir.total);
     }
-    if (dir.dirs.length) {
+    if (dir.subDirs.length) {
       options = options.concat(getAllTotals(dir, diff));
     }
   }
@@ -167,9 +187,15 @@ function getAllTotals(n, diff) {
  * @returns {number}
  */
 function part2(str) {
+  // always reset the starting node at the beginning
+  // I don't like this because it's a side effect but for now this will do
   directory = new Node("/");
   currentNode = directory;
+
+  // build the tree of nodes with their totals.
   str.trim().split("\n").splice(1).forEach(parseLine);
+
+  // get array of possible dir totals that could be deleted, sort them and get the smallest one
   return getAllTotals(directory, disk - directory.total)
     .sort((a, b) => b - a)
     .pop();
