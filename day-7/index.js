@@ -38,19 +38,10 @@ class Node {
      */
     this.parent = parent;
     /**
-     * @type {Array<{size: number, name: string}>}
-     */
-    this.files = [];
-    /**
      * @type {Node[]}
      */
     this.dirs = [];
-    this._total = 0;
-  }
-
-  addFile(size, name) {
-    this.files.push({ size, name });
-    this.total = size;
+    this.total = 0;
   }
 
   addDir(dirNode) {
@@ -61,16 +52,9 @@ class Node {
     return this.dirs.find((d) => d.name === name);
   }
 
-  /**
-   * @param {number} size
-   */
-  set total(size) {
-    this._total += size;
-    if (this.parent) this.parent.total = size;
-  }
-
-  get total() {
-    return this._total;
+  updateTotal(size) {
+    this.total += size;
+    this.parent?.updateTotal(size);
   }
 }
 
@@ -93,7 +77,7 @@ function handleList(line) {
   if (info === "dir") {
     currentNode.addDir(new Node(name, currentNode));
   } else {
-    currentNode.addFile(Number(info), name);
+    currentNode.updateTotal(Number(info));
   }
 }
 
@@ -161,15 +145,18 @@ const needed = 30000000;
 
 /**
  * @param {Node} n
+ * @param {number} diff
  * @return {number}
  */
-function getDir(n) {
+function getAllTotals(n, diff) {
   let options = [];
   for (let i = 0; i < n.dirs.length; i++) {
     const dir = n.dirs[i];
-    options.push(dir.total);
+    if (diff + dir.total > needed) {
+      options.push(dir.total);
+    }
     if (dir.dirs.length) {
-      options = options.concat(getDir(dir));
+      options = options.concat(getAllTotals(dir, diff));
     }
   }
   return options;
@@ -183,19 +170,19 @@ function part2(str) {
   directory = new Node("/");
   currentNode = directory;
   str.trim().split("\n").splice(1).forEach(parseLine);
-  return getDir(directory)
-    .sort((a, b) => a - b)
+  return getAllTotals(directory, disk - directory.total)
+    .sort((a, b) => b - a)
     .pop();
 }
 
 // test
-// console.log(part2(testInput));
+console.log(part2(testInput));
 assert.equal(part2(testInput), 24933642);
 
-// console.time("Part 2");
-// const result2 = part2(input);
-// console.timeEnd("Part 2");
+console.time("Part 2");
+const result2 = part2(input);
+console.timeEnd("Part 2");
 
-// assert.equal(result2, ????);
+assert.equal(result2, 3842121);
 
-// console.log("Result 2:", result2);
+console.log("Result 2:", result2);
