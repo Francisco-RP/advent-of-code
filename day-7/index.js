@@ -139,6 +139,7 @@ function part1(str) {
   currentNode = directory;
 
   // build the tree of nodes with their totals.
+  // skip `$ cd /` because we already created the starting node and it never occurs again
   str.trim().split("\n").splice(1).forEach(parseLine);
 
   return getSum(directory);
@@ -193,6 +194,7 @@ function part2(str) {
   currentNode = directory;
 
   // build the tree of nodes with their totals.
+  // skip `$ cd /` because we already created the starting node and it never occurs again
   str.trim().split("\n").splice(1).forEach(parseLine);
 
   // get array of possible dir totals that could be deleted, sort them and get the smallest one
