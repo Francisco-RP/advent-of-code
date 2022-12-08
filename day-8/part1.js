@@ -109,8 +109,6 @@ function part1(str) {
     const row = grid[i];
 
     for (let n = 1; n < row.length - 1; n++) {
-      const col = row[n];
-
       if (checkIfVisible(i, n, grid)) {
         count += 1;
       }
