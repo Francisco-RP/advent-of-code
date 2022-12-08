@@ -25,46 +25,58 @@ const testInput = `
 function checkIfVisible(row, col, grid) {
   const tree = grid[row][col];
 
-  let isVisibleY = true;
+  let isVisible = true;
 
   let up = row - 1;
   while (up >= 0) {
     if (grid[up][col] >= tree) {
       // not visible from the top
-      isVisibleY = false;
+      isVisible = false;
       break;
     }
     up -= 1;
   }
-  if (isVisibleY) return true;
+  if (isVisible) return true;
 
-  isVisibleY = true;
+  isVisible = true;
 
   let down = row + 1;
   while (down < grid.length) {
     if (grid[down][col] >= tree) {
       // not visible from the bottom
-      isVisibleY = false;
+      isVisible = false;
       break;
     }
     down += 1;
   }
 
-  if (isVisibleY) return true;
+  if (isVisible) return true;
 
-  // left
-  const toLeft = grid[row].slice(0, col);
-  if (toLeft.every((n) => n < tree)) {
-    // it is visible from the left
-    return true;
+  isVisible = true;
+  let left = col - 1;
+  while (left >= 0) {
+    if (grid[row][left] >= tree) {
+      // not visible from the bottom
+      isVisible = false;
+      break;
+    }
+    left -= 1;
   }
 
-  // right
-  const toRight = grid[row].slice(col + 1);
-  if (toRight.every((n) => n < tree)) {
-    // it is visible from the right
-    return true;
+  if (isVisible) return true;
+
+  isVisible = true;
+  let right = col + 1;
+  while (right < grid[row].length) {
+    if (grid[row][right] >= tree) {
+      // not visible from the bottom
+      isVisible = false;
+      break;
+    }
+    right += 1;
   }
+
+  if (isVisible) return true;
 
   return false;
 }
@@ -107,13 +119,17 @@ function part1(str) {
   return count;
 }
 
-// test
-assert.equal(part1(testInput), 21);
+try {
+  // test
+  assert.equal(part1(testInput), 21);
 
-console.time("Part 1");
-const result1 = part1(input);
-console.timeEnd("Part 1");
+  console.time("Part 1");
+  const result1 = part1(input);
+  console.timeEnd("Part 1");
 
-assert.equal(result1, 1851);
+  assert.equal(result1, 1851);
 
-console.log("Result 1:", result1);
+  console.log("Result 1:", result1);
+} catch (e) {
+  console.log(e.message);
+}
