@@ -3,7 +3,7 @@ import fs from "node:fs";
 
 const { abs } = Math;
 
-const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+// const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = `
 R 4
 U 4
@@ -33,15 +33,27 @@ U 20
 let tailPositions = new Set();
 tailPositions.add("0,0");
 let head = [0, 0];
-let tail = [0, 0];
+let tails = [
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0],
+];
 
 /**
  * @param {[number,number]} curr current tail position
- * @param {[number,number]} head current head position
+ * @param {[number,number]} head current head position to follow
  * @returns {[number,number]} new position of the tail
  */
-function calcTail([tx, ty], [hx, hy]) {
-  const newTailPos = [tx, ty];
+function calcTail(curr, head) {
+  const [tx, ty] = curr;
+  const [hx, hy] = head;
+  const newTailPos = curr;
 
   const distanceX = abs(hx - tx);
   const distanceY = abs(hy - ty);
@@ -52,14 +64,18 @@ function calcTail([tx, ty], [hx, hy]) {
   }
 
   // check X
-  if (hx > tx) {
+  if (hx === tx) {
+    // do nothing
+  } else if (hx > tx) {
     newTailPos[0] = hx - 1;
   } else {
     newTailPos[0] = hx + 1;
   }
 
   // check Y
-  if (hy > ty) {
+  if (hy === ty) {
+    // do nothing
+  } else if (hy > ty) {
     newTailPos[1] = hy - 1;
   } else {
     newTailPos[1] = hy + 1;
@@ -76,6 +92,18 @@ function calcTail([tx, ty], [hx, hy]) {
   }
 
   return newTailPos;
+}
+
+function allTails(h) {
+  for (let i = 0; i < 9; i++) {
+    if (i === 0) {
+      // first tail follows the head
+      tails[i] = calcTail(tails[i], h);
+    } else {
+      // other tails follow the one in front
+      tails[i] = calcTail(tails[i], tails[i - 1]);
+    }
+  }
 }
 
 /**
@@ -95,33 +123,35 @@ function moveHead([x, y], mvX, mvY) {
 function handleMove(move) {
   const [dir, n] = move.split(" ");
   let count = +n;
+  console.log(move);
 
   while (count > 0) {
     switch (dir) {
       case "U":
         head = moveHead(head, 0, -1);
-        tail = calcTail(tail, head);
+        allTails(head);
         break;
       case "D":
         head = moveHead(head, 0, 1);
-        tail = calcTail(tail, head);
+        allTails(head);
         break;
       case "L":
         head = moveHead(head, -1, 0);
-        tail = calcTail(tail, head);
+        allTails(head);
         break;
       case "R":
         head = moveHead(head, 1, 0);
-        tail = calcTail(tail, head);
+        allTails(head);
         break;
       default:
       // should never reach here
     }
-    // console.log("head", [hx, hy], "tail", newTailPos);
-    tailPositions.add(newTailPos.join(","));
+
+    tailPositions.add(tails[8].join(","));
     count -= 1;
-    // draw(head, tail);
+    console.log(tails.join("  "));
   }
+  console.log("");
 }
 
 /**
@@ -132,15 +162,25 @@ function getLastKnotVisits(str) {
   tailPositions = new Set();
   tailPositions.add("0,0");
   head = [0, 0];
-  tail = [0, 0];
+  tails = [
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+  ];
   str.trim().split("\n").map(handleMove);
   return tailPositions.size;
 }
 
 try {
-  assert.equal(getLastKnotVisits(testInput), 13);
+  assert.equal(getLastKnotVisits(testInput), 1);
   assert.equal(getLastKnotVisits(testInput2), 36);
-  console.log("example test passed");
+  console.log("example tests passed");
 
   console.time("Part 2");
   const result = getLastKnotVisits(input);

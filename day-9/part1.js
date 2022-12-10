@@ -135,7 +135,6 @@ try {
   const result1 = getTailPositions(input);
   console.timeEnd("Part 1");
 
-  assert.notEqual(result1, 5909); // this is the wrong answer, stop showing me it
   assert.equal(result1, 5902);
 
   console.log("Result 1:", result1);
