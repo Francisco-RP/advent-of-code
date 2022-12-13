@@ -41,3 +41,69 @@ export function getResult(fun, input, label, expected) {
 
   console.log("Result", label, result);
 }
+
+/**
+ *
+ * @param {string} str
+ * @param {boolean} [toNumber=false]
+ * @returns {string[][]}
+ */
+export function grid2D(str, toNumber = false) {
+  if (toNumber) {
+    return str
+      .trim()
+      .split("\n")
+      .map((line) => line.trim().split("").map(Number));
+  }
+  return str
+    .trim()
+    .split("\n")
+    .map((line) => line.trim().split(""));
+}
+
+/**
+ *
+ * @param {string} str
+ * @param {boolean} [toNumber=false]
+ * @returns {{grid: string[], rows: number, cols: number}}
+ */
+export function flatGrid2D(str, toNumber = false) {
+  const lines = str.trim().split("\n");
+  const rows = lines.length;
+  const cols = lines[0].trim().length;
+  // one big flat array
+  let grid = lines.join("").split("");
+  if (toNumber) {
+    grid = grid.map(Number);
+  }
+  return {
+    grid,
+    rows,
+    cols,
+  };
+}
+
+/**
+ * Get the index from a flat array that represents a 2D grid from the given x,y coordinates
+ * @param {number} cols
+ * @param {number} x
+ * @param {number} y
+ * @returns
+ */
+export function getIndexForXY(cols, x, y) {
+  return x + cols * y;
+}
+
+/**
+ * Get the x,y coordinates from the index of a position in a flat array representing a 2D grid
+ * @param {number} cols
+ * @param {number} index
+ * @return {[number,number]}
+ */
+export function getXY(cols, index) {
+  const x = index % cols;
+  const y = Math.floor((index - x) / cols);
+  return [x, y];
+}
+
+assert.deepEqual(getXY(8, 26), [2, 3]);

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { Visual } from "./visual.js";
 
 const { abs } = Math;
 
@@ -45,53 +46,81 @@ let tails = [
   [0, 0],
 ];
 
+const viz = new Visual();
+
 /**
- * @param {[number,number]} curr current tail position
+ * @param {[number,number]} tail current tail position
  * @param {[number,number]} head current head position to follow
  * @returns {[number,number]} new position of the tail
  */
-function calcTail(curr, head) {
-  const [tx, ty] = curr;
+function calcTail(tail, head) {
+  const [tx, ty] = tail;
   const [hx, hy] = head;
-  const newTailPos = curr;
 
   const distanceX = abs(hx - tx);
   const distanceY = abs(hy - ty);
 
-  // if both x and y are only 1 step away, tail doesn't move
+  /*
+   if head is in any of the surrounding area, tail does not move
+   HHH
+   HTH
+   HHH
+  */
   if (distanceX <= 1 && distanceY <= 1) {
-    return newTailPos;
+    return tail;
   }
 
-  // check X
-  if (hx === tx) {
-    // do nothing
-  } else if (hx > tx) {
-    newTailPos[0] = hx - 1;
-  } else {
-    newTailPos[0] = hx + 1;
+  /*
+    if head moves away, T moves up 1 and over 1
+    h = previous position of H
+    
+    ..H.   ..H.
+    ..h.   ..T.
+    .T..   ....
+
+    .T..   ....
+    ..h.   ..T.
+    ..H.   ..H.
+
+    ..T.   ....
+    .h..   .T..
+    .H..   .H..
+  */
+
+  let newX = tail[0];
+  let newY = tail[1];
+
+  if (hx > 0 && hx > tx) {
+    newX = hx - 1;
+  } else if (hx < 0 && hx < tx) {
+    newX = hx + 1;
+  } else if (hx > 0 && hx < tx) {
+    newX = hx + 1;
+  } else if (hx < 0 && hx > tx) {
+    newX = hx - 1;
   }
 
-  // check Y
-  if (hy === ty) {
-    // do nothing
-  } else if (hy > ty) {
-    newTailPos[1] = hy - 1;
-  } else {
-    newTailPos[1] = hy + 1;
+  if (hy > 0 && hy > ty) {
+    newY = hy - 1;
+  } else if (hy < 0 && hy < ty) {
+    newY = hy + 1;
+  } else if (hy > 0 && hy < ty) {
+    newY = hy + 1;
+  } else if (hy < 0 && hy > ty) {
+    newY = hy - 1;
   }
 
   if (distanceY === 2) {
     // align the X position
-    newTailPos[0] = hx;
+    newX = hx;
   }
 
   if (distanceX === 2) {
     // align the Y position
-    newTailPos[1] = hy;
+    newY = hy;
   }
 
-  return newTailPos;
+  return [newX, newY];
 }
 
 function allTails(h) {
@@ -103,6 +132,7 @@ function allTails(h) {
       // other tails follow the one in front
       tails[i] = calcTail(tails[i], tails[i - 1]);
     }
+    viz.addPlot(tails[i], i + 1);
   }
 }
 
@@ -114,7 +144,8 @@ function allTails(h) {
  * @returns {[number,number]} new position of the head
  */
 function moveHead([x, y], mvX, mvY) {
-  return [x + mvX, y + mvY];
+  const next = [x + mvX, y + mvY];
+  return next;
 }
 
 /**
@@ -149,7 +180,10 @@ function handleMove(move) {
 
     tailPositions.add(tails[8].join(","));
     count -= 1;
-    console.log(tails.join("  "));
+    // console.log(tails.join("  "));
+    viz.addPlot(head, "H");
+    tails.forEach((t, i) => viz.addPlot(t, i + 1));
+    viz.draw();
   }
   console.log("");
 }
@@ -179,11 +213,11 @@ function getLastKnotVisits(str) {
 
 try {
   assert.equal(getLastKnotVisits(testInput), 1);
-  assert.equal(getLastKnotVisits(testInput2), 36);
+  // assert.equal(getLastKnotVisits(testInput2), 36);
   console.log("example tests passed");
 
   console.time("Part 2");
-  const result = getLastKnotVisits(input);
+  // const result = getLastKnotVisits(input);
   console.timeEnd("Part 2");
 
   // assert.equal(result, 5902);
