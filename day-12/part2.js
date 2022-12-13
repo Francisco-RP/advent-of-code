@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { grid2D } from "../lib.js";
-import { draw, addToDrawStack, reset } from "./utils.js";
+import { draw, addFrame, reset } from "./animation.js";
 
 const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = `
@@ -47,8 +47,7 @@ class Node {
 
   canMove(next) {
     if (!next) return false;
-    const diff = next.height - this.height;
-    // at most you can go 1 higher, but you can go backwards all the way down to 0
+    const diff = this.height - next.height;
     return diff <= 1;
   }
 
@@ -79,8 +78,8 @@ class Node {
  * @param {string} end
  */
 function findPath(grid, start, end) {
-  let startNodes = [];
-  let endNode;
+  let startNode;
+  let endNodes = [];
   reset();
 
   const gridNodes = grid.map((row, y) => {
@@ -88,54 +87,46 @@ function findPath(grid, start, end) {
       const n = new Node(x, y, val);
       if (val === start) {
         n.explored = true;
-        startNodes.push(n);
+        startNode = n;
       }
       if (val === end) {
-        endNode = n;
+        endNodes.push(n);
       }
       return n;
     });
   });
 
-  const results = [];
+  const queue = [startNode];
 
-  for (let i = 0; i < startNodes.length; i++) {
-    const startNode = startNodes[i];
-    const queue = [startNode];
+  let next;
+  while (queue.length) {
+    next = queue.shift();
 
-    let next;
-    while (queue.length) {
-      next = queue.shift();
+    // addFrame(grid, next.x, next.y, "*");
 
-      // addToDrawStack(grid, next.x, next.y, "*");
+    if (endNodes.includes(next)) {
+      console.log("found the end");
+      break;
+    }
 
-      if (next === endNode) {
-        console.log("found the end");
-        break;
+    next.successors(gridNodes).forEach((n) => {
+      if (!n.explored) {
+        n.explored = true;
+        n.parent = next;
+        queue.push(n);
       }
+    });
+  }
 
-      next.successors(gridNodes).forEach((n) => {
-        if (!n.explored) {
-          n.explored = true;
-          n.parent = next;
-          queue.push(n);
-        }
-      });
-    }
-
-    let count = 0;
-    let back = next;
-    while (back.parent) {
-      count++;
-      back = back.parent;
-    }
-
-    results.push(count);
+  let count = 0;
+  let back = next;
+  while (back.parent) {
+    count++;
+    back = back.parent;
   }
 
   // draw(100);
-  console.log(results);
-  return results.sort((a, b) => b - a).pop();
+  return count;
 }
 
 /***********************************************************************
@@ -148,7 +139,7 @@ function findPath(grid, start, end) {
  */
 function part2(str) {
   const grid = grid2D(str);
-  const leastSteps = findPath(grid, "a", "E");
+  const leastSteps = findPath(grid, "E", "a");
   return leastSteps;
 }
 
