@@ -46,8 +46,12 @@ class Node {
     this.y = y;
     this.elevation = elevation;
 
-    const h = elevation === "S" ? "a" : elevation;
-    this.height = elevations.indexOf(h);
+    this.height = elevations.indexOf(elevation);
+    if (elevation === "S") {
+      this.height = elevations.indexOf("a");
+    } else if (elevation === "E") {
+      this.height = elevations.indexOf("z");
+    }
     this.explored = false;
     this.parent = null;
   }
@@ -55,8 +59,8 @@ class Node {
   canMove(next) {
     if (!next) return false;
     const diff = next.height - this.height;
-    // should only move up 1 height or on same height
-    return diff === 1 || diff === 0 || diff === -1;
+    // at most you can go 1 higher, but you can go backwards all the way down to 0
+    return diff <= 1;
   }
 
   successors(grid) {
@@ -82,31 +86,37 @@ class Node {
  *
  * @param {string[]} grid 2D as one flat array
  * @param {number} cols number of columns per row in the grid
+ * @param {string} start
+ * @param {string} end
  */
-function findPath(grid) {
-  let start;
-  reset();
+function findPath(grid, start, end) {
+  let startNode;
+  let endNode;
+  // reset();
 
   const gridNodes = grid.map((row, y) => {
     return row.map((val, x) => {
       const n = new Node(x, y, val);
-      if (val === "S") {
+      if (val === start) {
         n.explored = true;
-        start = n;
+        startNode = n;
+      }
+      if (val === end) {
+        endNode = n;
       }
       return n;
     });
   });
 
-  const queue = [start];
+  const queue = [startNode];
 
   let next;
   while (queue.length) {
     next = queue.shift();
 
-    addToDrawStack(grid, next.x, next.y, "*");
+    // addToDrawStack(grid, next.x, next.y, "*");
 
-    if (next.elevation === "E") {
+    if (next === endNode) {
       break;
     }
 
@@ -119,14 +129,14 @@ function findPath(grid) {
     });
   }
 
-  let count = 1; // including E
+  let count = 0;
   let back = next;
   while (back.parent) {
     count++;
     back = back.parent;
   }
 
-  draw();
+  // draw(10);
 
   return count;
 }
@@ -137,7 +147,7 @@ function findPath(grid) {
  */
 function part1(str) {
   const grid = grid2D(str);
-  const leastSteps = findPath(grid);
+  const leastSteps = findPath(grid, "S", "E");
   return leastSteps;
 }
 
@@ -149,31 +159,9 @@ try {
   const result1 = part1(input);
   console.timeEnd("Part 1");
 
-  // assert.equal(result1, AAAAAA);
+  assert.equal(result1, 350);
 
   console.log("Result 1:", result1);
-} catch (e) {
-  console.error(e.message);
-}
-
-/***********************************************************************
- * Part 2
- */
-
-/**
- * @param {string} str the input string
- * @returns {string|number}
- */
-function part2(str) {}
-
-try {
-  // test
-  // assert.equal(part2(testInput), AAAAAA);
-  // console.time('Part 2');
-  // const result2 = part2(input);
-  // console.timeEnd('Part 2');
-  // assert.equal(result2, AAAAAA);
-  // console.log("Result 2:", result2);
 } catch (e) {
   console.error(e.message);
 }

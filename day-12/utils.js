@@ -12,12 +12,12 @@ export function addToDrawStack(grid, x, y, marker) {
   stack.push(display);
 }
 
-export async function draw() {
+export async function draw(n = 100) {
   for (let i = 0; i < stack.length; i++) {
     console.clear();
     // console.log(stack[i]);
     process.stdout.write(stack[i] + "\n");
-    await wait(10);
+    await wait(n);
   }
 }
 
