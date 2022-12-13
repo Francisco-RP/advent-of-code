@@ -24,17 +24,6 @@ const elevations = Array(26)
   .fill(0)
   .map((_, i) => String.fromCharCode(i + 97));
 
-// starting position: (S), starts at elevation (a)
-// ending position: (E), elevation (z)
-
-// During each step, you can move exactly one square up, down, left, or right.
-// can only move 1 step highter
-
-// the elevation of the destination square can be at most one higher than the elevation of your
-// current square; that is, if your current elevation is m, you could step to elevation n, but not
-// to elevation o. (This also means that the elevation of the destination square can be much lower
-// than the elevation of your current square.)
-
 class Node {
   /**
    * @param {number} x
@@ -155,7 +144,7 @@ function findPath(grid, start, end) {
 
 /**
  * @param {string} str the input string
- * @returns {string|number}
+ * @returns {number}
  */
 function part2(str) {
   const grid = grid2D(str);

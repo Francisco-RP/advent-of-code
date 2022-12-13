@@ -3,7 +3,7 @@ const wait = (n) => new Promise((res) => setTimeout(res, n));
 const stack = [];
 let gridCache;
 
-export function addToDrawStack(grid, x, y, marker) {
+export function addFrame(grid, x, y, marker) {
   if (!gridCache) {
     gridCache = structuredClone(grid);
   }

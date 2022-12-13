@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { grid2D } from "../lib.js";
-import { draw, addToDrawStack, reset } from "./utils.js";
+import { draw, addFrame, reset } from "./animation.js";
 
 const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = `
@@ -23,17 +23,6 @@ abdefghi
 const elevations = Array(26)
   .fill(0)
   .map((_, i) => String.fromCharCode(i + 97));
-
-// starting position: (S), starts at elevation (a)
-// ending position: (E), elevation (z)
-
-// During each step, you can move exactly one square up, down, left, or right.
-// can only move 1 step highter
-
-// the elevation of the destination square can be at most one higher than the elevation of your
-// current square; that is, if your current elevation is m, you could step to elevation n, but not
-// to elevation o. (This also means that the elevation of the destination square can be much lower
-// than the elevation of your current square.)
 
 class Node {
   /**
@@ -92,6 +81,8 @@ class Node {
 function findPath(grid, start, end) {
   let startNode;
   let endNode;
+
+  // reset the animation
   // reset();
 
   const gridNodes = grid.map((row, y) => {
@@ -114,7 +105,8 @@ function findPath(grid, start, end) {
   while (queue.length) {
     next = queue.shift();
 
-    // addToDrawStack(grid, next.x, next.y, "*");
+    // adds a frame for the animation
+    // addFrame(grid, next.x, next.y, "*");
 
     if (next === endNode) {
       break;
@@ -136,6 +128,7 @@ function findPath(grid, start, end) {
     back = back.parent;
   }
 
+  // kicks off the animation with the given speed in ms
   // draw(10);
 
   return count;
@@ -143,7 +136,7 @@ function findPath(grid, start, end) {
 
 /**
  * @param {string} str the input string
- * @returns {string|number}
+ * @returns {number}
  */
 function part1(str) {
   const grid = grid2D(str);
@@ -160,6 +153,7 @@ try {
   console.timeEnd("Part 1");
 
   assert.equal(result1, 350);
+  console.log("part 1 final answer test passed");
 
   console.log("Result 1:", result1);
 } catch (e) {
