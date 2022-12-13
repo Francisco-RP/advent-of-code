@@ -1,3 +1,4 @@
+const wait = (n) => new Promise((res) => setTimeout(res, n));
 export class Visual {
   constructor() {
     this.rows = 11;
@@ -9,6 +10,7 @@ export class Visual {
      * @type {Array<[number, number, string]>} array of [x,y, marker]
      */
     this.plots = [];
+    this.frames = [];
   }
 
   /**
@@ -28,7 +30,7 @@ export class Visual {
     }
   }
 
-  draw() {
+  addFrame() {
     const grid = [];
     for (let i = 0; i < this.rows; i++) {
       grid.push([]);
@@ -44,7 +46,14 @@ export class Visual {
       grid[y][x] = p[2];
     }
 
-    console.log(grid.map((line) => line.join("")).join("\n"));
-    console.log("");
+    this.frames.push(grid.map((line) => line.join("")).join("\n"));
+  }
+
+  async draw(n = 100) {
+    for (let i = 0; i < this.frames.length; i++) {
+      console.clear();
+      process.stdout.write(this.frames[i] + "\n");
+      await wait(n);
+    }
   }
 }

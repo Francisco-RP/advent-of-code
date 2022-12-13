@@ -183,7 +183,7 @@ function handleMove(move) {
     // console.log(tails.join("  "));
     viz.addPlot(head, "H");
     tails.forEach((t, i) => viz.addPlot(t, i + 1));
-    viz.draw();
+    viz.addFrame();
   }
   console.log("");
 }
@@ -192,7 +192,7 @@ function handleMove(move) {
  * @param {string} str the input string
  * @returns {number}
  */
-function getLastKnotVisits(str) {
+async function getLastKnotVisits(str) {
   tailPositions = new Set();
   tailPositions.add("0,0");
   head = [0, 0];
@@ -208,6 +208,7 @@ function getLastKnotVisits(str) {
     [0, 0],
   ];
   str.trim().split("\n").map(handleMove);
+  await viz.draw(500);
   return tailPositions.size;
 }
 
