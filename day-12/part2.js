@@ -80,7 +80,8 @@ class Node {
 function findPath(grid, start, end) {
   let startNode;
   let endNodes = [];
-  reset();
+
+  // reset();
 
   const gridNodes = grid.map((row, y) => {
     return row.map((val, x) => {

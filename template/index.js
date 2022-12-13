@@ -1,16 +1,8 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-/***********************************************************************
- * Input data
- */
-
 const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = ``;
-
-/***********************************************************************
- * Shared functions/classes
- */
 
 /***********************************************************************
  * Part 1
