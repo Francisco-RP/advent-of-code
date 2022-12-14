@@ -1,12 +1,6 @@
-import { assertStrictEquals } from "https://deno.land/std@0.167.0/testing/asserts.ts";
 import { parser, coords } from "./shared.ts";
 
 const input = await Deno.readTextFile("./input.txt");
-
-const testInput = `
-498,4 -> 498,6 -> 496,6
-503,4 -> 502,4 -> 502,9 -> 494,9
-`;
 
 /***********************************************************************
  * Part 2
@@ -102,7 +96,7 @@ class Sand {
   }
 }
 
-function part2(str: string) {
+export function part2(str: string) {
   const { lines, minX, maxX, height } = parser(str);
   const allCoords = coords(lines);
 
@@ -112,16 +106,7 @@ function part2(str: string) {
 
 /*********************************************************** */
 
-Deno.test("example input", () => {
-  assertStrictEquals(part2(testInput), 93);
-});
-
 console.time("Part 2");
 const result2 = part2(input);
 console.timeEnd("Part 2");
-
-Deno.test("still produces the accepted answer", () => {
-  assertStrictEquals(result2, 26170);
-});
-
 console.log("Result 2:", result2);
