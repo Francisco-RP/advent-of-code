@@ -1,3 +1,5 @@
+type Coord = { x: number; y: number };
+
 /**
  * this:
  * 498,4 -> 498,6 -> 496,6
@@ -8,11 +10,9 @@
  *  [ {x: 498, y: 4}, {x: 498, y: 6}], {x: 496, y: 6} ],
  *   ...etc
  * ]
- * @param {string} str
- * @return {{lines: {x: number; y: number;}[][]; minX: number; maxX: number; height: number}}
  */
-export function parser(str) {
-  let minX;
+export function parser(str: string) {
+  let minX: number | undefined = undefined;
   let maxX = 0;
   let height = 0;
   const lines = str
@@ -30,16 +30,10 @@ export function parser(str) {
           return { x, y };
         })
     );
-  return { lines, minX, maxX, height };
+  return { lines, minX: minX || 0, maxX, height };
 }
 
-/**
- *
- * @param {{x: number; y: number}} head
- * @param {{x: number; y: number}} tail
- * @param {Set} coordSet the set to add them too (passed by reference)
- */
-function getLine(head, tail, coordSet) {
+function getLine(head: Coord, tail: Coord, coordSet: Set<string>) {
   // get all coordinates between 2 points
   // fill in line from head to tail
   if (head.x === tail.x) {
@@ -70,11 +64,11 @@ function getLine(head, tail, coordSet) {
 }
 
 /**
- * @param {{x: number; y: number;}[][]} lines
+ * @param {Coord[][]} lines
  * @return {Set} a set of all possible solid rock locations
  */
-export function coords(lines) {
-  const lineSet = new Set();
+export function coords(lines: Coord[][]) {
+  const lineSet = new Set<string>();
 
   for (let i = 0; i < lines.length; i++) {
     const row = lines[i];

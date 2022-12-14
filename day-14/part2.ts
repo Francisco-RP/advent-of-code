@@ -1,8 +1,8 @@
-import assert from "node:assert/strict";
-import fs from "node:fs";
-import { parser, coords } from "./shared.js";
+import { assertStrictEquals } from "https://deno.land/std@0.167.0/testing/asserts.ts";
+import { parser, coords } from "./shared.ts";
 
-const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+const input = await Deno.readTextFile("./input.txt");
+
 const testInput = `
 498,4 -> 498,6 -> 496,6
 503,4 -> 502,4 -> 502,9 -> 494,9
@@ -13,16 +13,22 @@ const testInput = `
  */
 
 class Sand {
-  /**
-   *
-   * @param {Set} coords set containing all non-passable areas
-   * @param {number} minX lowest X coordinate of the grid
-   * @param {number} maxX highest X coordinate of the grid
-   * @param {number} maxHeight height of the graph
-   * @param {number} x x coordinate where sand drops from
-   * @param {number} y y coordinate where sand drops from
-   */
-  constructor(coords, minX, maxX, maxHeight, x, y) {
+  coords: Set<string>;
+  settled: Set<string>;
+  minX: number;
+  maxX: number;
+  dropX: number;
+  dropY: number;
+  bottom: number;
+
+  constructor(
+    coords: Set<string>,
+    minX: number,
+    maxX: number,
+    maxHeight: number,
+    x: number,
+    y: number
+  ) {
     this.coords = coords;
     this.minX = minX;
     this.maxX = maxX;
@@ -34,17 +40,17 @@ class Sand {
     this.bottom = maxHeight + 2;
   }
 
-  isNotBlocked(x, y) {
+  isNotBlocked(x: number, y: number) {
     const str = `${x},${y}`;
     // check if hit a rock or settled sand
     return !this.coords.has(str) && !this.settled.has(str) && !this.atBottom(y);
   }
 
-  atBottom(y) {
+  atBottom(y: number) {
     return y === this.bottom;
   }
 
-  addSettled(x, y) {
+  addSettled(x: number, y: number) {
     this.settled.add(`${x},${y}`);
   }
 
@@ -53,7 +59,7 @@ class Sand {
    * @param {number} x current x of sand
    * @param {number} y current y of sand
    */
-  dropSand(x, y) {
+  dropSand(x: number, y: number) {
     // check down
     let nextX = x;
     const nextY = y + 1;
@@ -98,11 +104,7 @@ class Sand {
   }
 }
 
-/**
- * @param {string} str the input string
- * @returns {number}
- */
-function part2(str) {
+function part2(str: string) {
   const { lines, minX, maxX, height } = parser(str);
   const allCoords = coords(lines);
 
@@ -110,17 +112,18 @@ function part2(str) {
   return drip.begin();
 }
 
-try {
-  assert.equal(part2(testInput), 93);
-  console.log("test passed");
+/*********************************************************** */
 
-  console.time("Part 2");
-  const result2 = part2(input);
-  console.timeEnd("Part 2");
+Deno.test("example input", () => {
+  assertStrictEquals(part2(testInput), 93);
+});
 
-  assert.equal(result2, 26170);
+console.time("Part 2");
+const result2 = part2(input);
+console.timeEnd("Part 2");
 
-  console.log("Result 2:", result2);
-} catch (e) {
-  console.error(e.message);
-}
+Deno.test("still produces the accepted answer", () => {
+  assertStrictEquals(result2, 26170);
+});
+
+console.log("Result 2:", result2);
