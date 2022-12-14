@@ -56,4 +56,11 @@ export class Visual {
       await wait(n);
     }
   }
+
+  showFrames() {
+    this.frames.forEach((f) => {
+      console.log(f);
+      console.log("");
+    });
+  }
 }

@@ -84,26 +84,13 @@ export function flatGrid2D(str, toNumber = false) {
 }
 
 /**
- * Get the index from a flat array that represents a 2D grid from the given x,y coordinates
- * @param {number} cols
- * @param {number} x
- * @param {number} y
- * @returns
+ * Calculate the distance between 2 points on a 2D graph
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ * @returns {number}
  */
-export function getIndexForXY(cols, x, y) {
-  return x + cols * y;
+export function distance(x1, y1, x2, y2) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
-
-/**
- * Get the x,y coordinates from the index of a position in a flat array representing a 2D grid
- * @param {number} cols
- * @param {number} index
- * @return {[number,number]}
- */
-export function getXY(cols, index) {
-  const x = index % cols;
-  const y = Math.floor((index - x) / cols);
-  return [x, y];
-}
-
-assert.deepEqual(getXY(8, 26), [2, 3]);

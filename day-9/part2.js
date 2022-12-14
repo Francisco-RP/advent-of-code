@@ -2,9 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { Visual } from "./visual.js";
 
-const { abs } = Math;
-
-// const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
+const input = fs.readFileSync("./input.txt", { encoding: "utf-8" });
 const testInput = `
 R 4
 U 4
@@ -31,160 +29,127 @@ U 20
  * Shared functions/classes
  */
 
-let tailPositions = new Set();
-tailPositions.add("0,0");
-let head = [0, 0];
-let tails = [
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-  [0, 0],
-];
-
-const viz = new Visual();
-
-/**
- * @param {[number,number]} tail current tail position
- * @param {[number,number]} head current head position to follow
- * @returns {[number,number]} new position of the tail
- */
-function calcTail(tail, head) {
-  const [tx, ty] = tail;
-  const [hx, hy] = head;
-
-  const distanceX = abs(hx - tx);
-  const distanceY = abs(hy - ty);
-
-  /*
-   if head is in any of the surrounding area, tail does not move
-   HHH
-   HTH
-   HHH
-  */
-  if (distanceX <= 1 && distanceY <= 1) {
-    return tail;
+class Segment {
+  /**
+   * @param {number} x starting x position
+   * @param {number} y starting y position
+   * @param {string} marker the marker to put on the grid
+   * @param {Segment} follows segment that this segment should follow
+   */
+  constructor(x, y, marker, follows) {
+    this.x = x;
+    this.y = y;
+    this.marker = marker;
+    this.follows = follows;
   }
 
-  /*
-    if head moves away, T moves up 1 and over 1
-    h = previous position of H
-    
-    ..H.   ..H.
-    ..h.   ..T.
-    .T..   ....
-
-    .T..   ....
-    ..h.   ..T.
-    ..H.   ..H.
-
-    ..T.   ....
-    .h..   .T..
-    .H..   .H..
-  */
-
-  let newX = tail[0];
-  let newY = tail[1];
-
-  if (hx > 0 && hx > tx) {
-    newX = hx - 1;
-  } else if (hx < 0 && hx < tx) {
-    newX = hx + 1;
-  } else if (hx > 0 && hx < tx) {
-    newX = hx + 1;
-  } else if (hx < 0 && hx > tx) {
-    newX = hx - 1;
-  }
-
-  if (hy > 0 && hy > ty) {
-    newY = hy - 1;
-  } else if (hy < 0 && hy < ty) {
-    newY = hy + 1;
-  } else if (hy > 0 && hy < ty) {
-    newY = hy + 1;
-  } else if (hy < 0 && hy > ty) {
-    newY = hy - 1;
-  }
-
-  if (distanceY === 2) {
-    // align the X position
-    newX = hx;
-  }
-
-  if (distanceX === 2) {
-    // align the Y position
-    newY = hy;
-  }
-
-  return [newX, newY];
-}
-
-function allTails(h) {
-  for (let i = 0; i < 9; i++) {
-    if (i === 0) {
-      // first tail follows the head
-      tails[i] = calcTail(tails[i], h);
-    } else {
-      // other tails follow the one in front
-      tails[i] = calcTail(tails[i], tails[i - 1]);
+  /**
+   * this move is just used for a Head segment
+   * @param {"U"|"D"|"L"|"R"} dir
+   */
+  move(dir) {
+    switch (dir) {
+      case "U":
+        this.y -= 1;
+        break;
+      case "D":
+        this.y += 1;
+        break;
+      case "L":
+        this.x -= 1;
+        break;
+      case "R":
+        this.x += 1;
+        break;
+      default:
+        throw new Error(`Invalid direction ${dir}`);
     }
-    viz.addPlot(tails[i], i + 1);
+  }
+
+  toString() {
+    return `${this.x},${this.y}`;
+  }
+
+  adjust() {
+    const dX = Math.abs(this.x - this.follows.x);
+    const dY = Math.abs(this.y - this.follows.y);
+
+    if (dX <= 1 && dY <= 1) {
+      // if only 1 away, no change. diagonal allowed but only for touching segments
+      return;
+    }
+
+    if (this.follows.x !== this.x) {
+      this.x += (this.follows.x - this.x) / dX;
+    }
+    if (this.follows.y !== this.y) {
+      this.y += (this.follows.y - this.y) / dY;
+    }
   }
 }
 
-/**
- *
- * @param {[number,number]} curr current position of the head
- * @param {number} mvX next position
- * @param {number} mvY next position
- * @returns {[number,number]} new position of the head
- */
-function moveHead([x, y], mvX, mvY) {
-  const next = [x + mvX, y + mvY];
-  return next;
+class Rope {
+  /**
+   * @param {number} [totalKnots=1] how many tails to keep track of (default 1)
+   */
+  constructor(totalKnots = 1) {
+    this.knotPositions = new Set();
+    this.knotPositions.add("0,0");
+
+    this.head = new Segment(0, 0, "H");
+
+    this.totalKnots = totalKnots;
+
+    /**
+     * @type {Segment[]}
+     */
+    this.knots = [];
+
+    // all segment start at 0,0
+    for (let i = 0; i < totalKnots; i++) {
+      const follows = i === 0 ? this.head : this.knots[i - 1];
+      this.knots.push(new Segment(0, 0, i + 1, follows));
+    }
+
+    this.animation = new Visual();
+  }
+
+  track() {
+    // track visits of only the last tail
+    this.knotPositions.add(this.knots[this.totalKnots - 1].toString());
+  }
+
+  createFrame() {
+    this.animation.addPlot([this.head.x, this.head.y], this.head.marker);
+    this.knots.forEach((t) => this.animation.addPlot([t.x, t.y], t.marker));
+    this.animation.addFrame();
+  }
 }
 
 /**
  * @param {string} move
+ * @param {Rope} rope instance of Rope
  */
-function handleMove(move) {
+function handleMove(move, rope) {
   const [dir, n] = move.split(" ");
   let count = +n;
-  console.log(move);
+  // console.log(move);
 
   while (count > 0) {
-    switch (dir) {
-      case "U":
-        head = moveHead(head, 0, -1);
-        allTails(head);
-        break;
-      case "D":
-        head = moveHead(head, 0, 1);
-        allTails(head);
-        break;
-      case "L":
-        head = moveHead(head, -1, 0);
-        allTails(head);
-        break;
-      case "R":
-        head = moveHead(head, 1, 0);
-        allTails(head);
-        break;
-      default:
-      // should never reach here
-    }
+    rope.head.move(dir);
 
-    tailPositions.add(tails[8].join(","));
+    rope.knots.forEach((tail) => {
+      tail.adjust();
+    });
+
+    rope.track();
+
     count -= 1;
-    // console.log(tails.join("  "));
-    viz.addPlot(head, "H");
-    tails.forEach((t, i) => viz.addPlot(t, i + 1));
-    viz.addFrame();
+
+    // this is for the visualization
+    // rope.createFrame();
   }
+
   console.log("");
 }
 
@@ -192,39 +157,38 @@ function handleMove(move) {
  * @param {string} str the input string
  * @returns {number}
  */
-async function getLastKnotVisits(str) {
-  tailPositions = new Set();
-  tailPositions.add("0,0");
-  head = [0, 0];
-  tails = [
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-  ];
-  str.trim().split("\n").map(handleMove);
-  await viz.draw(500);
-  return tailPositions.size;
+function getLastKnotVisits(str) {
+  const rope = new Rope(9);
+
+  str
+    .trim()
+    .split("\n")
+    .map((line) => {
+      handleMove(line, rope);
+    });
+
+  // this animates it in the console
+  // rope.animation.draw(100);
+
+  // this prints each animation frame
+  // rope.animation.showFrames();
+
+  return rope.knotPositions.size;
 }
 
 try {
   assert.equal(getLastKnotVisits(testInput), 1);
-  // assert.equal(getLastKnotVisits(testInput2), 36);
+  assert.equal(getLastKnotVisits(testInput2), 36);
   console.log("example tests passed");
 
   console.time("Part 2");
-  // const result = getLastKnotVisits(input);
+  const result = getLastKnotVisits(input);
   console.timeEnd("Part 2");
 
-  // assert.equal(result, 5902);
+  assert.equal(result, 2445);
 
   console.log("Result 2:", result);
 } catch (e) {
   console.log("tests failed");
-  console.error(e.message);
+  console.error(e);
 }
