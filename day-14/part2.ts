@@ -56,8 +56,6 @@ class Sand {
 
   /**
    * check if the sand can move down, or down-left, or down-right <-- checking is done in that order
-   * @param {number} x current x of sand
-   * @param {number} y current y of sand
    */
   dropSand(x: number, y: number) {
     // check down
