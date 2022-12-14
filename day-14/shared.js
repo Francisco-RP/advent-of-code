@@ -25,7 +25,7 @@ export function parser(str) {
         .map((coord) => {
           const [x, y] = coord.trim().split(",").map(Number);
           if (x > maxX) maxX = x;
-          if (typeof minX === "undefined" && x < minX) minX = x;
+          if (typeof minX === "undefined" || x < minX) minX = x;
           if (y > height) height = y;
           return { x, y };
         })
