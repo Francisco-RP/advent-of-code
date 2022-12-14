@@ -29,7 +29,7 @@ export function compare(left, right) {
     right = [right];
   }
 
-  const longestLength = left.length > right.length ? left.length : right.length;
+  const longestLength = Math.max(left.length, right.length);
 
   for (let i = 0; i < longestLength; i++) {
     const leftSide = left[i];
