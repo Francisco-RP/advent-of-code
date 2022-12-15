@@ -1,4 +1,3 @@
-import assert from "node:assert/strict";
 Array.prototype.sum = function () {
   return this.reduce((a, b) => a + b, 0);
 };
@@ -28,17 +27,11 @@ Array.prototype.chunk = function (size) {
  * @param {(str: string) => string|number} fun
  * @param {string} input
  * @param {string} label
- * @param {string|number} expected
  */
-export function getResult(fun, input, label, expected) {
+export function getResult(fun, input, label) {
   console.time(label);
   const result = fun(input);
   console.timeEnd(label);
-
-  // when I correctly solve the problem, I like to add this assertion so that if I refactor I know
-  // if I've broken anything
-  if (expected) assert.equal(result, expected);
-
   console.log("Result", label, result);
 }
 
@@ -94,3 +87,5 @@ export function flatGrid2D(str, toNumber = false) {
 export function distance(x1, y1, x2, y2) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
+
+export const wait = (n) => new Promise((res) => setTimeout(res, n));

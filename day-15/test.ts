@@ -1,0 +1,38 @@
+import { assertStrictEquals } from "https://deno.land/std@0.167.0/testing/asserts.ts";
+import { part1 } from "./part1.ts";
+import { part2 } from "./part2.ts";
+
+const input = await Deno.readTextFile("./input.txt");
+
+const testInput = `
+Sensor at x=2, y=18: closest beacon is at x=-2, y=15
+Sensor at x=9, y=16: closest beacon is at x=10, y=16
+Sensor at x=13, y=2: closest beacon is at x=15, y=3
+Sensor at x=12, y=14: closest beacon is at x=10, y=16
+Sensor at x=10, y=20: closest beacon is at x=10, y=16
+Sensor at x=14, y=17: closest beacon is at x=10, y=16
+Sensor at x=8, y=7: closest beacon is at x=2, y=10
+Sensor at x=2, y=0: closest beacon is at x=2, y=10
+Sensor at x=0, y=11: closest beacon is at x=2, y=10
+Sensor at x=20, y=14: closest beacon is at x=25, y=17
+Sensor at x=17, y=20: closest beacon is at x=21, y=22
+Sensor at x=16, y=7: closest beacon is at x=15, y=3
+Sensor at x=14, y=3: closest beacon is at x=15, y=3
+Sensor at x=20, y=1: closest beacon is at x=15, y=3
+`;
+
+Deno.test("part 1 example input", () => {
+  assertStrictEquals(part1(testInput, 10), 26);
+});
+
+Deno.test("Part 1 still produces the accepted answer", () => {
+  assertStrictEquals(part1(input, 10), 4424278);
+});
+
+Deno.test("part 2 example input", () => {
+  assertStrictEquals(part2(testInput), 56000011);
+});
+
+// Deno.test("Part 2 still produces the accepted answer", () => {
+//   assertStrictEquals(part2(input), 111111111111111);
+// });
