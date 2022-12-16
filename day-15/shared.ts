@@ -27,10 +27,12 @@ export function parser(str: string): {
     .split("\n")
     .map((line) => {
       const [, sensorX, sensorY, beaconX, beaconY] = line.match(re)!;
-      largestX = Math.max(largestX, +sensorX, +beaconX);
-      largestY = Math.max(largestY, +sensorY, +beaconY);
-      lowestX = Math.min(lowestX, +sensorX, +beaconX);
-      lowestY = Math.min(lowestY, +sensorY, +beaconY);
+
+      // for the sensor only
+      largestX = Math.max(largestX, +sensorX);
+      largestY = Math.max(largestY, +sensorY);
+      lowestX = Math.min(lowestX, +sensorX);
+      lowestY = Math.min(lowestY, +sensorY);
 
       return {
         sensor: { x: +sensorX, y: +sensorY },

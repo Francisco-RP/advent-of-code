@@ -10,7 +10,17 @@ import { parser, mDist, Coord } from "./shared.ts";
 // get remaining unscanned areas
 
 class Cave {
-  constructor() {}
+  spaces = new Set<string>();
+
+  constructor(max: Coord) {
+    const maxX = Math.min(max.x, 4_000_000);
+    const maxY = Math.min(max.y, 4_000_000);
+    for (let y = 0; y <= maxY; y++) {
+      for (let x = 0; x <= maxX; x++) {
+        this.spaces.add(`${x},${y}`);
+      }
+    }
+  }
 
   /**
    * multiplying its x coordinate by 4000000 and then adding its y coordinate.
@@ -19,26 +29,39 @@ class Cave {
     return x * 4_000_000 + y;
   }
 
+  remove(x: number, y: number) {
+    this.spaces.delete(`${x},${y}`);
+  }
+
   addRange(sensor: Coord, beacon: Coord) {
-    // const dist = mDist(beacon.x, beacon.y, sensor.x, sensor.y);
-    // const diffY = Math.abs(sensor.y - this.row);
-    // const x1 = sensor.x - dist + diffY;
-    // const x2 = sensor.x + dist - diffY;
-    // for (let i = x1; i <= x2; i++) {
-    //   this.covered.add(i);
-    // }
+    const dist = mDist(beacon.x, beacon.y, sensor.x, sensor.y);
+
+    this.remove(sensor.x, sensor.y);
+    let i = 0;
+    for (let y = sensor.y; y <= sensor.y + dist; y++) {
+      for (let x = sensor.x - dist + i; x <= sensor.x; x++) {
+        const toX = Math.abs(sensor.x - x);
+        this.remove(x, sensor.y - i);
+        this.remove(sensor.x + toX, sensor.y - i);
+        this.remove(x, sensor.y + i);
+        this.remove(sensor.x + toX, sensor.y + i);
+      }
+      i++;
+    }
   }
 }
 
 export function part2(str: string): number {
-  const { data } = parser(str);
+  const { data, max } = parser(str);
 
-  const cave = new Cave();
+  const cave = new Cave(max);
 
   data.forEach((d) => {
     cave.addRange(d.sensor, d.beacon);
   });
 
+  const only = [...cave.spaces].pop()?.split(",");
+  if (only) return cave.getFrequency(+only[0], +only[1]);
   return 0;
 }
 
