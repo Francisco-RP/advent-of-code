@@ -1,6 +1,6 @@
 import { tetrominos } from "./shared.ts";
 import { addFrame, draw } from "./animation.ts";
-import { Canvas } from "./terminal-canvas.ts";
+import { Canvas, Sprite } from "./canvas.ts";
 
 // wind pattern: If the end of the list is reached, it repeats.
 // The tall, vertical chamber is exactly seven units wide.
@@ -9,7 +9,7 @@ import { Canvas } from "./terminal-canvas.ts";
 // is three units above the highest rock in the room (or the floor, if there isn't one).
 
 class Chamber {
-  shapes: string[][][];
+  shapes: Sprite[];
   moves: string[];
   rocks: number;
 
@@ -29,9 +29,9 @@ class Chamber {
    * 2 |...@@..|
    */
   topEdge = 0;
-  currentShape: string[][] = [];
+  currentShape: Sprite = new Sprite(1, 1); // just to shut TS up
 
-  constructor(shapes: string[][][], moves: string, rocks: number) {
+  constructor(shapes: Sprite[], moves: string, rocks: number) {
     this.shapes = shapes;
     this.moves = moves.split("");
     this.rocks = rocks;
@@ -45,26 +45,26 @@ class Chamber {
     }
 
     this.board.trim();
-    this.currentShape = structuredClone(this.shapes[this.shapesIndex]);
+
+    this.currentShape = this.shapes[this.shapesIndex];
     this.left = 2;
-    this.topEdge = 0;
+    this.topEdge = -1;
 
     // always three lines between bottom of shape and height point on the board
     this.board.prepend(3);
 
     // insert rows with same height at current shape
-    this.board.prepend(this.currentShape.length);
+    this.board.prepend(this.currentShape.height);
   }
 
   addFrame(move: string) {
     this.board.setSprite(this.currentShape, this.left, this.topEdge);
-    const sprite = this.currentShape.map((row) => row.join("")).join("\n");
     addFrame(`
 move ${move}
 x: ${this.left}
 y: ${this.topEdge}
 
-${sprite}
+${this.currentShape.toString()}
 
 ${this.board.toString()}`);
   }
@@ -73,11 +73,10 @@ ${this.board.toString()}`);
     const dir = this.moves[this.moveIndex];
     if (dir === "<" && this.canMoveLeft()) {
       this.left -= 1;
-      this.addFrame(dir);
     } else if (dir === ">" && this.canMoveRight()) {
       this.left += 1;
-      this.addFrame(dir);
     }
+    // this.addFrame(dir);
     this.moveIndex++;
     if (this.moveIndex >= this.moves.length) {
       this.moveIndex = 0;
@@ -86,7 +85,7 @@ ${this.board.toString()}`);
 
   drop() {
     this.topEdge += 1;
-    this.addFrame("⌄");
+    // this.addFrame("⌄");
   }
 
   canMoveLeft(): boolean {
@@ -100,7 +99,7 @@ ${this.board.toString()}`);
     // |.....@@| left = 5, length = 2
     // |....@@@| left = 4, length = 3
     // |...@@@@| left = 3, length = 4
-    if (this.left + this.currentShape[0].length >= 7) return false;
+    if (this.left + this.currentShape.width >= 7) return false;
     return this.board.canDraw(this.currentShape, this.left + 1, this.topEdge);
   }
 
@@ -109,24 +108,22 @@ ${this.board.toString()}`);
   }
 
   rest() {
-    const sprite = this.currentShape.map((row) => {
-      return row.map((col) => col.replace("@", "#"));
+    const clone = new Sprite(this.currentShape.width, this.currentShape.height);
+    clone.pixels = this.currentShape.pixels.map((px) => {
+      if (px === "@") return "#";
+      return px;
     });
-    this.board.drawSprite(sprite, this.left, this.topEdge);
+    this.board.drawSprite(clone, this.left, this.topEdge);
   }
 
   begin() {
     while (this.rocks > 0) {
-      // insert new shape, and reset values
-      // this also counts as the first fall
       this.getNextShape();
 
       while (this.canMoveDown()) {
-        this.move(); // move left or right
-        this.drop(); // drop 1
+        this.drop();
+        this.move();
       }
-
-      this.move();
 
       // draw current shape into this.board
       this.rest();
@@ -136,19 +133,18 @@ ${this.board.toString()}`);
 
   getHeight() {
     this.board.trim();
-    return this.board.pixels.length;
+    return this.board.height;
   }
 }
 
-export function part1(str: string): number {
-  const tetris = new Chamber(tetrominos, str, 11);
+export function part1(str: string, rocks: number): number {
+  const tetris = new Chamber(tetrominos, str.trim(), rocks);
   tetris.begin();
-  draw(500);
+  // draw(200);
   return tetris.getHeight();
 }
 
 if (Deno.env.get("DEBUGGING") === "true") {
-  part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>");
-} else {
-  part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>");
+  console.log(part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 11));
 }
+// part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 11);
