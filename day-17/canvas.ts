@@ -12,9 +12,9 @@ export class Sprite {
     this.pixels = Array(w * h).fill("");
 
     // modulus are very slow apparently so caching them
-    this.pixels.forEach((_, i) => {
+    for (let i = 0, len = this.pixels.length; i < len; ++i) {
       this.modulos[i] = i % w;
-    });
+    }
   }
 
   toString() {
@@ -99,7 +99,7 @@ export class Canvas {
      sprite index 6 draws at 2,3 which is index 23
 
     */
-    for (let i = 0; i < sprite.pixels.length; i++) {
+    for (let i = 0; i < sprite.pixels.length; ++i) {
       const px = sprite.pixels[i];
       col = sprite.modulos[i] + x;
       if (i > 0 && sprite.modulos[i] === 0) {
@@ -117,7 +117,7 @@ export class Canvas {
     let row = y;
     let col = x;
 
-    for (let i = 0; i < sprite.pixels.length; i++) {
+    for (let i = 0; i < sprite.pixels.length; ++i) {
       const px = sprite.pixels[i];
       col = sprite.modulos[i] + x;
       if (i > 0 && sprite.modulos[i] === 0) {
@@ -143,7 +143,7 @@ export class Canvas {
 
   trim() {
     let i = 0;
-    for (; i < this.pixels.length; i++) {
+    for (; i < this.pixels.length; ++i) {
       // stop as soon as we encounter a non-emptySpace
       if (this.pixels[i] !== this.emptySpace) {
         break;

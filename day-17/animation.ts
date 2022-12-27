@@ -7,9 +7,9 @@ export function addFrame(str: string) {
 }
 
 export async function draw(n = 100) {
-  for (let i = 0; i < frames.length; i++) {
+  while (frames.length) {
     console.clear();
-    console.log(frames[i]);
+    console.log(frames.shift());
     await wait(n);
   }
 }
