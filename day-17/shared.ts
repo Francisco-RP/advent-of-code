@@ -50,7 +50,7 @@ export function findRepeat<T>(arr: T[]): number | undefined {
       // at i and (i + s (the one immediately following it)) are equal:
       let isEqual = true;
       for (let j = 0; j < s; j++) {
-        if (arr[i + j] != arr[i + s + j]) {
+        if (arr[i + j] !== arr[i + s + j]) {
           isEqual = false;
           break;
         }

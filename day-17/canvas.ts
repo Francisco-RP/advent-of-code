@@ -42,7 +42,7 @@ export class Canvas {
    */
   height: number;
   pixels: string[] = [];
-  sprite: { x: number; y: number; data: Sprite } | null = null;
+  tempSprite: { x: number; y: number; data: Sprite } | null = null;
   emptySpace: string;
 
   constructor(w: number, h: number, emptySpace: string = "") {
@@ -63,21 +63,26 @@ export class Canvas {
   }
 
   getIndex(x: number, y: number) {
-    // knowing width and height, x and y
+    // knowing width and height,
+    // for the args x and y, find the index in the flat array
     /*
      w = 5
      h = 4
      [
-      o,o,o,o,o
-      o,o,1,o,o
-      o,o,o,o,o
-      o,o,o,o,2
+      .,.,.,.,.,
+      .,.,1,.,.,
+      .,.,.,.,.,
+      .,.,.,.,2
      ]
-     1. coord x:2, y: 1 should equal index 7
-     y * this.width + x === (1 * 5) + 2 = 7
+     y * this.width + x;
 
-     2. coord x:4, y: 3 index should be 19
-     y * this.width + x === (3 * 5) + 4 = 19
+     1. x:2, y: 1 --> should equal index 7
+     (y:1 * this.width:5) + x:2
+     (1 * 5) + 2 = 7
+
+     2. x:4, y: 3 --> should equal index 19
+     (y:3 * this.width:5) + x:4
+     (3 * 5) + 4 = 19
     */
     return y * this.width + x;
   }
@@ -93,11 +98,10 @@ export class Canvas {
       .._#_..
      ]
      draw sprite as 2,1, which is index 9
-     sprite is indexed 0 through 8 (9 length), over 3 rows
-     sprite index 0 draws at 2,1 which is index 9
-     sprite index 3 draws at 2,2 which is index 16
-     sprite index 6 draws at 2,3 which is index 23
-
+     sprite is indexed 0 through 8 (9 length), width of 3 (cols) and height of 3 (rows)
+     sprite row 1, starts at index 0, draws at 2,1 which is index 9, for 3 cols (9 through 11)
+     sprite row 2, starts at index 3, draws at 2,2 which is index 16, for 3 cols (16 through 18)
+     sprite row 3, starts at index 6, draws at 2,3 which is index 23, for 3 cols (23 through 25)
     */
     for (let i = 0; i < sprite.pixels.length; ++i) {
       const px = sprite.pixels[i];
@@ -113,6 +117,11 @@ export class Canvas {
     return to;
   }
 
+  /**
+   * This is almost the same as the drawSprite method above except it compares what is at the
+   * destination index on the canvas with the sprite's index if they are both not empty, it returns
+   * false
+   */
   canDraw(sprite: Sprite, x: number, y: number, to: string[] = this.pixels): boolean {
     let row = y;
     let col = x;
@@ -133,15 +142,33 @@ export class Canvas {
     return true;
   }
 
+  /**
+   * Applies a sprite to the board only during the `toString()` method without persisting the sprite
+   * into the canvas. Useful for animation purposes.
+   */
   setSprite(sprite: Sprite, x: number, y: number) {
-    this.sprite = {
+    this.tempSprite = {
       x,
       y,
       data: sprite,
     };
   }
 
-  trim() {
+  /**
+   * Remove complete empty rows from the top of the canvas
+   */
+  trimStart() {
+    /*
+    ....... <-- remove
+    ....... <-- remove
+    ...#... 
+    ..###..
+    ...#...
+
+    loop from top and stop until encounter first non-empty space ("#" in above example)
+    "#" is at index 17, middle of row. Find beginning of row (index 14) using while loop and modulus
+    slice starting from index 14 to the end, which will effectively remove top empty rows
+    */
     let i = 0;
     for (; i < this.pixels.length; ++i) {
       // stop as soon as we encounter a non-emptySpace
@@ -157,10 +184,18 @@ export class Canvas {
     this.height = this.pixels.length / this.width;
   }
 
+  /**
+   * convert the canvas to string. Apply temporary sprite if available.
+   */
   toString(arr: string[] = this.pixels) {
     let pixelCopy: string[] = [...arr];
-    if (this.sprite) {
-      pixelCopy = this.drawSprite(this.sprite.data, this.sprite.x, this.sprite.y, pixelCopy);
+    if (this.tempSprite) {
+      pixelCopy = this.drawSprite(
+        this.tempSprite.data,
+        this.tempSprite.x,
+        this.tempSprite.y,
+        pixelCopy
+      );
     }
     let str = "";
     let h = 0;

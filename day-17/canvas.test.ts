@@ -22,10 +22,10 @@ Deno.test({
     const sprite = new Sprite(3, 3);
     // prettier-ignore
     sprite.pixels = [
-    ".", "#", ".",
-    "#", "#", "#",
-    ".", "#", ".",
-  ];
+      ".", "#", ".",
+      "#", "#", "#",
+      ".", "#", ".",
+    ];
     canvas.drawSprite(sprite, 2, 1);
 
     // prettier-ignore
@@ -35,7 +35,6 @@ Deno.test({
     ".", ".", "#", "#", "#", ".", ".",
     ".", ".", ".", "#", ".", ".", ".",
   ];
-    // console.log(canvas.toString());
 
     assertEquals(canvas.pixels, expected);
   },
@@ -50,10 +49,10 @@ Deno.test({
     const sprite = new Sprite(3, 3);
     // prettier-ignore
     sprite.pixels = [
-    ".", "#", ".",
-    "#", "#", "#",
-    ".", "#", ".",
-  ];
+      ".", "#", ".",
+      "#", "#", "#",
+      ".", "#", ".",
+    ];
 
     canvas.drawSprite(sprite, 2, 3);
     // prettier-ignore
@@ -156,7 +155,7 @@ Deno.test({
 
     // prettier-ignore
     const expected = [
-      // prepend 3 rows above original canvas
+      // prepend rows above original canvas
       ".", ".", ".", ".", ".", ".", ".",
       ".", ".", ".", ".", ".", ".", ".",
       ".", ".", ".", ".", ".", ".", ".",
@@ -195,7 +194,7 @@ Deno.test({
       ".", ".", "#", "#", "#", ".", ".",
       ".", ".", ".", "#", ".", ".", ".",
     ];
-    canvas.trim();
+    canvas.trimStart();
     assertEquals(canvas.pixels, expected);
     assertEquals(canvas.height, 3);
   },

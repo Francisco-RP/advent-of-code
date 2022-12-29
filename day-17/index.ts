@@ -36,9 +36,21 @@ class Chamber {
   topEdge = 0;
   currentShape: Sprite = new Sprite(1, 1); // just to shut TS up
 
+  /**
+   * Stores board height every time a shape stops and is draw into the board/canvas
+   */
   heights: number[] = [];
+
+  /**
+   * Stores move index every time a shape stops and is draw into the board/canvas
+   */
   lastMoves: number[] = [];
+
   repeatFound = false;
+
+  /**
+   * The calculated height from beginning to all complete repeated patterns
+   */
   lastHeight = 0;
 
   animate = false;
@@ -52,26 +64,34 @@ class Chamber {
   }
 
   checkForCycle() {
-    if (!this.repeatFound) {
-      this.lastMoves.push(this.moveIndex);
-      this.heights.push(this.board.height);
-      if (this.lastMoves.length > 3) {
-        const start = findRepeat(this.lastMoves);
-        if (start !== undefined) {
-          this.repeatFound = true;
-          const arr = this.lastMoves.slice(start);
-          const cycle = arr.slice(0, arr.length / 2);
-          const heightPerCycle = this.heights[start + cycle.length - 1] - this.heights[start];
-          this.cycleKnown(
-            cycle.length,
-            start + 1,
-            heightPerCycle,
-            this.lastMoves[start],
-            this.heights[start - 1]
-          );
-        }
-      }
+    if (this.repeatFound) {
+      return;
     }
+
+    this.lastMoves.push(this.moveIndex);
+    this.heights.push(this.board.height);
+
+    if (this.lastMoves.length < 4) {
+      return;
+    }
+
+    const start = findRepeat(this.lastMoves);
+    if (start === undefined) {
+      return;
+    }
+
+    this.repeatFound = true;
+    const arr = this.lastMoves.slice(start);
+    const cycle = arr.slice(0, arr.length / 2);
+    const heightPerCycle = this.heights[start + cycle.length - 1] - this.heights[start];
+
+    this.cycleKnown(
+      cycle.length,
+      start + 1,
+      heightPerCycle,
+      this.lastMoves[start],
+      this.heights[start - 1]
+    );
   }
 
   cycleKnown(
@@ -108,36 +128,42 @@ class Chamber {
     this.fallen = this.totalRocks - remainingRocks;
 
     /*
+    encountered a cycle 
+    starting when the 16th rock has fallen and stopped
+    the rock was index 0
+    creating a height of 26
+
+    rocks 16 through 50
     repeating cycle of 35 rocks
-    starting at rock 15
+    starting at rock 16
     total of 2022 rocks
-    2022 - 14 = 2008 rocks in the cycle
-    floor(2008 / 35) = 57 cycles 
-    2008 % 35 = 12 remaining rocks in the unfinished last cycle
+    2022 - 16 = 2006 rocks in the cycle
+    floor(2006 / 35) = 57 cycles 
+    2006 % 35 = 11 remaining rocks in the unfinished last cycle
     --------
-    15 + (35 * 57) + 12
-    15 + 1995 + 12 = 2022
+    16 + (35 * 57) + 11
+    16 + 1995 + 11 = 2022
 
 
     Heights:
-    beginning of first cycle at rock 15 -- height is 25
-    beginning of 2nd cycle at rock 50 -- height is 78
-    78 - 25 = 53 <-- each cycle increases height by 53
+    beginning of first cycle at rock 15 -- height is 26
+    beginning of 2nd cycle at rock 50 -- height is 79
+    79 - 26 = 53 <-- each cycle increases height by 53
 
-    height 25 <-- when cycle started
-    height 53 * 57 = 3021 <-- height of all complete cycles
+    height 25 <-- right before cycle started (start - 1)
+    height 53 * 57 = 3021 <-- calculated height of all complete cycles
     
     we know the example input final answer should be 3068;
-    3021 + 23 + x = 3068
-    x = 24 <-- but how do we get that if we don't know final height yet
-    we know the last cycle is 12 fallen rocks
+    3021 + 25 + x = 3068
+    x = 22 <-- but how do we get that if we don't know final height yet
+    we know the last cycle is 11 fallen rocks
     
-    total 2022 - remaining 12 = 2010
-    height is 3046 when last 12 rocks start
+    total 2022 - remaining 11 = 2011
+    height is 3046 when last 11 rocks start
 
-    set rock to 2010
+    set rock to 2011
     set height to 3046 (3021 + 25)
-    set moveIndex to 2
+    set moveIndex to 0
     run the progression until we reach 2022 and get final height from there?
     */
   }
@@ -222,10 +248,12 @@ height: ${this.board.height}
   }
 
   log() {
+    // this helped me debug and also notice a repeating pattern in the moveIndexes
     console.log("fallen", this.fallen);
     console.log("piece", this.shapesIndex);
     console.log("move", this.moveIndex);
     console.log("height", this.board.height);
+    console.log("left", this.left);
     console.log("");
   }
 
@@ -236,7 +264,7 @@ height: ${this.board.height}
       return px;
     });
     this.board.drawSprite(clone, this.left, this.topEdge);
-    this.board.trim();
+    this.board.trimStart();
   }
 
   begin() {
@@ -251,12 +279,13 @@ height: ${this.board.height}
       this.rest();
       this.rocks -= 1;
       this.fallen += 1;
+      // this.log();
       this.checkForCycle();
     }
   }
 
   getHeight() {
-    this.board.trim();
+    this.board.trimStart();
     if (this.animate) {
       draw(50);
     }
@@ -264,7 +293,7 @@ height: ${this.board.height}
   }
 }
 
-export function part1(str: string, rocks: number): number {
+export function findHeight(str: string, rocks: number): number {
   const tetris = new Chamber(tetrominos, str.trim(), rocks, false);
   tetris.begin();
 
@@ -275,7 +304,7 @@ export function part1(str: string, rocks: number): number {
 }
 
 if (Deno.env.get("DEBUGGING") === "true") {
-  console.log(part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 2022));
+  console.log(findHeight(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 2022));
 } else if (import.meta.main) {
-  console.log(part1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 2022));
+  console.log(findHeight(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>", 2022));
 }
