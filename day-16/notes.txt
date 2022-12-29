@@ -1,0 +1,157 @@
+AA -> DD -> open DD(20) 
+DD -> CC -> BB -> open BB(13) 
+BB -> AA -> II -> JJ -> open JJ(21)
+JJ -> II -> AA -> DD -> EE -> FF -> GG -> HH -> open HH(22) 
+HH -> GG -> FF -> EE -> open EE(3) 
+EE -> DD -> CC -> open CC(2) 
+CC -> wait -> wait -> wait -> wait -> wait
+
+heuristic: Math.ceil( flow / steps-to-get-to-flow) - steps
+if (tie) choose one with least steps
+
+21 / 3 = 7 - 3 = 4
+13 / 2 = 7 - 2 = 5
+
+== Minute 1 ==
+Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
+No valves are open.
+You move to valve DD.
+
+== Minute 2 ==
+OPEN 20
+Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+No valves are open.
+You open valve DD.
+
+== Minute 3 ==
+OPEN DD - Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+Valve DD is open, releasing 20 pressure.
+You move to valve CC.
+
+== Minute 4 ==
+Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+Valve DD is open, releasing 20 pressure.
+You move to valve BB.
+
+== Minute 5 ==
+OPEN 13
+Valve BB has flow rate=13; tunnels lead to valves CC, AA
+Valve DD is open, releasing 20 pressure.
+You open valve BB.
+
+== Minute 6 ==
+Valve BB has flow rate=13; tunnels lead to valves CC, AA
+Valves BB and DD are open, releasing 33 pressure.
+You move to valve AA.
+
+== Minute 7 ==
+Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
+Valves BB and DD are open, releasing 33 pressure.
+You move to valve II.
+
+== Minute 8 ==
+Valve II has flow rate=0; tunnels lead to valves AA, JJ
+Valves BB and DD are open, releasing 33 pressure.
+You move to valve JJ.
+
+== Minute 9 ==
+OPEN 21
+Valve JJ has flow rate=21; tunnel leads to valve II
+Valves BB and DD are open, releasing 33 pressure.
+You open valve JJ.
+
+== Minute 10 ==
+Valve JJ has flow rate=21; tunnel leads to valve II
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve II.
+
+== Minute 11 ==
+Valve II has flow rate=0; tunnels lead to valves AA, JJ
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve AA.
+
+== Minute 12 ==
+Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve DD.
+
+== Minute 13 ==
+Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve EE.
+
+== Minute 14 ==
+Valve EE has flow rate=3; tunnels lead to valves FF, DD
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve FF.
+
+== Minute 15 ==
+Valve FF has flow rate=0; tunnels lead to valves EE, GG
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve GG.
+
+== Minute 16 ==
+Valve GG has flow rate=0; tunnels lead to valves FF, HH
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You move to valve HH.
+
+== Minute 17 ==
+OPEN 22
+Valve HH has flow rate=22; tunnel leads to valve GG
+Valves BB, DD, and JJ are open, releasing 54 pressure.
+You open valve HH.
+
+== Minute 18 ==
+Valve HH has flow rate=22; tunnel leads to valve GG
+Valves BB, DD, HH, and JJ are open, releasing 76 pressure.
+You move to valve GG.
+
+== Minute 19 ==
+Valve GG has flow rate=0; tunnels lead to valves FF, HH
+Valves BB, DD, HH, and JJ are open, releasing 76 pressure.
+You move to valve FF.
+
+== Minute 20 ==
+Valve FF has flow rate=0; tunnels lead to valves EE, GG
+Valves BB, DD, HH, and JJ are open, releasing 76 pressure.
+You move to valve EE.
+
+== Minute 21 ==
+OPEN 3
+Valve EE has flow rate=3; tunnels lead to valves FF, DD
+Valves BB, DD, HH, and JJ are open, releasing 76 pressure.
+You open valve EE.
+
+== Minute 22 ==
+Valve EE has flow rate=3; tunnels lead to valves FF, DD
+Valves BB, DD, EE, HH, and JJ are open, releasing 79 pressure.
+You move to valve DD.
+
+== Minute 23 ==
+Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+Valves BB, DD, EE, HH, and JJ are open, releasing 79 pressure.
+You move to valve CC.
+
+== Minute 24 ==
+OPEN 2
+Valve CC has flow rate=2; tunnels lead to valves DD, BB
+Valves BB, DD, EE, HH, and JJ are open, releasing 79 pressure.
+You open valve CC.
+
+== Minute 25 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
+
+== Minute 26 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
+
+== Minute 27 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
+
+== Minute 28 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
+
+== Minute 29 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
+
+== Minute 30 ==
+Valves BB, CC, DD, EE, HH, and JJ are open, releasing 81 pressure.
