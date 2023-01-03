@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "https://deno.land/std@0.167.0/testing/asserts.ts";
-import { Blueprint, part1 } from "./index.ts";
+import { MaxGeodes, part1 } from "./index.ts";
 // import { part2 } from ".";
 
 const input = await Deno.readTextFile("./input.txt");
@@ -11,7 +11,7 @@ Blueprint 2: Each ore robot costs 2 ore. Each clay robot costs 3 ore. Each obsid
 
 Deno.test({
   name: "Blueprint returns the right quality level",
-  only: true,
+  // only: true,
   fn() {
     const costs = {
       blueprintId: 1,
@@ -20,9 +20,8 @@ Deno.test({
       obsidianRobot: { ore: 3, clay: 14 },
       geodeRobot: { ore: 2, obsidian: 7 },
     };
-    const bp = new Blueprint(costs);
-    bp.begin();
-    assertStrictEquals(bp.getQualityLevel(), 9);
+    const getMaxGeodes = new MaxGeodes(costs, 24);
+    assertStrictEquals(getMaxGeodes.getQualityLevel(), 9);
   },
 });
 

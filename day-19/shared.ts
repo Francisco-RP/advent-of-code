@@ -1,27 +1,28 @@
-export interface Costs {
+export type Resources = { ore: number; clay: number; obsidian: number; geode: number };
+
+export interface BluePrint {
   blueprintId: number;
-  oreRobot: { ore: number };
-  clayRobot: { ore: number };
-  obsidianRobot: { ore: number; clay: number };
-  geodeRobot: { ore: number; obsidian: number };
+  oreRobot: Pick<Resources, "ore">;
+  clayRobot: Pick<Resources, "ore">;
+  obsidianRobot: Pick<Resources, "ore" | "clay">;
+  geodeRobot: Pick<Resources, "ore" | "obsidian">;
 }
 
-const re = new RegExp("\\d+", "g");
+const regexOnlyNumbers = new RegExp("\\d+", "g");
 
-export function parseInput(str: string): Costs[] {
-  return str
-    .trim()
-    .split("\n")
-    .map((line) => {
-      const matches = line.match(re)!;
-      const [blueprintId, oreRobot, clayRobot, obsidianOre, obsidianClay, geodeOre, geodeObsidian] =
-        matches.map(Number);
-      return {
-        blueprintId,
-        oreRobot: { ore: oreRobot },
-        clayRobot: { ore: clayRobot },
-        obsidianRobot: { ore: obsidianOre, clay: obsidianClay },
-        geodeRobot: { ore: geodeOre, obsidian: geodeObsidian },
-      };
-    });
+function parseLineToBp(str: string): BluePrint {
+  const matches = str.match(regexOnlyNumbers)!;
+  const [blueprintId, oreRobot, clayRobot, obsidianOre, obsidianClay, geodeOre, geodeObsidian] =
+    matches.map(Number);
+  return {
+    blueprintId,
+    oreRobot: { ore: oreRobot },
+    clayRobot: { ore: clayRobot },
+    obsidianRobot: { ore: obsidianOre, clay: obsidianClay },
+    geodeRobot: { ore: geodeOre, obsidian: geodeObsidian },
+  };
+}
+
+export function parseInput(str: string): BluePrint[] {
+  return str.trim().split("\n").map(parseLineToBp);
 }

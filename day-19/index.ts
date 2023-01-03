@@ -1,4 +1,4 @@
-import { parseInput, Costs } from "./shared.ts";
+import { parseInput, BluePrint, Resources } from "./shared.ts";
 
 const input = await Deno.readTextFile("./input.txt");
 
@@ -23,143 +23,133 @@ Blueprint 2: Each ore robot costs 2 ore. Each clay robot costs 3 ore. Each obsid
 // It also takes one minute for the robot factory to construct any type of robot, although it consumes the necessary resources available when construction begins.
 // you need to figure out which blueprint would maximize the number of opened geodes after 24 minutes by figuring out which robots to build and when to build them.
 
-export class Blueprint {
-  costs: Costs;
+export class MaxGeodes {
   debug = false;
 
-  // max number of Ore needed per minute to build anything
-  // stop making more ore robots if max ore is reach
-  maxOre: number;
-  maxClay: number;
-  maxObsidian: number;
+  // from constructor
+  bp: BluePrint;
+  maxMinutes: number;
+  maxOreCost: number; // the most expensive ore cost for a robot
 
-  ore = 0;
-  oreRobots = 1;
-
-  clay = 0;
-  clayRobots = 0;
-
-  obsidian = 0;
-  obsidianRobots = 0;
-
-  geodes = 0;
-  geodeRobots = 0;
-
+  // state
+  res: Resources = { ore: 0, clay: 0, obsidian: 0, geode: 0 };
+  robots: Resources = { ore: 1, clay: 0, obsidian: 0, geode: 0 };
   minute = 0;
-  maxMinutes = 24;
+  building: keyof Resources | undefined;
 
-  building: "oreRobots" | "clayRobots" | "obsidianRobots" | "geodeRobots" | undefined;
+  constructor(bp: BluePrint, minutes: number) {
+    this.bp = bp;
+    this.maxMinutes = minutes;
 
-  constructor(costs: Costs) {
-    this.costs = costs;
-
-    this.maxOre = Object.keys(costs)
-      .filter((key) => key !== "blueprintId" && key !== "oreRobot")
-      .map((key) => costs[key as keyof Omit<Costs, "blueprintId">])
+    this.maxOreCost = Object.keys(bp)
+      .filter((key) => key !== "blueprintId")
+      .map((key) => bp[key as keyof Omit<BluePrint, "blueprintId">])
       .sort((a, b) => b.ore - a.ore)[0].ore;
 
-    this.maxClay = costs.obsidianRobot.clay;
-    this.maxObsidian = costs.geodeRobot.obsidian;
+    this.begin();
   }
 
-  canBuildNextRound(type: "obsidianRobots" | "geodeRobots") {
-    if (type === "obsidianRobots") {
+  canBuildNextRound(type: keyof BluePrint) {
+    if (type === "obsidianRobot") {
       return (
-        this.ore + this.oreRobots >= this.costs.obsidianRobot.ore &&
-        this.clay + this.clayRobots * 2 >= this.costs.obsidianRobot.clay
+        this.res.ore + this.robots.ore >= this.bp.obsidianRobot.ore &&
+        this.res.clay + this.robots.clay >= this.bp.obsidianRobot.clay
       );
     }
 
-    if (type === "geodeRobots") {
+    if (type === "geodeRobot") {
       return (
-        this.ore + this.oreRobots >= this.costs.geodeRobot.ore &&
-        this.obsidian + this.obsidianRobots >= this.costs.geodeRobot.obsidian
+        this.res.ore + this.robots.ore >= this.bp.geodeRobot.ore &&
+        this.res.obsidian + this.robots.obsidian >= this.bp.geodeRobot.obsidian
       );
     }
   }
 
   spend() {
     // try build geodeRobots first
-    if (this.ore >= this.costs.geodeRobot.ore && this.obsidian >= this.costs.geodeRobot.obsidian) {
-      this.building = "geodeRobots";
-      this.ore -= this.costs.geodeRobot.ore;
-      this.obsidian -= this.costs.geodeRobot.obsidian;
+    if (
+      this.res.ore >= this.bp.geodeRobot.ore &&
+      this.res.obsidian >= this.bp.geodeRobot.obsidian
+    ) {
+      this.building = "geode";
+      this.res.ore -= this.bp.geodeRobot.ore;
+      this.res.obsidian -= this.bp.geodeRobot.obsidian;
       this.verbose(
-        `Spend ${this.costs.geodeRobot.ore} ore and ${this.costs.geodeRobot.obsidian} obsidian to start building a geode-cracking robot. `
+        `Spend ${this.bp.geodeRobot.ore} ore and ${this.bp.geodeRobot.obsidian} obsidian to start building a geode-cracking robot. `
       );
       return;
     }
 
     // then try obsidianRobots
     if (
-      this.ore >= this.costs.obsidianRobot.ore &&
-      this.clay >= this.costs.obsidianRobot.clay &&
-      !this.canBuildNextRound("geodeRobots")
+      this.robots.obsidian < this.bp.geodeRobot.obsidian &&
+      this.res.ore >= this.bp.obsidianRobot.ore &&
+      this.res.clay >= this.bp.obsidianRobot.clay &&
+      !this.canBuildNextRound("geodeRobot")
     ) {
-      this.building = "obsidianRobots";
-      this.ore -= this.costs.obsidianRobot.ore;
-      this.clay -= this.costs.obsidianRobot.clay;
+      this.building = "obsidian";
+      this.res.ore -= this.bp.obsidianRobot.ore;
+      this.res.clay -= this.bp.obsidianRobot.clay;
       this.verbose(
-        `Spend ${this.costs.obsidianRobot.ore} ore and ${this.costs.obsidianRobot.clay} clay to start building an obsidian-collecting robot.`
+        `Spend ${this.bp.obsidianRobot.ore} ore and ${this.bp.obsidianRobot.clay} clay to start building an obsidian-collecting robot.`
       );
       return;
     }
 
     // else clayRobots
     if (
-      this.ore >= this.costs.clayRobot.ore &&
-      !this.canBuildNextRound("obsidianRobots") &&
-      !this.canBuildNextRound("geodeRobots")
+      this.robots.clay < this.bp.obsidianRobot.clay &&
+      this.res.ore >= this.bp.clayRobot.ore &&
+      !this.canBuildNextRound("obsidianRobot") &&
+      !this.canBuildNextRound("geodeRobot")
     ) {
-      this.ore -= this.costs.clayRobot.ore;
-      this.building = "clayRobots";
-      this.verbose(
-        `Spend ${this.costs.clayRobot.ore} ore to start building a clay-collecting robot.`
-      );
+      this.res.ore -= this.bp.clayRobot.ore;
+      this.building = "clay";
+      this.verbose(`Spend ${this.bp.clayRobot.ore} ore to start building a clay-collecting robot.`);
       return;
     }
 
     // and finally oreRobots
-    if (this.ore >= this.costs.oreRobot.ore) {
-      this.ore -= this.costs.oreRobot.ore;
-      this.building = "oreRobots";
+    if (this.robots.ore < this.maxOreCost && this.res.ore >= this.bp.oreRobot.ore) {
+      this.res.ore -= this.bp.oreRobot.ore;
+      this.building = "ore";
       return;
     }
   }
 
   collect() {
-    this.ore += this.oreRobots;
+    this.res.ore += this.robots.ore;
     this.verbose(
-      `${this.oreRobots} ore-collecting robot collects ${this.oreRobots} ore; you now have ${this.ore} ore.`
+      `${this.robots.ore} ore-collecting robot collects ${this.robots.ore} ore; you now have ${this.res.ore} ore.`
     );
 
-    this.clay += this.clayRobots;
-    if (this.clayRobots > 0)
+    this.res.clay += this.robots.clay;
+    if (this.robots.clay > 0)
       this.verbose(
-        `${this.clayRobots} clay-collecting robots collect ${this.clayRobots} clay; you now have ${this.clay} clay.`
+        `${this.robots.clay} clay-collecting robots collect ${this.robots.clay} clay; you now have ${this.res.clay} clay.`
       );
 
-    this.obsidian += this.obsidianRobots;
-    if (this.obsidianRobots > 0) {
+    this.res.obsidian += this.robots.obsidian;
+    if (this.robots.obsidian > 0) {
       this.verbose(
-        `${this.obsidianRobots} obsidian-collecting robots collect ${this.obsidianRobots} obsidian; you now have ${this.obsidian} obsidian.`
+        `${this.robots.obsidian} obsidian-collecting robots collect ${this.robots.obsidian} obsidian; you now have ${this.res.obsidian} obsidian.`
       );
     }
 
-    this.geodes += this.geodeRobots;
-    if (this.geodeRobots > 0) {
+    this.res.geode += this.robots.geode;
+    if (this.robots.geode > 0) {
       this.verbose(
-        `${this.geodeRobots} geode-cracking robots crack ${this.geodeRobots} geodes; you now have ${this.geodes} open geodes.`
+        `${this.robots.geode} geode-cracking robots crack ${this.robots.geode} geodes; you now have ${this.res.geode} open geodes.`
       );
     }
   }
 
   built() {
     if (this.building) {
-      this[this.building] += 1;
+      this.robots[this.building] += 1;
       this.verbose(
-        `The new ${this.building.replace("Robots", "")}-collecting robot is ready; you now have ${
-          this[this.building]
+        `The new ${this.building}-collecting robot is ready; you now have ${
+          this.robots[this.building]
         } of them.`
       );
       this.building = undefined;
@@ -173,22 +163,26 @@ export class Blueprint {
       this.spend();
       this.collect();
       this.built();
-      this.log();
+      // this.log();
       this.verbose("");
     }
   }
 
   getQualityLevel() {
-    return this.costs.blueprintId * this.geodes;
+    /**
+     * Determine the quality level of each blueprint by multiplying that blueprint's ID number with
+     * the largest number of geodes that can be opened in `this.maxMinutes` using that blueprint.
+     */
+    return this.bp.blueprintId * this.res.geode;
   }
 
   log() {
-    this.verbose(`
+    console.log(`
 \tRobots\tResources
-ore:\t${this.oreRobots}\t${this.ore}
-clay:\t${this.clayRobots}\t${this.clay}
-obsd:\t${this.obsidianRobots}\t${this.obsidian}
-geod:\t${this.geodeRobots}\t${this.geodes}
+ore:\t${this.robots.ore}\t${this.res.ore}
+clay:\t${this.robots.clay}\t${this.res.clay}
+obsd:\t${this.robots.obsidian}\t${this.res.obsidian}
+geod:\t${this.robots.geode}\t${this.res.geode}
 `);
   }
 
@@ -202,11 +196,11 @@ geod:\t${this.geodeRobots}\t${this.geodes}
 export function part1(str: string): number {
   const bps = parseInput(str);
 
+  // run each blueprint and sum up all of the quality levels
   return bps
     .map((bp) => {
-      const check = new Blueprint(bp);
-      check.begin();
-      return check.getQualityLevel();
+      const runBp = new MaxGeodes(bp, 24);
+      return runBp.getQualityLevel();
     })
     .reduce((a, b) => a + b, 0);
 }
