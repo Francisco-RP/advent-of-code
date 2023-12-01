@@ -1,0 +1,10131 @@
+fallen 1
+piece 0
+move 4
+height 1
+
+fallen 2
+piece 1
+move 8
+height 4
+
+fallen 3
+piece 2
+move 13
+height 6
+
+fallen 4
+piece 3
+move 20
+height 7
+
+fallen 5
+piece 4
+move 24
+height 9
+
+fallen 6
+piece 0
+move 28
+height 10
+
+fallen 7
+piece 1
+move 32
+height 13
+
+fallen 8
+piece 2
+move 37
+height 15
+
+fallen 9
+piece 3
+move 3
+height 17
+
+fallen 10
+piece 4
+move 12
+height 17
+
+fallen 11
+piece 0
+move 16
+height 18
+
+fallen 12
+piece 1
+move 20
+height 21
+
+fallen 13
+piece 2
+move 25
+height 23
+
+fallen 14
+piece 3
+move 38
+height 23
+
+fallen 15
+piece 4
+move 2
+height 25
+
+---- repeating 1 pattern starts here ----
+---------- piece cycle 1
+fallen 16
+piece 0
+move 6
+height 26
+
+fallen 17
+piece 1
+move 10
+height 29
+
+fallen 18
+piece 2
+move 14
+height 32
+
+fallen 19
+piece 3
+move 18
+height 36
+
+fallen 20
+piece 4
+move 28
+height 36
+
+fallen 21
+piece 0
+move 32
+height 37
+
+fallen 22
+piece 1
+move 37
+height 39
+
+fallen 23
+piece 2
+move 1
+height 42
+
+fallen 24
+piece 3
+move 10
+height 42
+
+fallen 25
+piece 4
+move 15
+height 43
+
+fallen 26
+piece 0
+move 19
+height 44
+
+fallen 27
+piece 1
+move 23
+height 47
+
+fallen 28
+piece 2
+move 28
+height 49
+
+fallen 29
+piece 3
+move 34
+height 51
+
+fallen 30
+piece 4
+move 5
+height 51
+
+fallen 31
+piece 0
+move 11
+height 51
+
+fallen 32
+piece 1
+move 16
+height 53
+
+fallen 33
+piece 2
+move 20
+height 56
+
+fallen 34
+piece 3
+move 24
+height 60
+
+fallen 35
+piece 4
+move 34
+height 60
+
+fallen 36
+piece 0
+move 38
+height 61
+
+fallen 37
+piece 1
+move 3
+height 63
+
+fallen 38
+piece 2
+move 9
+height 64
+
+fallen 39
+piece 3
+move 15
+height 66
+
+fallen 40
+piece 4
+move 21
+height 66
+
+fallen 41
+piece 0
+move 25
+height 67
+
+fallen 42
+piece 1
+move 30
+height 69
+
+fallen 43
+piece 2
+move 36
+height 70
+
+fallen 44
+piece 3
+move 2
+height 72
+
+fallen 45
+piece 4
+move 10
+height 72
+
+fallen 46
+piece 0
+move 14
+height 73
+
+fallen 47
+piece 1
+move 18
+height 76
+
+fallen 48
+piece 2
+move 23
+height 78
+
+fallen 49
+piece 3
+move 36
+height 78
+
+fallen 50
+piece 4
+move 2
+height 78
+
+---- repeating 2 pattern starts here ----
+51 - 16 = 35
+79 - 26 = 53
+
+fallen 51
+piece 0
+move 6
+height 79
+
+fallen 52
+piece 1
+move 10
+height 82
+
+fallen 53
+piece 2
+move 14
+height 85
+
+fallen 54
+piece 3
+move 18
+height 89
+
+fallen 55
+piece 4
+move 28
+height 89
+
+fallen 56
+piece 0
+move 32
+height 90
+
+fallen 57
+piece 1
+move 37
+height 92
+
+fallen 58
+piece 2
+move 1
+height 95
+
+fallen 59
+piece 3
+move 10
+height 95
+
+fallen 60
+piece 4
+move 15
+height 96
+
+fallen 61
+piece 0
+move 19
+height 97
+
+fallen 62
+piece 1
+move 23
+height 100
+
+fallen 63
+piece 2
+move 28
+height 102
+
+fallen 64
+piece 3
+move 34
+height 104
+
+fallen 65
+piece 4
+move 5
+height 104
+
+fallen 66
+piece 0
+move 11
+height 104
+
+fallen 67
+piece 1
+move 16
+height 106
+
+fallen 68
+piece 2
+move 20
+height 109
+
+fallen 69
+piece 3
+move 24
+height 113
+
+fallen 70
+piece 4
+move 34
+height 113
+
+fallen 71
+piece 0
+move 38
+height 114
+
+fallen 72
+piece 1
+move 3
+height 116
+
+fallen 73
+piece 2
+move 9
+height 117
+
+fallen 74
+piece 3
+move 15
+height 119
+
+fallen 75
+piece 4
+move 21
+height 119
+
+fallen 76
+piece 0
+move 25
+height 120
+
+fallen 77
+piece 1
+move 30
+height 122
+
+fallen 78
+piece 2
+move 36
+height 123
+
+fallen 79
+piece 3
+move 2
+height 125
+
+fallen 80
+piece 4
+move 10
+height 125
+
+fallen 81
+piece 0
+move 14
+height 126
+
+fallen 82
+piece 1
+move 18
+height 129
+
+fallen 83
+piece 2
+move 23
+height 131
+
+fallen 84
+piece 3
+move 36
+height 131
+
+fallen 85
+piece 4
+move 2
+height 131
+
+---- repeating pattern 3 starts here ----
+86 - 51 = 35
+
+fallen 86
+piece 0
+move 6
+height 132
+
+fallen 87
+piece 1
+move 10
+height 135
+
+fallen 88
+piece 2
+move 14
+height 138
+
+fallen 89
+piece 3
+move 18
+height 142
+
+fallen 90
+piece 4
+move 28
+height 142
+
+fallen 91
+piece 0
+move 32
+height 143
+
+fallen 92
+piece 1
+move 37
+height 145
+
+fallen 93
+piece 2
+move 1
+height 148
+
+fallen 94
+piece 3
+move 10
+height 148
+
+fallen 95
+piece 4
+move 15
+height 149
+
+fallen 96
+piece 0
+move 19
+height 150
+
+fallen 97
+piece 1
+move 23
+height 153
+
+fallen 98
+piece 2
+move 28
+height 155
+
+fallen 99
+piece 3
+move 34
+height 157
+
+fallen 100
+piece 4
+move 5
+height 157
+
+fallen 101
+piece 0
+move 11
+height 157
+
+fallen 102
+piece 1
+move 16
+height 159
+
+fallen 103
+piece 2
+move 20
+height 162
+
+fallen 104
+piece 3
+move 24
+height 166
+
+fallen 105
+piece 4
+move 34
+height 166
+
+fallen 106
+piece 0
+move 38
+height 167
+
+fallen 107
+piece 1
+move 3
+height 169
+
+fallen 108
+piece 2
+move 9
+height 170
+
+fallen 109
+piece 3
+move 15
+height 172
+
+fallen 110
+piece 4
+move 21
+height 172
+
+fallen 111
+piece 0
+move 25
+height 173
+
+fallen 112
+piece 1
+move 30
+height 175
+
+fallen 113
+piece 2
+move 36
+height 176
+
+fallen 114
+piece 3
+move 2
+height 178
+
+fallen 115
+piece 4
+move 10
+height 178
+
+fallen 116
+piece 0
+move 14
+height 179
+
+fallen 117
+piece 1
+move 18
+height 182
+
+fallen 118
+piece 2
+move 23
+height 184
+
+fallen 119
+piece 3
+move 36
+height 184
+
+fallen 120
+piece 4
+move 2
+height 184
+
+---- repeating pattern 4 starts here ----
+121 - 86 = 35
+
+fallen 121
+piece 0
+move 6
+height 185
+
+fallen 122
+piece 1
+move 10
+height 188
+
+fallen 123
+piece 2
+move 14
+height 191
+
+fallen 124
+piece 3
+move 18
+height 195
+
+fallen 125
+piece 4
+move 28
+height 195
+
+fallen 126
+piece 0
+move 32
+height 196
+
+fallen 127
+piece 1
+move 37
+height 198
+
+fallen 128
+piece 2
+move 1
+height 201
+
+fallen 129
+piece 3
+move 10
+height 201
+
+fallen 130
+piece 4
+move 15
+height 202
+
+fallen 131
+piece 0
+move 19
+height 203
+
+fallen 132
+piece 1
+move 23
+height 206
+
+fallen 133
+piece 2
+move 28
+height 208
+
+fallen 134
+piece 3
+move 34
+height 210
+
+fallen 135
+piece 4
+move 5
+height 210
+
+fallen 136
+piece 0
+move 11
+height 210
+
+fallen 137
+piece 1
+move 16
+height 212
+
+fallen 138
+piece 2
+move 20
+height 215
+
+fallen 139
+piece 3
+move 24
+height 219
+
+fallen 140
+piece 4
+move 34
+height 219
+
+fallen 141
+piece 0
+move 38
+height 220
+
+fallen 142
+piece 1
+move 3
+height 222
+
+fallen 143
+piece 2
+move 9
+height 223
+
+fallen 144
+piece 3
+move 15
+height 225
+
+fallen 145
+piece 4
+move 21
+height 225
+
+fallen 146
+piece 0
+move 25
+height 226
+
+fallen 147
+piece 1
+move 30
+height 228
+
+fallen 148
+piece 2
+move 36
+height 229
+
+fallen 149
+piece 3
+move 2
+height 231
+
+fallen 150
+piece 4
+move 10
+height 231
+
+fallen 151
+piece 0
+move 14
+height 232
+
+fallen 152
+piece 1
+move 18
+height 235
+
+fallen 153
+piece 2
+move 23
+height 237
+
+fallen 154
+piece 3
+move 36
+height 237
+
+fallen 155
+piece 4
+move 2
+height 237
+
+---- repeating pattern 5 starts here ----
+
+fallen 156
+piece 0
+move 6
+height 238
+
+fallen 157
+piece 1
+move 10
+height 241
+
+fallen 158
+piece 2
+move 14
+height 244
+
+fallen 159
+piece 3
+move 18
+height 248
+
+fallen 160
+piece 4
+move 28
+height 248
+
+fallen 161
+piece 0
+move 32
+height 249
+
+fallen 162
+piece 1
+move 37
+height 251
+
+fallen 163
+piece 2
+move 1
+height 254
+
+fallen 164
+piece 3
+move 10
+height 254
+
+fallen 165
+piece 4
+move 15
+height 255
+
+fallen 166
+piece 0
+move 19
+height 256
+
+fallen 167
+piece 1
+move 23
+height 259
+
+fallen 168
+piece 2
+move 28
+height 261
+
+fallen 169
+piece 3
+move 34
+height 263
+
+fallen 170
+piece 4
+move 5
+height 263
+
+fallen 171
+piece 0
+move 11
+height 263
+
+fallen 172
+piece 1
+move 16
+height 265
+
+fallen 173
+piece 2
+move 20
+height 268
+
+fallen 174
+piece 3
+move 24
+height 272
+
+fallen 175
+piece 4
+move 34
+height 272
+
+fallen 176
+piece 0
+move 38
+height 273
+
+fallen 177
+piece 1
+move 3
+height 275
+
+fallen 178
+piece 2
+move 9
+height 276
+
+fallen 179
+piece 3
+move 15
+height 278
+
+fallen 180
+piece 4
+move 21
+height 278
+
+fallen 181
+piece 0
+move 25
+height 279
+
+fallen 182
+piece 1
+move 30
+height 281
+
+fallen 183
+piece 2
+move 36
+height 282
+
+fallen 184
+piece 3
+move 2
+height 284
+
+fallen 185
+piece 4
+move 10
+height 284
+
+fallen 186
+piece 0
+move 14
+height 285
+
+fallen 187
+piece 1
+move 18
+height 288
+
+fallen 188
+piece 2
+move 23
+height 290
+
+fallen 189
+piece 3
+move 36
+height 290
+
+fallen 190
+piece 4
+move 2
+height 290
+
+---- repeating pattern 6 starts here ----
+
+fallen 191
+piece 0
+move 6
+height 291
+
+fallen 192
+piece 1
+move 10
+height 294
+
+fallen 193
+piece 2
+move 14
+height 297
+
+fallen 194
+piece 3
+move 18
+height 301
+
+fallen 195
+piece 4
+move 28
+height 301
+
+fallen 196
+piece 0
+move 32
+height 302
+
+fallen 197
+piece 1
+move 37
+height 304
+
+fallen 198
+piece 2
+move 1
+height 307
+
+fallen 199
+piece 3
+move 10
+height 307
+
+fallen 200
+piece 4
+move 15
+height 308
+
+fallen 201
+piece 0
+move 19
+height 309
+
+fallen 202
+piece 1
+move 23
+height 312
+
+fallen 203
+piece 2
+move 28
+height 314
+
+fallen 204
+piece 3
+move 34
+height 316
+
+fallen 205
+piece 4
+move 5
+height 316
+
+fallen 206
+piece 0
+move 11
+height 316
+
+fallen 207
+piece 1
+move 16
+height 318
+
+fallen 208
+piece 2
+move 20
+height 321
+
+fallen 209
+piece 3
+move 24
+height 325
+
+fallen 210
+piece 4
+move 34
+height 325
+
+fallen 211
+piece 0
+move 38
+height 326
+
+fallen 212
+piece 1
+move 3
+height 328
+
+fallen 213
+piece 2
+move 9
+height 329
+
+fallen 214
+piece 3
+move 15
+height 331
+
+fallen 215
+piece 4
+move 21
+height 331
+
+fallen 216
+piece 0
+move 25
+height 332
+
+fallen 217
+piece 1
+move 30
+height 334
+
+fallen 218
+piece 2
+move 36
+height 335
+
+fallen 219
+piece 3
+move 2
+height 337
+
+fallen 220
+piece 4
+move 10
+height 337
+
+fallen 221
+piece 0
+move 14
+height 338
+
+fallen 222
+piece 1
+move 18
+height 341
+
+fallen 223
+piece 2
+move 23
+height 343
+
+fallen 224
+piece 3
+move 36
+height 343
+
+fallen 225
+piece 4
+move 2
+height 343
+
+fallen 226
+piece 0
+move 6
+height 344
+
+fallen 227
+piece 1
+move 10
+height 347
+
+fallen 228
+piece 2
+move 14
+height 350
+
+fallen 229
+piece 3
+move 18
+height 354
+
+fallen 230
+piece 4
+move 28
+height 354
+
+fallen 231
+piece 0
+move 32
+height 355
+
+fallen 232
+piece 1
+move 37
+height 357
+
+fallen 233
+piece 2
+move 1
+height 360
+
+fallen 234
+piece 3
+move 10
+height 360
+
+fallen 235
+piece 4
+move 15
+height 361
+
+fallen 236
+piece 0
+move 19
+height 362
+
+fallen 237
+piece 1
+move 23
+height 365
+
+fallen 238
+piece 2
+move 28
+height 367
+
+fallen 239
+piece 3
+move 34
+height 369
+
+fallen 240
+piece 4
+move 5
+height 369
+
+fallen 241
+piece 0
+move 11
+height 369
+
+fallen 242
+piece 1
+move 16
+height 371
+
+fallen 243
+piece 2
+move 20
+height 374
+
+fallen 244
+piece 3
+move 24
+height 378
+
+fallen 245
+piece 4
+move 34
+height 378
+
+fallen 246
+piece 0
+move 38
+height 379
+
+fallen 247
+piece 1
+move 3
+height 381
+
+fallen 248
+piece 2
+move 9
+height 382
+
+fallen 249
+piece 3
+move 15
+height 384
+
+fallen 250
+piece 4
+move 21
+height 384
+
+fallen 251
+piece 0
+move 25
+height 385
+
+fallen 252
+piece 1
+move 30
+height 387
+
+fallen 253
+piece 2
+move 36
+height 388
+
+fallen 254
+piece 3
+move 2
+height 390
+
+fallen 255
+piece 4
+move 10
+height 390
+
+fallen 256
+piece 0
+move 14
+height 391
+
+fallen 257
+piece 1
+move 18
+height 394
+
+fallen 258
+piece 2
+move 23
+height 396
+
+fallen 259
+piece 3
+move 36
+height 396
+
+fallen 260
+piece 4
+move 2
+height 396
+
+fallen 261
+piece 0
+move 6
+height 397
+
+fallen 262
+piece 1
+move 10
+height 400
+
+fallen 263
+piece 2
+move 14
+height 403
+
+fallen 264
+piece 3
+move 18
+height 407
+
+fallen 265
+piece 4
+move 28
+height 407
+
+fallen 266
+piece 0
+move 32
+height 408
+
+fallen 267
+piece 1
+move 37
+height 410
+
+fallen 268
+piece 2
+move 1
+height 413
+
+fallen 269
+piece 3
+move 10
+height 413
+
+fallen 270
+piece 4
+move 15
+height 414
+
+fallen 271
+piece 0
+move 19
+height 415
+
+fallen 272
+piece 1
+move 23
+height 418
+
+fallen 273
+piece 2
+move 28
+height 420
+
+fallen 274
+piece 3
+move 34
+height 422
+
+fallen 275
+piece 4
+move 5
+height 422
+
+fallen 276
+piece 0
+move 11
+height 422
+
+fallen 277
+piece 1
+move 16
+height 424
+
+fallen 278
+piece 2
+move 20
+height 427
+
+fallen 279
+piece 3
+move 24
+height 431
+
+fallen 280
+piece 4
+move 34
+height 431
+
+fallen 281
+piece 0
+move 38
+height 432
+
+fallen 282
+piece 1
+move 3
+height 434
+
+fallen 283
+piece 2
+move 9
+height 435
+
+fallen 284
+piece 3
+move 15
+height 437
+
+fallen 285
+piece 4
+move 21
+height 437
+
+fallen 286
+piece 0
+move 25
+height 438
+
+fallen 287
+piece 1
+move 30
+height 440
+
+fallen 288
+piece 2
+move 36
+height 441
+
+fallen 289
+piece 3
+move 2
+height 443
+
+fallen 290
+piece 4
+move 10
+height 443
+
+fallen 291
+piece 0
+move 14
+height 444
+
+fallen 292
+piece 1
+move 18
+height 447
+
+fallen 293
+piece 2
+move 23
+height 449
+
+fallen 294
+piece 3
+move 36
+height 449
+
+fallen 295
+piece 4
+move 2
+height 449
+
+fallen 296
+piece 0
+move 6
+height 450
+
+fallen 297
+piece 1
+move 10
+height 453
+
+fallen 298
+piece 2
+move 14
+height 456
+
+fallen 299
+piece 3
+move 18
+height 460
+
+fallen 300
+piece 4
+move 28
+height 460
+
+fallen 301
+piece 0
+move 32
+height 461
+
+fallen 302
+piece 1
+move 37
+height 463
+
+fallen 303
+piece 2
+move 1
+height 466
+
+fallen 304
+piece 3
+move 10
+height 466
+
+fallen 305
+piece 4
+move 15
+height 467
+
+fallen 306
+piece 0
+move 19
+height 468
+
+fallen 307
+piece 1
+move 23
+height 471
+
+fallen 308
+piece 2
+move 28
+height 473
+
+fallen 309
+piece 3
+move 34
+height 475
+
+fallen 310
+piece 4
+move 5
+height 475
+
+fallen 311
+piece 0
+move 11
+height 475
+
+fallen 312
+piece 1
+move 16
+height 477
+
+fallen 313
+piece 2
+move 20
+height 480
+
+fallen 314
+piece 3
+move 24
+height 484
+
+fallen 315
+piece 4
+move 34
+height 484
+
+fallen 316
+piece 0
+move 38
+height 485
+
+fallen 317
+piece 1
+move 3
+height 487
+
+fallen 318
+piece 2
+move 9
+height 488
+
+fallen 319
+piece 3
+move 15
+height 490
+
+fallen 320
+piece 4
+move 21
+height 490
+
+fallen 321
+piece 0
+move 25
+height 491
+
+fallen 322
+piece 1
+move 30
+height 493
+
+fallen 323
+piece 2
+move 36
+height 494
+
+fallen 324
+piece 3
+move 2
+height 496
+
+fallen 325
+piece 4
+move 10
+height 496
+
+fallen 326
+piece 0
+move 14
+height 497
+
+fallen 327
+piece 1
+move 18
+height 500
+
+fallen 328
+piece 2
+move 23
+height 502
+
+fallen 329
+piece 3
+move 36
+height 502
+
+fallen 330
+piece 4
+move 2
+height 502
+
+fallen 331
+piece 0
+move 6
+height 503
+
+fallen 332
+piece 1
+move 10
+height 506
+
+fallen 333
+piece 2
+move 14
+height 509
+
+fallen 334
+piece 3
+move 18
+height 513
+
+fallen 335
+piece 4
+move 28
+height 513
+
+fallen 336
+piece 0
+move 32
+height 514
+
+fallen 337
+piece 1
+move 37
+height 516
+
+fallen 338
+piece 2
+move 1
+height 519
+
+fallen 339
+piece 3
+move 10
+height 519
+
+fallen 340
+piece 4
+move 15
+height 520
+
+fallen 341
+piece 0
+move 19
+height 521
+
+fallen 342
+piece 1
+move 23
+height 524
+
+fallen 343
+piece 2
+move 28
+height 526
+
+fallen 344
+piece 3
+move 34
+height 528
+
+fallen 345
+piece 4
+move 5
+height 528
+
+fallen 346
+piece 0
+move 11
+height 528
+
+fallen 347
+piece 1
+move 16
+height 530
+
+fallen 348
+piece 2
+move 20
+height 533
+
+fallen 349
+piece 3
+move 24
+height 537
+
+fallen 350
+piece 4
+move 34
+height 537
+
+fallen 351
+piece 0
+move 38
+height 538
+
+fallen 352
+piece 1
+move 3
+height 540
+
+fallen 353
+piece 2
+move 9
+height 541
+
+fallen 354
+piece 3
+move 15
+height 543
+
+fallen 355
+piece 4
+move 21
+height 543
+
+fallen 356
+piece 0
+move 25
+height 544
+
+fallen 357
+piece 1
+move 30
+height 546
+
+fallen 358
+piece 2
+move 36
+height 547
+
+fallen 359
+piece 3
+move 2
+height 549
+
+fallen 360
+piece 4
+move 10
+height 549
+
+fallen 361
+piece 0
+move 14
+height 550
+
+fallen 362
+piece 1
+move 18
+height 553
+
+fallen 363
+piece 2
+move 23
+height 555
+
+fallen 364
+piece 3
+move 36
+height 555
+
+fallen 365
+piece 4
+move 2
+height 555
+
+fallen 366
+piece 0
+move 6
+height 556
+
+fallen 367
+piece 1
+move 10
+height 559
+
+fallen 368
+piece 2
+move 14
+height 562
+
+fallen 369
+piece 3
+move 18
+height 566
+
+fallen 370
+piece 4
+move 28
+height 566
+
+fallen 371
+piece 0
+move 32
+height 567
+
+fallen 372
+piece 1
+move 37
+height 569
+
+fallen 373
+piece 2
+move 1
+height 572
+
+fallen 374
+piece 3
+move 10
+height 572
+
+fallen 375
+piece 4
+move 15
+height 573
+
+fallen 376
+piece 0
+move 19
+height 574
+
+fallen 377
+piece 1
+move 23
+height 577
+
+fallen 378
+piece 2
+move 28
+height 579
+
+fallen 379
+piece 3
+move 34
+height 581
+
+fallen 380
+piece 4
+move 5
+height 581
+
+fallen 381
+piece 0
+move 11
+height 581
+
+fallen 382
+piece 1
+move 16
+height 583
+
+fallen 383
+piece 2
+move 20
+height 586
+
+fallen 384
+piece 3
+move 24
+height 590
+
+fallen 385
+piece 4
+move 34
+height 590
+
+fallen 386
+piece 0
+move 38
+height 591
+
+fallen 387
+piece 1
+move 3
+height 593
+
+fallen 388
+piece 2
+move 9
+height 594
+
+fallen 389
+piece 3
+move 15
+height 596
+
+fallen 390
+piece 4
+move 21
+height 596
+
+fallen 391
+piece 0
+move 25
+height 597
+
+fallen 392
+piece 1
+move 30
+height 599
+
+fallen 393
+piece 2
+move 36
+height 600
+
+fallen 394
+piece 3
+move 2
+height 602
+
+fallen 395
+piece 4
+move 10
+height 602
+
+fallen 396
+piece 0
+move 14
+height 603
+
+fallen 397
+piece 1
+move 18
+height 606
+
+fallen 398
+piece 2
+move 23
+height 608
+
+fallen 399
+piece 3
+move 36
+height 608
+
+fallen 400
+piece 4
+move 2
+height 608
+
+fallen 401
+piece 0
+move 6
+height 609
+
+fallen 402
+piece 1
+move 10
+height 612
+
+fallen 403
+piece 2
+move 14
+height 615
+
+fallen 404
+piece 3
+move 18
+height 619
+
+fallen 405
+piece 4
+move 28
+height 619
+
+fallen 406
+piece 0
+move 32
+height 620
+
+fallen 407
+piece 1
+move 37
+height 622
+
+fallen 408
+piece 2
+move 1
+height 625
+
+fallen 409
+piece 3
+move 10
+height 625
+
+fallen 410
+piece 4
+move 15
+height 626
+
+fallen 411
+piece 0
+move 19
+height 627
+
+fallen 412
+piece 1
+move 23
+height 630
+
+fallen 413
+piece 2
+move 28
+height 632
+
+fallen 414
+piece 3
+move 34
+height 634
+
+fallen 415
+piece 4
+move 5
+height 634
+
+fallen 416
+piece 0
+move 11
+height 634
+
+fallen 417
+piece 1
+move 16
+height 636
+
+fallen 418
+piece 2
+move 20
+height 639
+
+fallen 419
+piece 3
+move 24
+height 643
+
+fallen 420
+piece 4
+move 34
+height 643
+
+fallen 421
+piece 0
+move 38
+height 644
+
+fallen 422
+piece 1
+move 3
+height 646
+
+fallen 423
+piece 2
+move 9
+height 647
+
+fallen 424
+piece 3
+move 15
+height 649
+
+fallen 425
+piece 4
+move 21
+height 649
+
+fallen 426
+piece 0
+move 25
+height 650
+
+fallen 427
+piece 1
+move 30
+height 652
+
+fallen 428
+piece 2
+move 36
+height 653
+
+fallen 429
+piece 3
+move 2
+height 655
+
+fallen 430
+piece 4
+move 10
+height 655
+
+fallen 431
+piece 0
+move 14
+height 656
+
+fallen 432
+piece 1
+move 18
+height 659
+
+fallen 433
+piece 2
+move 23
+height 661
+
+fallen 434
+piece 3
+move 36
+height 661
+
+fallen 435
+piece 4
+move 2
+height 661
+
+fallen 436
+piece 0
+move 6
+height 662
+
+fallen 437
+piece 1
+move 10
+height 665
+
+fallen 438
+piece 2
+move 14
+height 668
+
+fallen 439
+piece 3
+move 18
+height 672
+
+fallen 440
+piece 4
+move 28
+height 672
+
+fallen 441
+piece 0
+move 32
+height 673
+
+fallen 442
+piece 1
+move 37
+height 675
+
+fallen 443
+piece 2
+move 1
+height 678
+
+fallen 444
+piece 3
+move 10
+height 678
+
+fallen 445
+piece 4
+move 15
+height 679
+
+fallen 446
+piece 0
+move 19
+height 680
+
+fallen 447
+piece 1
+move 23
+height 683
+
+fallen 448
+piece 2
+move 28
+height 685
+
+fallen 449
+piece 3
+move 34
+height 687
+
+fallen 450
+piece 4
+move 5
+height 687
+
+fallen 451
+piece 0
+move 11
+height 687
+
+fallen 452
+piece 1
+move 16
+height 689
+
+fallen 453
+piece 2
+move 20
+height 692
+
+fallen 454
+piece 3
+move 24
+height 696
+
+fallen 455
+piece 4
+move 34
+height 696
+
+fallen 456
+piece 0
+move 38
+height 697
+
+fallen 457
+piece 1
+move 3
+height 699
+
+fallen 458
+piece 2
+move 9
+height 700
+
+fallen 459
+piece 3
+move 15
+height 702
+
+fallen 460
+piece 4
+move 21
+height 702
+
+fallen 461
+piece 0
+move 25
+height 703
+
+fallen 462
+piece 1
+move 30
+height 705
+
+fallen 463
+piece 2
+move 36
+height 706
+
+fallen 464
+piece 3
+move 2
+height 708
+
+fallen 465
+piece 4
+move 10
+height 708
+
+fallen 466
+piece 0
+move 14
+height 709
+
+fallen 467
+piece 1
+move 18
+height 712
+
+fallen 468
+piece 2
+move 23
+height 714
+
+fallen 469
+piece 3
+move 36
+height 714
+
+fallen 470
+piece 4
+move 2
+height 714
+
+fallen 471
+piece 0
+move 6
+height 715
+
+fallen 472
+piece 1
+move 10
+height 718
+
+fallen 473
+piece 2
+move 14
+height 721
+
+fallen 474
+piece 3
+move 18
+height 725
+
+fallen 475
+piece 4
+move 28
+height 725
+
+fallen 476
+piece 0
+move 32
+height 726
+
+fallen 477
+piece 1
+move 37
+height 728
+
+fallen 478
+piece 2
+move 1
+height 731
+
+fallen 479
+piece 3
+move 10
+height 731
+
+fallen 480
+piece 4
+move 15
+height 732
+
+fallen 481
+piece 0
+move 19
+height 733
+
+fallen 482
+piece 1
+move 23
+height 736
+
+fallen 483
+piece 2
+move 28
+height 738
+
+fallen 484
+piece 3
+move 34
+height 740
+
+fallen 485
+piece 4
+move 5
+height 740
+
+fallen 486
+piece 0
+move 11
+height 740
+
+fallen 487
+piece 1
+move 16
+height 742
+
+fallen 488
+piece 2
+move 20
+height 745
+
+fallen 489
+piece 3
+move 24
+height 749
+
+fallen 490
+piece 4
+move 34
+height 749
+
+fallen 491
+piece 0
+move 38
+height 750
+
+fallen 492
+piece 1
+move 3
+height 752
+
+fallen 493
+piece 2
+move 9
+height 753
+
+fallen 494
+piece 3
+move 15
+height 755
+
+fallen 495
+piece 4
+move 21
+height 755
+
+fallen 496
+piece 0
+move 25
+height 756
+
+fallen 497
+piece 1
+move 30
+height 758
+
+fallen 498
+piece 2
+move 36
+height 759
+
+fallen 499
+piece 3
+move 2
+height 761
+
+fallen 500
+piece 4
+move 10
+height 761
+
+fallen 501
+piece 0
+move 14
+height 762
+
+fallen 502
+piece 1
+move 18
+height 765
+
+fallen 503
+piece 2
+move 23
+height 767
+
+fallen 504
+piece 3
+move 36
+height 767
+
+fallen 505
+piece 4
+move 2
+height 767
+
+fallen 506
+piece 0
+move 6
+height 768
+
+fallen 507
+piece 1
+move 10
+height 771
+
+fallen 508
+piece 2
+move 14
+height 774
+
+fallen 509
+piece 3
+move 18
+height 778
+
+fallen 510
+piece 4
+move 28
+height 778
+
+fallen 511
+piece 0
+move 32
+height 779
+
+fallen 512
+piece 1
+move 37
+height 781
+
+fallen 513
+piece 2
+move 1
+height 784
+
+fallen 514
+piece 3
+move 10
+height 784
+
+fallen 515
+piece 4
+move 15
+height 785
+
+fallen 516
+piece 0
+move 19
+height 786
+
+fallen 517
+piece 1
+move 23
+height 789
+
+fallen 518
+piece 2
+move 28
+height 791
+
+fallen 519
+piece 3
+move 34
+height 793
+
+fallen 520
+piece 4
+move 5
+height 793
+
+fallen 521
+piece 0
+move 11
+height 793
+
+fallen 522
+piece 1
+move 16
+height 795
+
+fallen 523
+piece 2
+move 20
+height 798
+
+fallen 524
+piece 3
+move 24
+height 802
+
+fallen 525
+piece 4
+move 34
+height 802
+
+fallen 526
+piece 0
+move 38
+height 803
+
+fallen 527
+piece 1
+move 3
+height 805
+
+fallen 528
+piece 2
+move 9
+height 806
+
+fallen 529
+piece 3
+move 15
+height 808
+
+fallen 530
+piece 4
+move 21
+height 808
+
+fallen 531
+piece 0
+move 25
+height 809
+
+fallen 532
+piece 1
+move 30
+height 811
+
+fallen 533
+piece 2
+move 36
+height 812
+
+fallen 534
+piece 3
+move 2
+height 814
+
+fallen 535
+piece 4
+move 10
+height 814
+
+fallen 536
+piece 0
+move 14
+height 815
+
+fallen 537
+piece 1
+move 18
+height 818
+
+fallen 538
+piece 2
+move 23
+height 820
+
+fallen 539
+piece 3
+move 36
+height 820
+
+fallen 540
+piece 4
+move 2
+height 820
+
+fallen 541
+piece 0
+move 6
+height 821
+
+fallen 542
+piece 1
+move 10
+height 824
+
+fallen 543
+piece 2
+move 14
+height 827
+
+fallen 544
+piece 3
+move 18
+height 831
+
+fallen 545
+piece 4
+move 28
+height 831
+
+fallen 546
+piece 0
+move 32
+height 832
+
+fallen 547
+piece 1
+move 37
+height 834
+
+fallen 548
+piece 2
+move 1
+height 837
+
+fallen 549
+piece 3
+move 10
+height 837
+
+fallen 550
+piece 4
+move 15
+height 838
+
+fallen 551
+piece 0
+move 19
+height 839
+
+fallen 552
+piece 1
+move 23
+height 842
+
+fallen 553
+piece 2
+move 28
+height 844
+
+fallen 554
+piece 3
+move 34
+height 846
+
+fallen 555
+piece 4
+move 5
+height 846
+
+fallen 556
+piece 0
+move 11
+height 846
+
+fallen 557
+piece 1
+move 16
+height 848
+
+fallen 558
+piece 2
+move 20
+height 851
+
+fallen 559
+piece 3
+move 24
+height 855
+
+fallen 560
+piece 4
+move 34
+height 855
+
+fallen 561
+piece 0
+move 38
+height 856
+
+fallen 562
+piece 1
+move 3
+height 858
+
+fallen 563
+piece 2
+move 9
+height 859
+
+fallen 564
+piece 3
+move 15
+height 861
+
+fallen 565
+piece 4
+move 21
+height 861
+
+fallen 566
+piece 0
+move 25
+height 862
+
+fallen 567
+piece 1
+move 30
+height 864
+
+fallen 568
+piece 2
+move 36
+height 865
+
+fallen 569
+piece 3
+move 2
+height 867
+
+fallen 570
+piece 4
+move 10
+height 867
+
+fallen 571
+piece 0
+move 14
+height 868
+
+fallen 572
+piece 1
+move 18
+height 871
+
+fallen 573
+piece 2
+move 23
+height 873
+
+fallen 574
+piece 3
+move 36
+height 873
+
+fallen 575
+piece 4
+move 2
+height 873
+
+fallen 576
+piece 0
+move 6
+height 874
+
+fallen 577
+piece 1
+move 10
+height 877
+
+fallen 578
+piece 2
+move 14
+height 880
+
+fallen 579
+piece 3
+move 18
+height 884
+
+fallen 580
+piece 4
+move 28
+height 884
+
+fallen 581
+piece 0
+move 32
+height 885
+
+fallen 582
+piece 1
+move 37
+height 887
+
+fallen 583
+piece 2
+move 1
+height 890
+
+fallen 584
+piece 3
+move 10
+height 890
+
+fallen 585
+piece 4
+move 15
+height 891
+
+fallen 586
+piece 0
+move 19
+height 892
+
+fallen 587
+piece 1
+move 23
+height 895
+
+fallen 588
+piece 2
+move 28
+height 897
+
+fallen 589
+piece 3
+move 34
+height 899
+
+fallen 590
+piece 4
+move 5
+height 899
+
+fallen 591
+piece 0
+move 11
+height 899
+
+fallen 592
+piece 1
+move 16
+height 901
+
+fallen 593
+piece 2
+move 20
+height 904
+
+fallen 594
+piece 3
+move 24
+height 908
+
+fallen 595
+piece 4
+move 34
+height 908
+
+fallen 596
+piece 0
+move 38
+height 909
+
+fallen 597
+piece 1
+move 3
+height 911
+
+fallen 598
+piece 2
+move 9
+height 912
+
+fallen 599
+piece 3
+move 15
+height 914
+
+fallen 600
+piece 4
+move 21
+height 914
+
+fallen 601
+piece 0
+move 25
+height 915
+
+fallen 602
+piece 1
+move 30
+height 917
+
+fallen 603
+piece 2
+move 36
+height 918
+
+fallen 604
+piece 3
+move 2
+height 920
+
+fallen 605
+piece 4
+move 10
+height 920
+
+fallen 606
+piece 0
+move 14
+height 921
+
+fallen 607
+piece 1
+move 18
+height 924
+
+fallen 608
+piece 2
+move 23
+height 926
+
+fallen 609
+piece 3
+move 36
+height 926
+
+fallen 610
+piece 4
+move 2
+height 926
+
+fallen 611
+piece 0
+move 6
+height 927
+
+fallen 612
+piece 1
+move 10
+height 930
+
+fallen 613
+piece 2
+move 14
+height 933
+
+fallen 614
+piece 3
+move 18
+height 937
+
+fallen 615
+piece 4
+move 28
+height 937
+
+fallen 616
+piece 0
+move 32
+height 938
+
+fallen 617
+piece 1
+move 37
+height 940
+
+fallen 618
+piece 2
+move 1
+height 943
+
+fallen 619
+piece 3
+move 10
+height 943
+
+fallen 620
+piece 4
+move 15
+height 944
+
+fallen 621
+piece 0
+move 19
+height 945
+
+fallen 622
+piece 1
+move 23
+height 948
+
+fallen 623
+piece 2
+move 28
+height 950
+
+fallen 624
+piece 3
+move 34
+height 952
+
+fallen 625
+piece 4
+move 5
+height 952
+
+fallen 626
+piece 0
+move 11
+height 952
+
+fallen 627
+piece 1
+move 16
+height 954
+
+fallen 628
+piece 2
+move 20
+height 957
+
+fallen 629
+piece 3
+move 24
+height 961
+
+fallen 630
+piece 4
+move 34
+height 961
+
+fallen 631
+piece 0
+move 38
+height 962
+
+fallen 632
+piece 1
+move 3
+height 964
+
+fallen 633
+piece 2
+move 9
+height 965
+
+fallen 634
+piece 3
+move 15
+height 967
+
+fallen 635
+piece 4
+move 21
+height 967
+
+fallen 636
+piece 0
+move 25
+height 968
+
+fallen 637
+piece 1
+move 30
+height 970
+
+fallen 638
+piece 2
+move 36
+height 971
+
+fallen 639
+piece 3
+move 2
+height 973
+
+fallen 640
+piece 4
+move 10
+height 973
+
+fallen 641
+piece 0
+move 14
+height 974
+
+fallen 642
+piece 1
+move 18
+height 977
+
+fallen 643
+piece 2
+move 23
+height 979
+
+fallen 644
+piece 3
+move 36
+height 979
+
+fallen 645
+piece 4
+move 2
+height 979
+
+fallen 646
+piece 0
+move 6
+height 980
+
+fallen 647
+piece 1
+move 10
+height 983
+
+fallen 648
+piece 2
+move 14
+height 986
+
+fallen 649
+piece 3
+move 18
+height 990
+
+fallen 650
+piece 4
+move 28
+height 990
+
+fallen 651
+piece 0
+move 32
+height 991
+
+fallen 652
+piece 1
+move 37
+height 993
+
+fallen 653
+piece 2
+move 1
+height 996
+
+fallen 654
+piece 3
+move 10
+height 996
+
+fallen 655
+piece 4
+move 15
+height 997
+
+fallen 656
+piece 0
+move 19
+height 998
+
+fallen 657
+piece 1
+move 23
+height 1001
+
+fallen 658
+piece 2
+move 28
+height 1003
+
+fallen 659
+piece 3
+move 34
+height 1005
+
+fallen 660
+piece 4
+move 5
+height 1005
+
+fallen 661
+piece 0
+move 11
+height 1005
+
+fallen 662
+piece 1
+move 16
+height 1007
+
+fallen 663
+piece 2
+move 20
+height 1010
+
+fallen 664
+piece 3
+move 24
+height 1014
+
+fallen 665
+piece 4
+move 34
+height 1014
+
+fallen 666
+piece 0
+move 38
+height 1015
+
+fallen 667
+piece 1
+move 3
+height 1017
+
+fallen 668
+piece 2
+move 9
+height 1018
+
+fallen 669
+piece 3
+move 15
+height 1020
+
+fallen 670
+piece 4
+move 21
+height 1020
+
+fallen 671
+piece 0
+move 25
+height 1021
+
+fallen 672
+piece 1
+move 30
+height 1023
+
+fallen 673
+piece 2
+move 36
+height 1024
+
+fallen 674
+piece 3
+move 2
+height 1026
+
+fallen 675
+piece 4
+move 10
+height 1026
+
+fallen 676
+piece 0
+move 14
+height 1027
+
+fallen 677
+piece 1
+move 18
+height 1030
+
+fallen 678
+piece 2
+move 23
+height 1032
+
+fallen 679
+piece 3
+move 36
+height 1032
+
+fallen 680
+piece 4
+move 2
+height 1032
+
+fallen 681
+piece 0
+move 6
+height 1033
+
+fallen 682
+piece 1
+move 10
+height 1036
+
+fallen 683
+piece 2
+move 14
+height 1039
+
+fallen 684
+piece 3
+move 18
+height 1043
+
+fallen 685
+piece 4
+move 28
+height 1043
+
+fallen 686
+piece 0
+move 32
+height 1044
+
+fallen 687
+piece 1
+move 37
+height 1046
+
+fallen 688
+piece 2
+move 1
+height 1049
+
+fallen 689
+piece 3
+move 10
+height 1049
+
+fallen 690
+piece 4
+move 15
+height 1050
+
+fallen 691
+piece 0
+move 19
+height 1051
+
+fallen 692
+piece 1
+move 23
+height 1054
+
+fallen 693
+piece 2
+move 28
+height 1056
+
+fallen 694
+piece 3
+move 34
+height 1058
+
+fallen 695
+piece 4
+move 5
+height 1058
+
+fallen 696
+piece 0
+move 11
+height 1058
+
+fallen 697
+piece 1
+move 16
+height 1060
+
+fallen 698
+piece 2
+move 20
+height 1063
+
+fallen 699
+piece 3
+move 24
+height 1067
+
+fallen 700
+piece 4
+move 34
+height 1067
+
+fallen 701
+piece 0
+move 38
+height 1068
+
+fallen 702
+piece 1
+move 3
+height 1070
+
+fallen 703
+piece 2
+move 9
+height 1071
+
+fallen 704
+piece 3
+move 15
+height 1073
+
+fallen 705
+piece 4
+move 21
+height 1073
+
+fallen 706
+piece 0
+move 25
+height 1074
+
+fallen 707
+piece 1
+move 30
+height 1076
+
+fallen 708
+piece 2
+move 36
+height 1077
+
+fallen 709
+piece 3
+move 2
+height 1079
+
+fallen 710
+piece 4
+move 10
+height 1079
+
+fallen 711
+piece 0
+move 14
+height 1080
+
+fallen 712
+piece 1
+move 18
+height 1083
+
+fallen 713
+piece 2
+move 23
+height 1085
+
+fallen 714
+piece 3
+move 36
+height 1085
+
+fallen 715
+piece 4
+move 2
+height 1085
+
+fallen 716
+piece 0
+move 6
+height 1086
+
+fallen 717
+piece 1
+move 10
+height 1089
+
+fallen 718
+piece 2
+move 14
+height 1092
+
+fallen 719
+piece 3
+move 18
+height 1096
+
+fallen 720
+piece 4
+move 28
+height 1096
+
+fallen 721
+piece 0
+move 32
+height 1097
+
+fallen 722
+piece 1
+move 37
+height 1099
+
+fallen 723
+piece 2
+move 1
+height 1102
+
+fallen 724
+piece 3
+move 10
+height 1102
+
+fallen 725
+piece 4
+move 15
+height 1103
+
+fallen 726
+piece 0
+move 19
+height 1104
+
+fallen 727
+piece 1
+move 23
+height 1107
+
+fallen 728
+piece 2
+move 28
+height 1109
+
+fallen 729
+piece 3
+move 34
+height 1111
+
+fallen 730
+piece 4
+move 5
+height 1111
+
+fallen 731
+piece 0
+move 11
+height 1111
+
+fallen 732
+piece 1
+move 16
+height 1113
+
+fallen 733
+piece 2
+move 20
+height 1116
+
+fallen 734
+piece 3
+move 24
+height 1120
+
+fallen 735
+piece 4
+move 34
+height 1120
+
+fallen 736
+piece 0
+move 38
+height 1121
+
+fallen 737
+piece 1
+move 3
+height 1123
+
+fallen 738
+piece 2
+move 9
+height 1124
+
+fallen 739
+piece 3
+move 15
+height 1126
+
+fallen 740
+piece 4
+move 21
+height 1126
+
+fallen 741
+piece 0
+move 25
+height 1127
+
+fallen 742
+piece 1
+move 30
+height 1129
+
+fallen 743
+piece 2
+move 36
+height 1130
+
+fallen 744
+piece 3
+move 2
+height 1132
+
+fallen 745
+piece 4
+move 10
+height 1132
+
+fallen 746
+piece 0
+move 14
+height 1133
+
+fallen 747
+piece 1
+move 18
+height 1136
+
+fallen 748
+piece 2
+move 23
+height 1138
+
+fallen 749
+piece 3
+move 36
+height 1138
+
+fallen 750
+piece 4
+move 2
+height 1138
+
+fallen 751
+piece 0
+move 6
+height 1139
+
+fallen 752
+piece 1
+move 10
+height 1142
+
+fallen 753
+piece 2
+move 14
+height 1145
+
+fallen 754
+piece 3
+move 18
+height 1149
+
+fallen 755
+piece 4
+move 28
+height 1149
+
+fallen 756
+piece 0
+move 32
+height 1150
+
+fallen 757
+piece 1
+move 37
+height 1152
+
+fallen 758
+piece 2
+move 1
+height 1155
+
+fallen 759
+piece 3
+move 10
+height 1155
+
+fallen 760
+piece 4
+move 15
+height 1156
+
+fallen 761
+piece 0
+move 19
+height 1157
+
+fallen 762
+piece 1
+move 23
+height 1160
+
+fallen 763
+piece 2
+move 28
+height 1162
+
+fallen 764
+piece 3
+move 34
+height 1164
+
+fallen 765
+piece 4
+move 5
+height 1164
+
+fallen 766
+piece 0
+move 11
+height 1164
+
+fallen 767
+piece 1
+move 16
+height 1166
+
+fallen 768
+piece 2
+move 20
+height 1169
+
+fallen 769
+piece 3
+move 24
+height 1173
+
+fallen 770
+piece 4
+move 34
+height 1173
+
+fallen 771
+piece 0
+move 38
+height 1174
+
+fallen 772
+piece 1
+move 3
+height 1176
+
+fallen 773
+piece 2
+move 9
+height 1177
+
+fallen 774
+piece 3
+move 15
+height 1179
+
+fallen 775
+piece 4
+move 21
+height 1179
+
+fallen 776
+piece 0
+move 25
+height 1180
+
+fallen 777
+piece 1
+move 30
+height 1182
+
+fallen 778
+piece 2
+move 36
+height 1183
+
+fallen 779
+piece 3
+move 2
+height 1185
+
+fallen 780
+piece 4
+move 10
+height 1185
+
+fallen 781
+piece 0
+move 14
+height 1186
+
+fallen 782
+piece 1
+move 18
+height 1189
+
+fallen 783
+piece 2
+move 23
+height 1191
+
+fallen 784
+piece 3
+move 36
+height 1191
+
+fallen 785
+piece 4
+move 2
+height 1191
+
+fallen 786
+piece 0
+move 6
+height 1192
+
+fallen 787
+piece 1
+move 10
+height 1195
+
+fallen 788
+piece 2
+move 14
+height 1198
+
+fallen 789
+piece 3
+move 18
+height 1202
+
+fallen 790
+piece 4
+move 28
+height 1202
+
+fallen 791
+piece 0
+move 32
+height 1203
+
+fallen 792
+piece 1
+move 37
+height 1205
+
+fallen 793
+piece 2
+move 1
+height 1208
+
+fallen 794
+piece 3
+move 10
+height 1208
+
+fallen 795
+piece 4
+move 15
+height 1209
+
+fallen 796
+piece 0
+move 19
+height 1210
+
+fallen 797
+piece 1
+move 23
+height 1213
+
+fallen 798
+piece 2
+move 28
+height 1215
+
+fallen 799
+piece 3
+move 34
+height 1217
+
+fallen 800
+piece 4
+move 5
+height 1217
+
+fallen 801
+piece 0
+move 11
+height 1217
+
+fallen 802
+piece 1
+move 16
+height 1219
+
+fallen 803
+piece 2
+move 20
+height 1222
+
+fallen 804
+piece 3
+move 24
+height 1226
+
+fallen 805
+piece 4
+move 34
+height 1226
+
+fallen 806
+piece 0
+move 38
+height 1227
+
+fallen 807
+piece 1
+move 3
+height 1229
+
+fallen 808
+piece 2
+move 9
+height 1230
+
+fallen 809
+piece 3
+move 15
+height 1232
+
+fallen 810
+piece 4
+move 21
+height 1232
+
+fallen 811
+piece 0
+move 25
+height 1233
+
+fallen 812
+piece 1
+move 30
+height 1235
+
+fallen 813
+piece 2
+move 36
+height 1236
+
+fallen 814
+piece 3
+move 2
+height 1238
+
+fallen 815
+piece 4
+move 10
+height 1238
+
+fallen 816
+piece 0
+move 14
+height 1239
+
+fallen 817
+piece 1
+move 18
+height 1242
+
+fallen 818
+piece 2
+move 23
+height 1244
+
+fallen 819
+piece 3
+move 36
+height 1244
+
+fallen 820
+piece 4
+move 2
+height 1244
+
+fallen 821
+piece 0
+move 6
+height 1245
+
+fallen 822
+piece 1
+move 10
+height 1248
+
+fallen 823
+piece 2
+move 14
+height 1251
+
+fallen 824
+piece 3
+move 18
+height 1255
+
+fallen 825
+piece 4
+move 28
+height 1255
+
+fallen 826
+piece 0
+move 32
+height 1256
+
+fallen 827
+piece 1
+move 37
+height 1258
+
+fallen 828
+piece 2
+move 1
+height 1261
+
+fallen 829
+piece 3
+move 10
+height 1261
+
+fallen 830
+piece 4
+move 15
+height 1262
+
+fallen 831
+piece 0
+move 19
+height 1263
+
+fallen 832
+piece 1
+move 23
+height 1266
+
+fallen 833
+piece 2
+move 28
+height 1268
+
+fallen 834
+piece 3
+move 34
+height 1270
+
+fallen 835
+piece 4
+move 5
+height 1270
+
+fallen 836
+piece 0
+move 11
+height 1270
+
+fallen 837
+piece 1
+move 16
+height 1272
+
+fallen 838
+piece 2
+move 20
+height 1275
+
+fallen 839
+piece 3
+move 24
+height 1279
+
+fallen 840
+piece 4
+move 34
+height 1279
+
+fallen 841
+piece 0
+move 38
+height 1280
+
+fallen 842
+piece 1
+move 3
+height 1282
+
+fallen 843
+piece 2
+move 9
+height 1283
+
+fallen 844
+piece 3
+move 15
+height 1285
+
+fallen 845
+piece 4
+move 21
+height 1285
+
+fallen 846
+piece 0
+move 25
+height 1286
+
+fallen 847
+piece 1
+move 30
+height 1288
+
+fallen 848
+piece 2
+move 36
+height 1289
+
+fallen 849
+piece 3
+move 2
+height 1291
+
+fallen 850
+piece 4
+move 10
+height 1291
+
+fallen 851
+piece 0
+move 14
+height 1292
+
+fallen 852
+piece 1
+move 18
+height 1295
+
+fallen 853
+piece 2
+move 23
+height 1297
+
+fallen 854
+piece 3
+move 36
+height 1297
+
+fallen 855
+piece 4
+move 2
+height 1297
+
+fallen 856
+piece 0
+move 6
+height 1298
+
+fallen 857
+piece 1
+move 10
+height 1301
+
+fallen 858
+piece 2
+move 14
+height 1304
+
+fallen 859
+piece 3
+move 18
+height 1308
+
+fallen 860
+piece 4
+move 28
+height 1308
+
+fallen 861
+piece 0
+move 32
+height 1309
+
+fallen 862
+piece 1
+move 37
+height 1311
+
+fallen 863
+piece 2
+move 1
+height 1314
+
+fallen 864
+piece 3
+move 10
+height 1314
+
+fallen 865
+piece 4
+move 15
+height 1315
+
+fallen 866
+piece 0
+move 19
+height 1316
+
+fallen 867
+piece 1
+move 23
+height 1319
+
+fallen 868
+piece 2
+move 28
+height 1321
+
+fallen 869
+piece 3
+move 34
+height 1323
+
+fallen 870
+piece 4
+move 5
+height 1323
+
+fallen 871
+piece 0
+move 11
+height 1323
+
+fallen 872
+piece 1
+move 16
+height 1325
+
+fallen 873
+piece 2
+move 20
+height 1328
+
+fallen 874
+piece 3
+move 24
+height 1332
+
+fallen 875
+piece 4
+move 34
+height 1332
+
+fallen 876
+piece 0
+move 38
+height 1333
+
+fallen 877
+piece 1
+move 3
+height 1335
+
+fallen 878
+piece 2
+move 9
+height 1336
+
+fallen 879
+piece 3
+move 15
+height 1338
+
+fallen 880
+piece 4
+move 21
+height 1338
+
+fallen 881
+piece 0
+move 25
+height 1339
+
+fallen 882
+piece 1
+move 30
+height 1341
+
+fallen 883
+piece 2
+move 36
+height 1342
+
+fallen 884
+piece 3
+move 2
+height 1344
+
+fallen 885
+piece 4
+move 10
+height 1344
+
+fallen 886
+piece 0
+move 14
+height 1345
+
+fallen 887
+piece 1
+move 18
+height 1348
+
+fallen 888
+piece 2
+move 23
+height 1350
+
+fallen 889
+piece 3
+move 36
+height 1350
+
+fallen 890
+piece 4
+move 2
+height 1350
+
+fallen 891
+piece 0
+move 6
+height 1351
+
+fallen 892
+piece 1
+move 10
+height 1354
+
+fallen 893
+piece 2
+move 14
+height 1357
+
+fallen 894
+piece 3
+move 18
+height 1361
+
+fallen 895
+piece 4
+move 28
+height 1361
+
+fallen 896
+piece 0
+move 32
+height 1362
+
+fallen 897
+piece 1
+move 37
+height 1364
+
+fallen 898
+piece 2
+move 1
+height 1367
+
+fallen 899
+piece 3
+move 10
+height 1367
+
+fallen 900
+piece 4
+move 15
+height 1368
+
+fallen 901
+piece 0
+move 19
+height 1369
+
+fallen 902
+piece 1
+move 23
+height 1372
+
+fallen 903
+piece 2
+move 28
+height 1374
+
+fallen 904
+piece 3
+move 34
+height 1376
+
+fallen 905
+piece 4
+move 5
+height 1376
+
+fallen 906
+piece 0
+move 11
+height 1376
+
+fallen 907
+piece 1
+move 16
+height 1378
+
+fallen 908
+piece 2
+move 20
+height 1381
+
+fallen 909
+piece 3
+move 24
+height 1385
+
+fallen 910
+piece 4
+move 34
+height 1385
+
+fallen 911
+piece 0
+move 38
+height 1386
+
+fallen 912
+piece 1
+move 3
+height 1388
+
+fallen 913
+piece 2
+move 9
+height 1389
+
+fallen 914
+piece 3
+move 15
+height 1391
+
+fallen 915
+piece 4
+move 21
+height 1391
+
+fallen 916
+piece 0
+move 25
+height 1392
+
+fallen 917
+piece 1
+move 30
+height 1394
+
+fallen 918
+piece 2
+move 36
+height 1395
+
+fallen 919
+piece 3
+move 2
+height 1397
+
+fallen 920
+piece 4
+move 10
+height 1397
+
+fallen 921
+piece 0
+move 14
+height 1398
+
+fallen 922
+piece 1
+move 18
+height 1401
+
+fallen 923
+piece 2
+move 23
+height 1403
+
+fallen 924
+piece 3
+move 36
+height 1403
+
+fallen 925
+piece 4
+move 2
+height 1403
+
+fallen 926
+piece 0
+move 6
+height 1404
+
+fallen 927
+piece 1
+move 10
+height 1407
+
+fallen 928
+piece 2
+move 14
+height 1410
+
+fallen 929
+piece 3
+move 18
+height 1414
+
+fallen 930
+piece 4
+move 28
+height 1414
+
+fallen 931
+piece 0
+move 32
+height 1415
+
+fallen 932
+piece 1
+move 37
+height 1417
+
+fallen 933
+piece 2
+move 1
+height 1420
+
+fallen 934
+piece 3
+move 10
+height 1420
+
+fallen 935
+piece 4
+move 15
+height 1421
+
+fallen 936
+piece 0
+move 19
+height 1422
+
+fallen 937
+piece 1
+move 23
+height 1425
+
+fallen 938
+piece 2
+move 28
+height 1427
+
+fallen 939
+piece 3
+move 34
+height 1429
+
+fallen 940
+piece 4
+move 5
+height 1429
+
+fallen 941
+piece 0
+move 11
+height 1429
+
+fallen 942
+piece 1
+move 16
+height 1431
+
+fallen 943
+piece 2
+move 20
+height 1434
+
+fallen 944
+piece 3
+move 24
+height 1438
+
+fallen 945
+piece 4
+move 34
+height 1438
+
+fallen 946
+piece 0
+move 38
+height 1439
+
+fallen 947
+piece 1
+move 3
+height 1441
+
+fallen 948
+piece 2
+move 9
+height 1442
+
+fallen 949
+piece 3
+move 15
+height 1444
+
+fallen 950
+piece 4
+move 21
+height 1444
+
+fallen 951
+piece 0
+move 25
+height 1445
+
+fallen 952
+piece 1
+move 30
+height 1447
+
+fallen 953
+piece 2
+move 36
+height 1448
+
+fallen 954
+piece 3
+move 2
+height 1450
+
+fallen 955
+piece 4
+move 10
+height 1450
+
+fallen 956
+piece 0
+move 14
+height 1451
+
+fallen 957
+piece 1
+move 18
+height 1454
+
+fallen 958
+piece 2
+move 23
+height 1456
+
+fallen 959
+piece 3
+move 36
+height 1456
+
+fallen 960
+piece 4
+move 2
+height 1456
+
+fallen 961
+piece 0
+move 6
+height 1457
+
+fallen 962
+piece 1
+move 10
+height 1460
+
+fallen 963
+piece 2
+move 14
+height 1463
+
+fallen 964
+piece 3
+move 18
+height 1467
+
+fallen 965
+piece 4
+move 28
+height 1467
+
+fallen 966
+piece 0
+move 32
+height 1468
+
+fallen 967
+piece 1
+move 37
+height 1470
+
+fallen 968
+piece 2
+move 1
+height 1473
+
+fallen 969
+piece 3
+move 10
+height 1473
+
+fallen 970
+piece 4
+move 15
+height 1474
+
+fallen 971
+piece 0
+move 19
+height 1475
+
+fallen 972
+piece 1
+move 23
+height 1478
+
+fallen 973
+piece 2
+move 28
+height 1480
+
+fallen 974
+piece 3
+move 34
+height 1482
+
+fallen 975
+piece 4
+move 5
+height 1482
+
+fallen 976
+piece 0
+move 11
+height 1482
+
+fallen 977
+piece 1
+move 16
+height 1484
+
+fallen 978
+piece 2
+move 20
+height 1487
+
+fallen 979
+piece 3
+move 24
+height 1491
+
+fallen 980
+piece 4
+move 34
+height 1491
+
+fallen 981
+piece 0
+move 38
+height 1492
+
+fallen 982
+piece 1
+move 3
+height 1494
+
+fallen 983
+piece 2
+move 9
+height 1495
+
+fallen 984
+piece 3
+move 15
+height 1497
+
+fallen 985
+piece 4
+move 21
+height 1497
+
+fallen 986
+piece 0
+move 25
+height 1498
+
+fallen 987
+piece 1
+move 30
+height 1500
+
+fallen 988
+piece 2
+move 36
+height 1501
+
+fallen 989
+piece 3
+move 2
+height 1503
+
+fallen 990
+piece 4
+move 10
+height 1503
+
+fallen 991
+piece 0
+move 14
+height 1504
+
+fallen 992
+piece 1
+move 18
+height 1507
+
+fallen 993
+piece 2
+move 23
+height 1509
+
+fallen 994
+piece 3
+move 36
+height 1509
+
+fallen 995
+piece 4
+move 2
+height 1509
+
+fallen 996
+piece 0
+move 6
+height 1510
+
+fallen 997
+piece 1
+move 10
+height 1513
+
+fallen 998
+piece 2
+move 14
+height 1516
+
+fallen 999
+piece 3
+move 18
+height 1520
+
+fallen 1000
+piece 4
+move 28
+height 1520
+
+fallen 1001
+piece 0
+move 32
+height 1521
+
+fallen 1002
+piece 1
+move 37
+height 1523
+
+fallen 1003
+piece 2
+move 1
+height 1526
+
+fallen 1004
+piece 3
+move 10
+height 1526
+
+fallen 1005
+piece 4
+move 15
+height 1527
+
+fallen 1006
+piece 0
+move 19
+height 1528
+
+fallen 1007
+piece 1
+move 23
+height 1531
+
+fallen 1008
+piece 2
+move 28
+height 1533
+
+fallen 1009
+piece 3
+move 34
+height 1535
+
+fallen 1010
+piece 4
+move 5
+height 1535
+
+fallen 1011
+piece 0
+move 11
+height 1535
+
+fallen 1012
+piece 1
+move 16
+height 1537
+
+fallen 1013
+piece 2
+move 20
+height 1540
+
+fallen 1014
+piece 3
+move 24
+height 1544
+
+fallen 1015
+piece 4
+move 34
+height 1544
+
+fallen 1016
+piece 0
+move 38
+height 1545
+
+fallen 1017
+piece 1
+move 3
+height 1547
+
+fallen 1018
+piece 2
+move 9
+height 1548
+
+fallen 1019
+piece 3
+move 15
+height 1550
+
+fallen 1020
+piece 4
+move 21
+height 1550
+
+fallen 1021
+piece 0
+move 25
+height 1551
+
+fallen 1022
+piece 1
+move 30
+height 1553
+
+fallen 1023
+piece 2
+move 36
+height 1554
+
+fallen 1024
+piece 3
+move 2
+height 1556
+
+fallen 1025
+piece 4
+move 10
+height 1556
+
+fallen 1026
+piece 0
+move 14
+height 1557
+
+fallen 1027
+piece 1
+move 18
+height 1560
+
+fallen 1028
+piece 2
+move 23
+height 1562
+
+fallen 1029
+piece 3
+move 36
+height 1562
+
+fallen 1030
+piece 4
+move 2
+height 1562
+
+fallen 1031
+piece 0
+move 6
+height 1563
+
+fallen 1032
+piece 1
+move 10
+height 1566
+
+fallen 1033
+piece 2
+move 14
+height 1569
+
+fallen 1034
+piece 3
+move 18
+height 1573
+
+fallen 1035
+piece 4
+move 28
+height 1573
+
+fallen 1036
+piece 0
+move 32
+height 1574
+
+fallen 1037
+piece 1
+move 37
+height 1576
+
+fallen 1038
+piece 2
+move 1
+height 1579
+
+fallen 1039
+piece 3
+move 10
+height 1579
+
+fallen 1040
+piece 4
+move 15
+height 1580
+
+fallen 1041
+piece 0
+move 19
+height 1581
+
+fallen 1042
+piece 1
+move 23
+height 1584
+
+fallen 1043
+piece 2
+move 28
+height 1586
+
+fallen 1044
+piece 3
+move 34
+height 1588
+
+fallen 1045
+piece 4
+move 5
+height 1588
+
+fallen 1046
+piece 0
+move 11
+height 1588
+
+fallen 1047
+piece 1
+move 16
+height 1590
+
+fallen 1048
+piece 2
+move 20
+height 1593
+
+fallen 1049
+piece 3
+move 24
+height 1597
+
+fallen 1050
+piece 4
+move 34
+height 1597
+
+fallen 1051
+piece 0
+move 38
+height 1598
+
+fallen 1052
+piece 1
+move 3
+height 1600
+
+fallen 1053
+piece 2
+move 9
+height 1601
+
+fallen 1054
+piece 3
+move 15
+height 1603
+
+fallen 1055
+piece 4
+move 21
+height 1603
+
+fallen 1056
+piece 0
+move 25
+height 1604
+
+fallen 1057
+piece 1
+move 30
+height 1606
+
+fallen 1058
+piece 2
+move 36
+height 1607
+
+fallen 1059
+piece 3
+move 2
+height 1609
+
+fallen 1060
+piece 4
+move 10
+height 1609
+
+fallen 1061
+piece 0
+move 14
+height 1610
+
+fallen 1062
+piece 1
+move 18
+height 1613
+
+fallen 1063
+piece 2
+move 23
+height 1615
+
+fallen 1064
+piece 3
+move 36
+height 1615
+
+fallen 1065
+piece 4
+move 2
+height 1615
+
+fallen 1066
+piece 0
+move 6
+height 1616
+
+fallen 1067
+piece 1
+move 10
+height 1619
+
+fallen 1068
+piece 2
+move 14
+height 1622
+
+fallen 1069
+piece 3
+move 18
+height 1626
+
+fallen 1070
+piece 4
+move 28
+height 1626
+
+fallen 1071
+piece 0
+move 32
+height 1627
+
+fallen 1072
+piece 1
+move 37
+height 1629
+
+fallen 1073
+piece 2
+move 1
+height 1632
+
+fallen 1074
+piece 3
+move 10
+height 1632
+
+fallen 1075
+piece 4
+move 15
+height 1633
+
+fallen 1076
+piece 0
+move 19
+height 1634
+
+fallen 1077
+piece 1
+move 23
+height 1637
+
+fallen 1078
+piece 2
+move 28
+height 1639
+
+fallen 1079
+piece 3
+move 34
+height 1641
+
+fallen 1080
+piece 4
+move 5
+height 1641
+
+fallen 1081
+piece 0
+move 11
+height 1641
+
+fallen 1082
+piece 1
+move 16
+height 1643
+
+fallen 1083
+piece 2
+move 20
+height 1646
+
+fallen 1084
+piece 3
+move 24
+height 1650
+
+fallen 1085
+piece 4
+move 34
+height 1650
+
+fallen 1086
+piece 0
+move 38
+height 1651
+
+fallen 1087
+piece 1
+move 3
+height 1653
+
+fallen 1088
+piece 2
+move 9
+height 1654
+
+fallen 1089
+piece 3
+move 15
+height 1656
+
+fallen 1090
+piece 4
+move 21
+height 1656
+
+fallen 1091
+piece 0
+move 25
+height 1657
+
+fallen 1092
+piece 1
+move 30
+height 1659
+
+fallen 1093
+piece 2
+move 36
+height 1660
+
+fallen 1094
+piece 3
+move 2
+height 1662
+
+fallen 1095
+piece 4
+move 10
+height 1662
+
+fallen 1096
+piece 0
+move 14
+height 1663
+
+fallen 1097
+piece 1
+move 18
+height 1666
+
+fallen 1098
+piece 2
+move 23
+height 1668
+
+fallen 1099
+piece 3
+move 36
+height 1668
+
+fallen 1100
+piece 4
+move 2
+height 1668
+
+fallen 1101
+piece 0
+move 6
+height 1669
+
+fallen 1102
+piece 1
+move 10
+height 1672
+
+fallen 1103
+piece 2
+move 14
+height 1675
+
+fallen 1104
+piece 3
+move 18
+height 1679
+
+fallen 1105
+piece 4
+move 28
+height 1679
+
+fallen 1106
+piece 0
+move 32
+height 1680
+
+fallen 1107
+piece 1
+move 37
+height 1682
+
+fallen 1108
+piece 2
+move 1
+height 1685
+
+fallen 1109
+piece 3
+move 10
+height 1685
+
+fallen 1110
+piece 4
+move 15
+height 1686
+
+fallen 1111
+piece 0
+move 19
+height 1687
+
+fallen 1112
+piece 1
+move 23
+height 1690
+
+fallen 1113
+piece 2
+move 28
+height 1692
+
+fallen 1114
+piece 3
+move 34
+height 1694
+
+fallen 1115
+piece 4
+move 5
+height 1694
+
+fallen 1116
+piece 0
+move 11
+height 1694
+
+fallen 1117
+piece 1
+move 16
+height 1696
+
+fallen 1118
+piece 2
+move 20
+height 1699
+
+fallen 1119
+piece 3
+move 24
+height 1703
+
+fallen 1120
+piece 4
+move 34
+height 1703
+
+fallen 1121
+piece 0
+move 38
+height 1704
+
+fallen 1122
+piece 1
+move 3
+height 1706
+
+fallen 1123
+piece 2
+move 9
+height 1707
+
+fallen 1124
+piece 3
+move 15
+height 1709
+
+fallen 1125
+piece 4
+move 21
+height 1709
+
+fallen 1126
+piece 0
+move 25
+height 1710
+
+fallen 1127
+piece 1
+move 30
+height 1712
+
+fallen 1128
+piece 2
+move 36
+height 1713
+
+fallen 1129
+piece 3
+move 2
+height 1715
+
+fallen 1130
+piece 4
+move 10
+height 1715
+
+fallen 1131
+piece 0
+move 14
+height 1716
+
+fallen 1132
+piece 1
+move 18
+height 1719
+
+fallen 1133
+piece 2
+move 23
+height 1721
+
+fallen 1134
+piece 3
+move 36
+height 1721
+
+fallen 1135
+piece 4
+move 2
+height 1721
+
+fallen 1136
+piece 0
+move 6
+height 1722
+
+fallen 1137
+piece 1
+move 10
+height 1725
+
+fallen 1138
+piece 2
+move 14
+height 1728
+
+fallen 1139
+piece 3
+move 18
+height 1732
+
+fallen 1140
+piece 4
+move 28
+height 1732
+
+fallen 1141
+piece 0
+move 32
+height 1733
+
+fallen 1142
+piece 1
+move 37
+height 1735
+
+fallen 1143
+piece 2
+move 1
+height 1738
+
+fallen 1144
+piece 3
+move 10
+height 1738
+
+fallen 1145
+piece 4
+move 15
+height 1739
+
+fallen 1146
+piece 0
+move 19
+height 1740
+
+fallen 1147
+piece 1
+move 23
+height 1743
+
+fallen 1148
+piece 2
+move 28
+height 1745
+
+fallen 1149
+piece 3
+move 34
+height 1747
+
+fallen 1150
+piece 4
+move 5
+height 1747
+
+fallen 1151
+piece 0
+move 11
+height 1747
+
+fallen 1152
+piece 1
+move 16
+height 1749
+
+fallen 1153
+piece 2
+move 20
+height 1752
+
+fallen 1154
+piece 3
+move 24
+height 1756
+
+fallen 1155
+piece 4
+move 34
+height 1756
+
+fallen 1156
+piece 0
+move 38
+height 1757
+
+fallen 1157
+piece 1
+move 3
+height 1759
+
+fallen 1158
+piece 2
+move 9
+height 1760
+
+fallen 1159
+piece 3
+move 15
+height 1762
+
+fallen 1160
+piece 4
+move 21
+height 1762
+
+fallen 1161
+piece 0
+move 25
+height 1763
+
+fallen 1162
+piece 1
+move 30
+height 1765
+
+fallen 1163
+piece 2
+move 36
+height 1766
+
+fallen 1164
+piece 3
+move 2
+height 1768
+
+fallen 1165
+piece 4
+move 10
+height 1768
+
+fallen 1166
+piece 0
+move 14
+height 1769
+
+fallen 1167
+piece 1
+move 18
+height 1772
+
+fallen 1168
+piece 2
+move 23
+height 1774
+
+fallen 1169
+piece 3
+move 36
+height 1774
+
+fallen 1170
+piece 4
+move 2
+height 1774
+
+fallen 1171
+piece 0
+move 6
+height 1775
+
+fallen 1172
+piece 1
+move 10
+height 1778
+
+fallen 1173
+piece 2
+move 14
+height 1781
+
+fallen 1174
+piece 3
+move 18
+height 1785
+
+fallen 1175
+piece 4
+move 28
+height 1785
+
+fallen 1176
+piece 0
+move 32
+height 1786
+
+fallen 1177
+piece 1
+move 37
+height 1788
+
+fallen 1178
+piece 2
+move 1
+height 1791
+
+fallen 1179
+piece 3
+move 10
+height 1791
+
+fallen 1180
+piece 4
+move 15
+height 1792
+
+fallen 1181
+piece 0
+move 19
+height 1793
+
+fallen 1182
+piece 1
+move 23
+height 1796
+
+fallen 1183
+piece 2
+move 28
+height 1798
+
+fallen 1184
+piece 3
+move 34
+height 1800
+
+fallen 1185
+piece 4
+move 5
+height 1800
+
+fallen 1186
+piece 0
+move 11
+height 1800
+
+fallen 1187
+piece 1
+move 16
+height 1802
+
+fallen 1188
+piece 2
+move 20
+height 1805
+
+fallen 1189
+piece 3
+move 24
+height 1809
+
+fallen 1190
+piece 4
+move 34
+height 1809
+
+fallen 1191
+piece 0
+move 38
+height 1810
+
+fallen 1192
+piece 1
+move 3
+height 1812
+
+fallen 1193
+piece 2
+move 9
+height 1813
+
+fallen 1194
+piece 3
+move 15
+height 1815
+
+fallen 1195
+piece 4
+move 21
+height 1815
+
+fallen 1196
+piece 0
+move 25
+height 1816
+
+fallen 1197
+piece 1
+move 30
+height 1818
+
+fallen 1198
+piece 2
+move 36
+height 1819
+
+fallen 1199
+piece 3
+move 2
+height 1821
+
+fallen 1200
+piece 4
+move 10
+height 1821
+
+fallen 1201
+piece 0
+move 14
+height 1822
+
+fallen 1202
+piece 1
+move 18
+height 1825
+
+fallen 1203
+piece 2
+move 23
+height 1827
+
+fallen 1204
+piece 3
+move 36
+height 1827
+
+fallen 1205
+piece 4
+move 2
+height 1827
+
+fallen 1206
+piece 0
+move 6
+height 1828
+
+fallen 1207
+piece 1
+move 10
+height 1831
+
+fallen 1208
+piece 2
+move 14
+height 1834
+
+fallen 1209
+piece 3
+move 18
+height 1838
+
+fallen 1210
+piece 4
+move 28
+height 1838
+
+fallen 1211
+piece 0
+move 32
+height 1839
+
+fallen 1212
+piece 1
+move 37
+height 1841
+
+fallen 1213
+piece 2
+move 1
+height 1844
+
+fallen 1214
+piece 3
+move 10
+height 1844
+
+fallen 1215
+piece 4
+move 15
+height 1845
+
+fallen 1216
+piece 0
+move 19
+height 1846
+
+fallen 1217
+piece 1
+move 23
+height 1849
+
+fallen 1218
+piece 2
+move 28
+height 1851
+
+fallen 1219
+piece 3
+move 34
+height 1853
+
+fallen 1220
+piece 4
+move 5
+height 1853
+
+fallen 1221
+piece 0
+move 11
+height 1853
+
+fallen 1222
+piece 1
+move 16
+height 1855
+
+fallen 1223
+piece 2
+move 20
+height 1858
+
+fallen 1224
+piece 3
+move 24
+height 1862
+
+fallen 1225
+piece 4
+move 34
+height 1862
+
+fallen 1226
+piece 0
+move 38
+height 1863
+
+fallen 1227
+piece 1
+move 3
+height 1865
+
+fallen 1228
+piece 2
+move 9
+height 1866
+
+fallen 1229
+piece 3
+move 15
+height 1868
+
+fallen 1230
+piece 4
+move 21
+height 1868
+
+fallen 1231
+piece 0
+move 25
+height 1869
+
+fallen 1232
+piece 1
+move 30
+height 1871
+
+fallen 1233
+piece 2
+move 36
+height 1872
+
+fallen 1234
+piece 3
+move 2
+height 1874
+
+fallen 1235
+piece 4
+move 10
+height 1874
+
+fallen 1236
+piece 0
+move 14
+height 1875
+
+fallen 1237
+piece 1
+move 18
+height 1878
+
+fallen 1238
+piece 2
+move 23
+height 1880
+
+fallen 1239
+piece 3
+move 36
+height 1880
+
+fallen 1240
+piece 4
+move 2
+height 1880
+
+fallen 1241
+piece 0
+move 6
+height 1881
+
+fallen 1242
+piece 1
+move 10
+height 1884
+
+fallen 1243
+piece 2
+move 14
+height 1887
+
+fallen 1244
+piece 3
+move 18
+height 1891
+
+fallen 1245
+piece 4
+move 28
+height 1891
+
+fallen 1246
+piece 0
+move 32
+height 1892
+
+fallen 1247
+piece 1
+move 37
+height 1894
+
+fallen 1248
+piece 2
+move 1
+height 1897
+
+fallen 1249
+piece 3
+move 10
+height 1897
+
+fallen 1250
+piece 4
+move 15
+height 1898
+
+fallen 1251
+piece 0
+move 19
+height 1899
+
+fallen 1252
+piece 1
+move 23
+height 1902
+
+fallen 1253
+piece 2
+move 28
+height 1904
+
+fallen 1254
+piece 3
+move 34
+height 1906
+
+fallen 1255
+piece 4
+move 5
+height 1906
+
+fallen 1256
+piece 0
+move 11
+height 1906
+
+fallen 1257
+piece 1
+move 16
+height 1908
+
+fallen 1258
+piece 2
+move 20
+height 1911
+
+fallen 1259
+piece 3
+move 24
+height 1915
+
+fallen 1260
+piece 4
+move 34
+height 1915
+
+fallen 1261
+piece 0
+move 38
+height 1916
+
+fallen 1262
+piece 1
+move 3
+height 1918
+
+fallen 1263
+piece 2
+move 9
+height 1919
+
+fallen 1264
+piece 3
+move 15
+height 1921
+
+fallen 1265
+piece 4
+move 21
+height 1921
+
+fallen 1266
+piece 0
+move 25
+height 1922
+
+fallen 1267
+piece 1
+move 30
+height 1924
+
+fallen 1268
+piece 2
+move 36
+height 1925
+
+fallen 1269
+piece 3
+move 2
+height 1927
+
+fallen 1270
+piece 4
+move 10
+height 1927
+
+fallen 1271
+piece 0
+move 14
+height 1928
+
+fallen 1272
+piece 1
+move 18
+height 1931
+
+fallen 1273
+piece 2
+move 23
+height 1933
+
+fallen 1274
+piece 3
+move 36
+height 1933
+
+fallen 1275
+piece 4
+move 2
+height 1933
+
+fallen 1276
+piece 0
+move 6
+height 1934
+
+fallen 1277
+piece 1
+move 10
+height 1937
+
+fallen 1278
+piece 2
+move 14
+height 1940
+
+fallen 1279
+piece 3
+move 18
+height 1944
+
+fallen 1280
+piece 4
+move 28
+height 1944
+
+fallen 1281
+piece 0
+move 32
+height 1945
+
+fallen 1282
+piece 1
+move 37
+height 1947
+
+fallen 1283
+piece 2
+move 1
+height 1950
+
+fallen 1284
+piece 3
+move 10
+height 1950
+
+fallen 1285
+piece 4
+move 15
+height 1951
+
+fallen 1286
+piece 0
+move 19
+height 1952
+
+fallen 1287
+piece 1
+move 23
+height 1955
+
+fallen 1288
+piece 2
+move 28
+height 1957
+
+fallen 1289
+piece 3
+move 34
+height 1959
+
+fallen 1290
+piece 4
+move 5
+height 1959
+
+fallen 1291
+piece 0
+move 11
+height 1959
+
+fallen 1292
+piece 1
+move 16
+height 1961
+
+fallen 1293
+piece 2
+move 20
+height 1964
+
+fallen 1294
+piece 3
+move 24
+height 1968
+
+fallen 1295
+piece 4
+move 34
+height 1968
+
+fallen 1296
+piece 0
+move 38
+height 1969
+
+fallen 1297
+piece 1
+move 3
+height 1971
+
+fallen 1298
+piece 2
+move 9
+height 1972
+
+fallen 1299
+piece 3
+move 15
+height 1974
+
+fallen 1300
+piece 4
+move 21
+height 1974
+
+fallen 1301
+piece 0
+move 25
+height 1975
+
+fallen 1302
+piece 1
+move 30
+height 1977
+
+fallen 1303
+piece 2
+move 36
+height 1978
+
+fallen 1304
+piece 3
+move 2
+height 1980
+
+fallen 1305
+piece 4
+move 10
+height 1980
+
+fallen 1306
+piece 0
+move 14
+height 1981
+
+fallen 1307
+piece 1
+move 18
+height 1984
+
+fallen 1308
+piece 2
+move 23
+height 1986
+
+fallen 1309
+piece 3
+move 36
+height 1986
+
+fallen 1310
+piece 4
+move 2
+height 1986
+
+fallen 1311
+piece 0
+move 6
+height 1987
+
+fallen 1312
+piece 1
+move 10
+height 1990
+
+fallen 1313
+piece 2
+move 14
+height 1993
+
+fallen 1314
+piece 3
+move 18
+height 1997
+
+fallen 1315
+piece 4
+move 28
+height 1997
+
+fallen 1316
+piece 0
+move 32
+height 1998
+
+fallen 1317
+piece 1
+move 37
+height 2000
+
+fallen 1318
+piece 2
+move 1
+height 2003
+
+fallen 1319
+piece 3
+move 10
+height 2003
+
+fallen 1320
+piece 4
+move 15
+height 2004
+
+fallen 1321
+piece 0
+move 19
+height 2005
+
+fallen 1322
+piece 1
+move 23
+height 2008
+
+fallen 1323
+piece 2
+move 28
+height 2010
+
+fallen 1324
+piece 3
+move 34
+height 2012
+
+fallen 1325
+piece 4
+move 5
+height 2012
+
+fallen 1326
+piece 0
+move 11
+height 2012
+
+fallen 1327
+piece 1
+move 16
+height 2014
+
+fallen 1328
+piece 2
+move 20
+height 2017
+
+fallen 1329
+piece 3
+move 24
+height 2021
+
+fallen 1330
+piece 4
+move 34
+height 2021
+
+fallen 1331
+piece 0
+move 38
+height 2022
+
+fallen 1332
+piece 1
+move 3
+height 2024
+
+fallen 1333
+piece 2
+move 9
+height 2025
+
+fallen 1334
+piece 3
+move 15
+height 2027
+
+fallen 1335
+piece 4
+move 21
+height 2027
+
+fallen 1336
+piece 0
+move 25
+height 2028
+
+fallen 1337
+piece 1
+move 30
+height 2030
+
+fallen 1338
+piece 2
+move 36
+height 2031
+
+fallen 1339
+piece 3
+move 2
+height 2033
+
+fallen 1340
+piece 4
+move 10
+height 2033
+
+fallen 1341
+piece 0
+move 14
+height 2034
+
+fallen 1342
+piece 1
+move 18
+height 2037
+
+fallen 1343
+piece 2
+move 23
+height 2039
+
+fallen 1344
+piece 3
+move 36
+height 2039
+
+fallen 1345
+piece 4
+move 2
+height 2039
+
+fallen 1346
+piece 0
+move 6
+height 2040
+
+fallen 1347
+piece 1
+move 10
+height 2043
+
+fallen 1348
+piece 2
+move 14
+height 2046
+
+fallen 1349
+piece 3
+move 18
+height 2050
+
+fallen 1350
+piece 4
+move 28
+height 2050
+
+fallen 1351
+piece 0
+move 32
+height 2051
+
+fallen 1352
+piece 1
+move 37
+height 2053
+
+fallen 1353
+piece 2
+move 1
+height 2056
+
+fallen 1354
+piece 3
+move 10
+height 2056
+
+fallen 1355
+piece 4
+move 15
+height 2057
+
+fallen 1356
+piece 0
+move 19
+height 2058
+
+fallen 1357
+piece 1
+move 23
+height 2061
+
+fallen 1358
+piece 2
+move 28
+height 2063
+
+fallen 1359
+piece 3
+move 34
+height 2065
+
+fallen 1360
+piece 4
+move 5
+height 2065
+
+fallen 1361
+piece 0
+move 11
+height 2065
+
+fallen 1362
+piece 1
+move 16
+height 2067
+
+fallen 1363
+piece 2
+move 20
+height 2070
+
+fallen 1364
+piece 3
+move 24
+height 2074
+
+fallen 1365
+piece 4
+move 34
+height 2074
+
+fallen 1366
+piece 0
+move 38
+height 2075
+
+fallen 1367
+piece 1
+move 3
+height 2077
+
+fallen 1368
+piece 2
+move 9
+height 2078
+
+fallen 1369
+piece 3
+move 15
+height 2080
+
+fallen 1370
+piece 4
+move 21
+height 2080
+
+fallen 1371
+piece 0
+move 25
+height 2081
+
+fallen 1372
+piece 1
+move 30
+height 2083
+
+fallen 1373
+piece 2
+move 36
+height 2084
+
+fallen 1374
+piece 3
+move 2
+height 2086
+
+fallen 1375
+piece 4
+move 10
+height 2086
+
+fallen 1376
+piece 0
+move 14
+height 2087
+
+fallen 1377
+piece 1
+move 18
+height 2090
+
+fallen 1378
+piece 2
+move 23
+height 2092
+
+fallen 1379
+piece 3
+move 36
+height 2092
+
+fallen 1380
+piece 4
+move 2
+height 2092
+
+fallen 1381
+piece 0
+move 6
+height 2093
+
+fallen 1382
+piece 1
+move 10
+height 2096
+
+fallen 1383
+piece 2
+move 14
+height 2099
+
+fallen 1384
+piece 3
+move 18
+height 2103
+
+fallen 1385
+piece 4
+move 28
+height 2103
+
+fallen 1386
+piece 0
+move 32
+height 2104
+
+fallen 1387
+piece 1
+move 37
+height 2106
+
+fallen 1388
+piece 2
+move 1
+height 2109
+
+fallen 1389
+piece 3
+move 10
+height 2109
+
+fallen 1390
+piece 4
+move 15
+height 2110
+
+fallen 1391
+piece 0
+move 19
+height 2111
+
+fallen 1392
+piece 1
+move 23
+height 2114
+
+fallen 1393
+piece 2
+move 28
+height 2116
+
+fallen 1394
+piece 3
+move 34
+height 2118
+
+fallen 1395
+piece 4
+move 5
+height 2118
+
+fallen 1396
+piece 0
+move 11
+height 2118
+
+fallen 1397
+piece 1
+move 16
+height 2120
+
+fallen 1398
+piece 2
+move 20
+height 2123
+
+fallen 1399
+piece 3
+move 24
+height 2127
+
+fallen 1400
+piece 4
+move 34
+height 2127
+
+fallen 1401
+piece 0
+move 38
+height 2128
+
+fallen 1402
+piece 1
+move 3
+height 2130
+
+fallen 1403
+piece 2
+move 9
+height 2131
+
+fallen 1404
+piece 3
+move 15
+height 2133
+
+fallen 1405
+piece 4
+move 21
+height 2133
+
+fallen 1406
+piece 0
+move 25
+height 2134
+
+fallen 1407
+piece 1
+move 30
+height 2136
+
+fallen 1408
+piece 2
+move 36
+height 2137
+
+fallen 1409
+piece 3
+move 2
+height 2139
+
+fallen 1410
+piece 4
+move 10
+height 2139
+
+fallen 1411
+piece 0
+move 14
+height 2140
+
+fallen 1412
+piece 1
+move 18
+height 2143
+
+fallen 1413
+piece 2
+move 23
+height 2145
+
+fallen 1414
+piece 3
+move 36
+height 2145
+
+fallen 1415
+piece 4
+move 2
+height 2145
+
+fallen 1416
+piece 0
+move 6
+height 2146
+
+fallen 1417
+piece 1
+move 10
+height 2149
+
+fallen 1418
+piece 2
+move 14
+height 2152
+
+fallen 1419
+piece 3
+move 18
+height 2156
+
+fallen 1420
+piece 4
+move 28
+height 2156
+
+fallen 1421
+piece 0
+move 32
+height 2157
+
+fallen 1422
+piece 1
+move 37
+height 2159
+
+fallen 1423
+piece 2
+move 1
+height 2162
+
+fallen 1424
+piece 3
+move 10
+height 2162
+
+fallen 1425
+piece 4
+move 15
+height 2163
+
+fallen 1426
+piece 0
+move 19
+height 2164
+
+fallen 1427
+piece 1
+move 23
+height 2167
+
+fallen 1428
+piece 2
+move 28
+height 2169
+
+fallen 1429
+piece 3
+move 34
+height 2171
+
+fallen 1430
+piece 4
+move 5
+height 2171
+
+fallen 1431
+piece 0
+move 11
+height 2171
+
+fallen 1432
+piece 1
+move 16
+height 2173
+
+fallen 1433
+piece 2
+move 20
+height 2176
+
+fallen 1434
+piece 3
+move 24
+height 2180
+
+fallen 1435
+piece 4
+move 34
+height 2180
+
+fallen 1436
+piece 0
+move 38
+height 2181
+
+fallen 1437
+piece 1
+move 3
+height 2183
+
+fallen 1438
+piece 2
+move 9
+height 2184
+
+fallen 1439
+piece 3
+move 15
+height 2186
+
+fallen 1440
+piece 4
+move 21
+height 2186
+
+fallen 1441
+piece 0
+move 25
+height 2187
+
+fallen 1442
+piece 1
+move 30
+height 2189
+
+fallen 1443
+piece 2
+move 36
+height 2190
+
+fallen 1444
+piece 3
+move 2
+height 2192
+
+fallen 1445
+piece 4
+move 10
+height 2192
+
+fallen 1446
+piece 0
+move 14
+height 2193
+
+fallen 1447
+piece 1
+move 18
+height 2196
+
+fallen 1448
+piece 2
+move 23
+height 2198
+
+fallen 1449
+piece 3
+move 36
+height 2198
+
+fallen 1450
+piece 4
+move 2
+height 2198
+
+fallen 1451
+piece 0
+move 6
+height 2199
+
+fallen 1452
+piece 1
+move 10
+height 2202
+
+fallen 1453
+piece 2
+move 14
+height 2205
+
+fallen 1454
+piece 3
+move 18
+height 2209
+
+fallen 1455
+piece 4
+move 28
+height 2209
+
+fallen 1456
+piece 0
+move 32
+height 2210
+
+fallen 1457
+piece 1
+move 37
+height 2212
+
+fallen 1458
+piece 2
+move 1
+height 2215
+
+fallen 1459
+piece 3
+move 10
+height 2215
+
+fallen 1460
+piece 4
+move 15
+height 2216
+
+fallen 1461
+piece 0
+move 19
+height 2217
+
+fallen 1462
+piece 1
+move 23
+height 2220
+
+fallen 1463
+piece 2
+move 28
+height 2222
+
+fallen 1464
+piece 3
+move 34
+height 2224
+
+fallen 1465
+piece 4
+move 5
+height 2224
+
+fallen 1466
+piece 0
+move 11
+height 2224
+
+fallen 1467
+piece 1
+move 16
+height 2226
+
+fallen 1468
+piece 2
+move 20
+height 2229
+
+fallen 1469
+piece 3
+move 24
+height 2233
+
+fallen 1470
+piece 4
+move 34
+height 2233
+
+fallen 1471
+piece 0
+move 38
+height 2234
+
+fallen 1472
+piece 1
+move 3
+height 2236
+
+fallen 1473
+piece 2
+move 9
+height 2237
+
+fallen 1474
+piece 3
+move 15
+height 2239
+
+fallen 1475
+piece 4
+move 21
+height 2239
+
+fallen 1476
+piece 0
+move 25
+height 2240
+
+fallen 1477
+piece 1
+move 30
+height 2242
+
+fallen 1478
+piece 2
+move 36
+height 2243
+
+fallen 1479
+piece 3
+move 2
+height 2245
+
+fallen 1480
+piece 4
+move 10
+height 2245
+
+fallen 1481
+piece 0
+move 14
+height 2246
+
+fallen 1482
+piece 1
+move 18
+height 2249
+
+fallen 1483
+piece 2
+move 23
+height 2251
+
+fallen 1484
+piece 3
+move 36
+height 2251
+
+fallen 1485
+piece 4
+move 2
+height 2251
+
+fallen 1486
+piece 0
+move 6
+height 2252
+
+fallen 1487
+piece 1
+move 10
+height 2255
+
+fallen 1488
+piece 2
+move 14
+height 2258
+
+fallen 1489
+piece 3
+move 18
+height 2262
+
+fallen 1490
+piece 4
+move 28
+height 2262
+
+fallen 1491
+piece 0
+move 32
+height 2263
+
+fallen 1492
+piece 1
+move 37
+height 2265
+
+fallen 1493
+piece 2
+move 1
+height 2268
+
+fallen 1494
+piece 3
+move 10
+height 2268
+
+fallen 1495
+piece 4
+move 15
+height 2269
+
+fallen 1496
+piece 0
+move 19
+height 2270
+
+fallen 1497
+piece 1
+move 23
+height 2273
+
+fallen 1498
+piece 2
+move 28
+height 2275
+
+fallen 1499
+piece 3
+move 34
+height 2277
+
+fallen 1500
+piece 4
+move 5
+height 2277
+
+fallen 1501
+piece 0
+move 11
+height 2277
+
+fallen 1502
+piece 1
+move 16
+height 2279
+
+fallen 1503
+piece 2
+move 20
+height 2282
+
+fallen 1504
+piece 3
+move 24
+height 2286
+
+fallen 1505
+piece 4
+move 34
+height 2286
+
+fallen 1506
+piece 0
+move 38
+height 2287
+
+fallen 1507
+piece 1
+move 3
+height 2289
+
+fallen 1508
+piece 2
+move 9
+height 2290
+
+fallen 1509
+piece 3
+move 15
+height 2292
+
+fallen 1510
+piece 4
+move 21
+height 2292
+
+fallen 1511
+piece 0
+move 25
+height 2293
+
+fallen 1512
+piece 1
+move 30
+height 2295
+
+fallen 1513
+piece 2
+move 36
+height 2296
+
+fallen 1514
+piece 3
+move 2
+height 2298
+
+fallen 1515
+piece 4
+move 10
+height 2298
+
+fallen 1516
+piece 0
+move 14
+height 2299
+
+fallen 1517
+piece 1
+move 18
+height 2302
+
+fallen 1518
+piece 2
+move 23
+height 2304
+
+fallen 1519
+piece 3
+move 36
+height 2304
+
+fallen 1520
+piece 4
+move 2
+height 2304
+
+fallen 1521
+piece 0
+move 6
+height 2305
+
+fallen 1522
+piece 1
+move 10
+height 2308
+
+fallen 1523
+piece 2
+move 14
+height 2311
+
+fallen 1524
+piece 3
+move 18
+height 2315
+
+fallen 1525
+piece 4
+move 28
+height 2315
+
+fallen 1526
+piece 0
+move 32
+height 2316
+
+fallen 1527
+piece 1
+move 37
+height 2318
+
+fallen 1528
+piece 2
+move 1
+height 2321
+
+fallen 1529
+piece 3
+move 10
+height 2321
+
+fallen 1530
+piece 4
+move 15
+height 2322
+
+fallen 1531
+piece 0
+move 19
+height 2323
+
+fallen 1532
+piece 1
+move 23
+height 2326
+
+fallen 1533
+piece 2
+move 28
+height 2328
+
+fallen 1534
+piece 3
+move 34
+height 2330
+
+fallen 1535
+piece 4
+move 5
+height 2330
+
+fallen 1536
+piece 0
+move 11
+height 2330
+
+fallen 1537
+piece 1
+move 16
+height 2332
+
+fallen 1538
+piece 2
+move 20
+height 2335
+
+fallen 1539
+piece 3
+move 24
+height 2339
+
+fallen 1540
+piece 4
+move 34
+height 2339
+
+fallen 1541
+piece 0
+move 38
+height 2340
+
+fallen 1542
+piece 1
+move 3
+height 2342
+
+fallen 1543
+piece 2
+move 9
+height 2343
+
+fallen 1544
+piece 3
+move 15
+height 2345
+
+fallen 1545
+piece 4
+move 21
+height 2345
+
+fallen 1546
+piece 0
+move 25
+height 2346
+
+fallen 1547
+piece 1
+move 30
+height 2348
+
+fallen 1548
+piece 2
+move 36
+height 2349
+
+fallen 1549
+piece 3
+move 2
+height 2351
+
+fallen 1550
+piece 4
+move 10
+height 2351
+
+fallen 1551
+piece 0
+move 14
+height 2352
+
+fallen 1552
+piece 1
+move 18
+height 2355
+
+fallen 1553
+piece 2
+move 23
+height 2357
+
+fallen 1554
+piece 3
+move 36
+height 2357
+
+fallen 1555
+piece 4
+move 2
+height 2357
+
+fallen 1556
+piece 0
+move 6
+height 2358
+
+fallen 1557
+piece 1
+move 10
+height 2361
+
+fallen 1558
+piece 2
+move 14
+height 2364
+
+fallen 1559
+piece 3
+move 18
+height 2368
+
+fallen 1560
+piece 4
+move 28
+height 2368
+
+fallen 1561
+piece 0
+move 32
+height 2369
+
+fallen 1562
+piece 1
+move 37
+height 2371
+
+fallen 1563
+piece 2
+move 1
+height 2374
+
+fallen 1564
+piece 3
+move 10
+height 2374
+
+fallen 1565
+piece 4
+move 15
+height 2375
+
+fallen 1566
+piece 0
+move 19
+height 2376
+
+fallen 1567
+piece 1
+move 23
+height 2379
+
+fallen 1568
+piece 2
+move 28
+height 2381
+
+fallen 1569
+piece 3
+move 34
+height 2383
+
+fallen 1570
+piece 4
+move 5
+height 2383
+
+fallen 1571
+piece 0
+move 11
+height 2383
+
+fallen 1572
+piece 1
+move 16
+height 2385
+
+fallen 1573
+piece 2
+move 20
+height 2388
+
+fallen 1574
+piece 3
+move 24
+height 2392
+
+fallen 1575
+piece 4
+move 34
+height 2392
+
+fallen 1576
+piece 0
+move 38
+height 2393
+
+fallen 1577
+piece 1
+move 3
+height 2395
+
+fallen 1578
+piece 2
+move 9
+height 2396
+
+fallen 1579
+piece 3
+move 15
+height 2398
+
+fallen 1580
+piece 4
+move 21
+height 2398
+
+fallen 1581
+piece 0
+move 25
+height 2399
+
+fallen 1582
+piece 1
+move 30
+height 2401
+
+fallen 1583
+piece 2
+move 36
+height 2402
+
+fallen 1584
+piece 3
+move 2
+height 2404
+
+fallen 1585
+piece 4
+move 10
+height 2404
+
+fallen 1586
+piece 0
+move 14
+height 2405
+
+fallen 1587
+piece 1
+move 18
+height 2408
+
+fallen 1588
+piece 2
+move 23
+height 2410
+
+fallen 1589
+piece 3
+move 36
+height 2410
+
+fallen 1590
+piece 4
+move 2
+height 2410
+
+fallen 1591
+piece 0
+move 6
+height 2411
+
+fallen 1592
+piece 1
+move 10
+height 2414
+
+fallen 1593
+piece 2
+move 14
+height 2417
+
+fallen 1594
+piece 3
+move 18
+height 2421
+
+fallen 1595
+piece 4
+move 28
+height 2421
+
+fallen 1596
+piece 0
+move 32
+height 2422
+
+fallen 1597
+piece 1
+move 37
+height 2424
+
+fallen 1598
+piece 2
+move 1
+height 2427
+
+fallen 1599
+piece 3
+move 10
+height 2427
+
+fallen 1600
+piece 4
+move 15
+height 2428
+
+fallen 1601
+piece 0
+move 19
+height 2429
+
+fallen 1602
+piece 1
+move 23
+height 2432
+
+fallen 1603
+piece 2
+move 28
+height 2434
+
+fallen 1604
+piece 3
+move 34
+height 2436
+
+fallen 1605
+piece 4
+move 5
+height 2436
+
+fallen 1606
+piece 0
+move 11
+height 2436
+
+fallen 1607
+piece 1
+move 16
+height 2438
+
+fallen 1608
+piece 2
+move 20
+height 2441
+
+fallen 1609
+piece 3
+move 24
+height 2445
+
+fallen 1610
+piece 4
+move 34
+height 2445
+
+fallen 1611
+piece 0
+move 38
+height 2446
+
+fallen 1612
+piece 1
+move 3
+height 2448
+
+fallen 1613
+piece 2
+move 9
+height 2449
+
+fallen 1614
+piece 3
+move 15
+height 2451
+
+fallen 1615
+piece 4
+move 21
+height 2451
+
+fallen 1616
+piece 0
+move 25
+height 2452
+
+fallen 1617
+piece 1
+move 30
+height 2454
+
+fallen 1618
+piece 2
+move 36
+height 2455
+
+fallen 1619
+piece 3
+move 2
+height 2457
+
+fallen 1620
+piece 4
+move 10
+height 2457
+
+fallen 1621
+piece 0
+move 14
+height 2458
+
+fallen 1622
+piece 1
+move 18
+height 2461
+
+fallen 1623
+piece 2
+move 23
+height 2463
+
+fallen 1624
+piece 3
+move 36
+height 2463
+
+fallen 1625
+piece 4
+move 2
+height 2463
+
+fallen 1626
+piece 0
+move 6
+height 2464
+
+fallen 1627
+piece 1
+move 10
+height 2467
+
+fallen 1628
+piece 2
+move 14
+height 2470
+
+fallen 1629
+piece 3
+move 18
+height 2474
+
+fallen 1630
+piece 4
+move 28
+height 2474
+
+fallen 1631
+piece 0
+move 32
+height 2475
+
+fallen 1632
+piece 1
+move 37
+height 2477
+
+fallen 1633
+piece 2
+move 1
+height 2480
+
+fallen 1634
+piece 3
+move 10
+height 2480
+
+fallen 1635
+piece 4
+move 15
+height 2481
+
+fallen 1636
+piece 0
+move 19
+height 2482
+
+fallen 1637
+piece 1
+move 23
+height 2485
+
+fallen 1638
+piece 2
+move 28
+height 2487
+
+fallen 1639
+piece 3
+move 34
+height 2489
+
+fallen 1640
+piece 4
+move 5
+height 2489
+
+fallen 1641
+piece 0
+move 11
+height 2489
+
+fallen 1642
+piece 1
+move 16
+height 2491
+
+fallen 1643
+piece 2
+move 20
+height 2494
+
+fallen 1644
+piece 3
+move 24
+height 2498
+
+fallen 1645
+piece 4
+move 34
+height 2498
+
+fallen 1646
+piece 0
+move 38
+height 2499
+
+fallen 1647
+piece 1
+move 3
+height 2501
+
+fallen 1648
+piece 2
+move 9
+height 2502
+
+fallen 1649
+piece 3
+move 15
+height 2504
+
+fallen 1650
+piece 4
+move 21
+height 2504
+
+fallen 1651
+piece 0
+move 25
+height 2505
+
+fallen 1652
+piece 1
+move 30
+height 2507
+
+fallen 1653
+piece 2
+move 36
+height 2508
+
+fallen 1654
+piece 3
+move 2
+height 2510
+
+fallen 1655
+piece 4
+move 10
+height 2510
+
+fallen 1656
+piece 0
+move 14
+height 2511
+
+fallen 1657
+piece 1
+move 18
+height 2514
+
+fallen 1658
+piece 2
+move 23
+height 2516
+
+fallen 1659
+piece 3
+move 36
+height 2516
+
+fallen 1660
+piece 4
+move 2
+height 2516
+
+fallen 1661
+piece 0
+move 6
+height 2517
+
+fallen 1662
+piece 1
+move 10
+height 2520
+
+fallen 1663
+piece 2
+move 14
+height 2523
+
+fallen 1664
+piece 3
+move 18
+height 2527
+
+fallen 1665
+piece 4
+move 28
+height 2527
+
+fallen 1666
+piece 0
+move 32
+height 2528
+
+fallen 1667
+piece 1
+move 37
+height 2530
+
+fallen 1668
+piece 2
+move 1
+height 2533
+
+fallen 1669
+piece 3
+move 10
+height 2533
+
+fallen 1670
+piece 4
+move 15
+height 2534
+
+fallen 1671
+piece 0
+move 19
+height 2535
+
+fallen 1672
+piece 1
+move 23
+height 2538
+
+fallen 1673
+piece 2
+move 28
+height 2540
+
+fallen 1674
+piece 3
+move 34
+height 2542
+
+fallen 1675
+piece 4
+move 5
+height 2542
+
+fallen 1676
+piece 0
+move 11
+height 2542
+
+fallen 1677
+piece 1
+move 16
+height 2544
+
+fallen 1678
+piece 2
+move 20
+height 2547
+
+fallen 1679
+piece 3
+move 24
+height 2551
+
+fallen 1680
+piece 4
+move 34
+height 2551
+
+fallen 1681
+piece 0
+move 38
+height 2552
+
+fallen 1682
+piece 1
+move 3
+height 2554
+
+fallen 1683
+piece 2
+move 9
+height 2555
+
+fallen 1684
+piece 3
+move 15
+height 2557
+
+fallen 1685
+piece 4
+move 21
+height 2557
+
+fallen 1686
+piece 0
+move 25
+height 2558
+
+fallen 1687
+piece 1
+move 30
+height 2560
+
+fallen 1688
+piece 2
+move 36
+height 2561
+
+fallen 1689
+piece 3
+move 2
+height 2563
+
+fallen 1690
+piece 4
+move 10
+height 2563
+
+fallen 1691
+piece 0
+move 14
+height 2564
+
+fallen 1692
+piece 1
+move 18
+height 2567
+
+fallen 1693
+piece 2
+move 23
+height 2569
+
+fallen 1694
+piece 3
+move 36
+height 2569
+
+fallen 1695
+piece 4
+move 2
+height 2569
+
+fallen 1696
+piece 0
+move 6
+height 2570
+
+fallen 1697
+piece 1
+move 10
+height 2573
+
+fallen 1698
+piece 2
+move 14
+height 2576
+
+fallen 1699
+piece 3
+move 18
+height 2580
+
+fallen 1700
+piece 4
+move 28
+height 2580
+
+fallen 1701
+piece 0
+move 32
+height 2581
+
+fallen 1702
+piece 1
+move 37
+height 2583
+
+fallen 1703
+piece 2
+move 1
+height 2586
+
+fallen 1704
+piece 3
+move 10
+height 2586
+
+fallen 1705
+piece 4
+move 15
+height 2587
+
+fallen 1706
+piece 0
+move 19
+height 2588
+
+fallen 1707
+piece 1
+move 23
+height 2591
+
+fallen 1708
+piece 2
+move 28
+height 2593
+
+fallen 1709
+piece 3
+move 34
+height 2595
+
+fallen 1710
+piece 4
+move 5
+height 2595
+
+fallen 1711
+piece 0
+move 11
+height 2595
+
+fallen 1712
+piece 1
+move 16
+height 2597
+
+fallen 1713
+piece 2
+move 20
+height 2600
+
+fallen 1714
+piece 3
+move 24
+height 2604
+
+fallen 1715
+piece 4
+move 34
+height 2604
+
+fallen 1716
+piece 0
+move 38
+height 2605
+
+fallen 1717
+piece 1
+move 3
+height 2607
+
+fallen 1718
+piece 2
+move 9
+height 2608
+
+fallen 1719
+piece 3
+move 15
+height 2610
+
+fallen 1720
+piece 4
+move 21
+height 2610
+
+fallen 1721
+piece 0
+move 25
+height 2611
+
+fallen 1722
+piece 1
+move 30
+height 2613
+
+fallen 1723
+piece 2
+move 36
+height 2614
+
+fallen 1724
+piece 3
+move 2
+height 2616
+
+fallen 1725
+piece 4
+move 10
+height 2616
+
+fallen 1726
+piece 0
+move 14
+height 2617
+
+fallen 1727
+piece 1
+move 18
+height 2620
+
+fallen 1728
+piece 2
+move 23
+height 2622
+
+fallen 1729
+piece 3
+move 36
+height 2622
+
+fallen 1730
+piece 4
+move 2
+height 2622
+
+fallen 1731
+piece 0
+move 6
+height 2623
+
+fallen 1732
+piece 1
+move 10
+height 2626
+
+fallen 1733
+piece 2
+move 14
+height 2629
+
+fallen 1734
+piece 3
+move 18
+height 2633
+
+fallen 1735
+piece 4
+move 28
+height 2633
+
+fallen 1736
+piece 0
+move 32
+height 2634
+
+fallen 1737
+piece 1
+move 37
+height 2636
+
+fallen 1738
+piece 2
+move 1
+height 2639
+
+fallen 1739
+piece 3
+move 10
+height 2639
+
+fallen 1740
+piece 4
+move 15
+height 2640
+
+fallen 1741
+piece 0
+move 19
+height 2641
+
+fallen 1742
+piece 1
+move 23
+height 2644
+
+fallen 1743
+piece 2
+move 28
+height 2646
+
+fallen 1744
+piece 3
+move 34
+height 2648
+
+fallen 1745
+piece 4
+move 5
+height 2648
+
+fallen 1746
+piece 0
+move 11
+height 2648
+
+fallen 1747
+piece 1
+move 16
+height 2650
+
+fallen 1748
+piece 2
+move 20
+height 2653
+
+fallen 1749
+piece 3
+move 24
+height 2657
+
+fallen 1750
+piece 4
+move 34
+height 2657
+
+fallen 1751
+piece 0
+move 38
+height 2658
+
+fallen 1752
+piece 1
+move 3
+height 2660
+
+fallen 1753
+piece 2
+move 9
+height 2661
+
+fallen 1754
+piece 3
+move 15
+height 2663
+
+fallen 1755
+piece 4
+move 21
+height 2663
+
+fallen 1756
+piece 0
+move 25
+height 2664
+
+fallen 1757
+piece 1
+move 30
+height 2666
+
+fallen 1758
+piece 2
+move 36
+height 2667
+
+fallen 1759
+piece 3
+move 2
+height 2669
+
+fallen 1760
+piece 4
+move 10
+height 2669
+
+fallen 1761
+piece 0
+move 14
+height 2670
+
+fallen 1762
+piece 1
+move 18
+height 2673
+
+fallen 1763
+piece 2
+move 23
+height 2675
+
+fallen 1764
+piece 3
+move 36
+height 2675
+
+fallen 1765
+piece 4
+move 2
+height 2675
+
+fallen 1766
+piece 0
+move 6
+height 2676
+
+fallen 1767
+piece 1
+move 10
+height 2679
+
+fallen 1768
+piece 2
+move 14
+height 2682
+
+fallen 1769
+piece 3
+move 18
+height 2686
+
+fallen 1770
+piece 4
+move 28
+height 2686
+
+fallen 1771
+piece 0
+move 32
+height 2687
+
+fallen 1772
+piece 1
+move 37
+height 2689
+
+fallen 1773
+piece 2
+move 1
+height 2692
+
+fallen 1774
+piece 3
+move 10
+height 2692
+
+fallen 1775
+piece 4
+move 15
+height 2693
+
+fallen 1776
+piece 0
+move 19
+height 2694
+
+fallen 1777
+piece 1
+move 23
+height 2697
+
+fallen 1778
+piece 2
+move 28
+height 2699
+
+fallen 1779
+piece 3
+move 34
+height 2701
+
+fallen 1780
+piece 4
+move 5
+height 2701
+
+fallen 1781
+piece 0
+move 11
+height 2701
+
+fallen 1782
+piece 1
+move 16
+height 2703
+
+fallen 1783
+piece 2
+move 20
+height 2706
+
+fallen 1784
+piece 3
+move 24
+height 2710
+
+fallen 1785
+piece 4
+move 34
+height 2710
+
+fallen 1786
+piece 0
+move 38
+height 2711
+
+fallen 1787
+piece 1
+move 3
+height 2713
+
+fallen 1788
+piece 2
+move 9
+height 2714
+
+fallen 1789
+piece 3
+move 15
+height 2716
+
+fallen 1790
+piece 4
+move 21
+height 2716
+
+fallen 1791
+piece 0
+move 25
+height 2717
+
+fallen 1792
+piece 1
+move 30
+height 2719
+
+fallen 1793
+piece 2
+move 36
+height 2720
+
+fallen 1794
+piece 3
+move 2
+height 2722
+
+fallen 1795
+piece 4
+move 10
+height 2722
+
+fallen 1796
+piece 0
+move 14
+height 2723
+
+fallen 1797
+piece 1
+move 18
+height 2726
+
+fallen 1798
+piece 2
+move 23
+height 2728
+
+fallen 1799
+piece 3
+move 36
+height 2728
+
+fallen 1800
+piece 4
+move 2
+height 2728
+
+fallen 1801
+piece 0
+move 6
+height 2729
+
+fallen 1802
+piece 1
+move 10
+height 2732
+
+fallen 1803
+piece 2
+move 14
+height 2735
+
+fallen 1804
+piece 3
+move 18
+height 2739
+
+fallen 1805
+piece 4
+move 28
+height 2739
+
+fallen 1806
+piece 0
+move 32
+height 2740
+
+fallen 1807
+piece 1
+move 37
+height 2742
+
+fallen 1808
+piece 2
+move 1
+height 2745
+
+fallen 1809
+piece 3
+move 10
+height 2745
+
+fallen 1810
+piece 4
+move 15
+height 2746
+
+fallen 1811
+piece 0
+move 19
+height 2747
+
+fallen 1812
+piece 1
+move 23
+height 2750
+
+fallen 1813
+piece 2
+move 28
+height 2752
+
+fallen 1814
+piece 3
+move 34
+height 2754
+
+fallen 1815
+piece 4
+move 5
+height 2754
+
+fallen 1816
+piece 0
+move 11
+height 2754
+
+fallen 1817
+piece 1
+move 16
+height 2756
+
+fallen 1818
+piece 2
+move 20
+height 2759
+
+fallen 1819
+piece 3
+move 24
+height 2763
+
+fallen 1820
+piece 4
+move 34
+height 2763
+
+fallen 1821
+piece 0
+move 38
+height 2764
+
+fallen 1822
+piece 1
+move 3
+height 2766
+
+fallen 1823
+piece 2
+move 9
+height 2767
+
+fallen 1824
+piece 3
+move 15
+height 2769
+
+fallen 1825
+piece 4
+move 21
+height 2769
+
+fallen 1826
+piece 0
+move 25
+height 2770
+
+fallen 1827
+piece 1
+move 30
+height 2772
+
+fallen 1828
+piece 2
+move 36
+height 2773
+
+fallen 1829
+piece 3
+move 2
+height 2775
+
+fallen 1830
+piece 4
+move 10
+height 2775
+
+fallen 1831
+piece 0
+move 14
+height 2776
+
+fallen 1832
+piece 1
+move 18
+height 2779
+
+fallen 1833
+piece 2
+move 23
+height 2781
+
+fallen 1834
+piece 3
+move 36
+height 2781
+
+fallen 1835
+piece 4
+move 2
+height 2781
+
+fallen 1836
+piece 0
+move 6
+height 2782
+
+fallen 1837
+piece 1
+move 10
+height 2785
+
+fallen 1838
+piece 2
+move 14
+height 2788
+
+fallen 1839
+piece 3
+move 18
+height 2792
+
+fallen 1840
+piece 4
+move 28
+height 2792
+
+fallen 1841
+piece 0
+move 32
+height 2793
+
+fallen 1842
+piece 1
+move 37
+height 2795
+
+fallen 1843
+piece 2
+move 1
+height 2798
+
+fallen 1844
+piece 3
+move 10
+height 2798
+
+fallen 1845
+piece 4
+move 15
+height 2799
+
+fallen 1846
+piece 0
+move 19
+height 2800
+
+fallen 1847
+piece 1
+move 23
+height 2803
+
+fallen 1848
+piece 2
+move 28
+height 2805
+
+fallen 1849
+piece 3
+move 34
+height 2807
+
+fallen 1850
+piece 4
+move 5
+height 2807
+
+fallen 1851
+piece 0
+move 11
+height 2807
+
+fallen 1852
+piece 1
+move 16
+height 2809
+
+fallen 1853
+piece 2
+move 20
+height 2812
+
+fallen 1854
+piece 3
+move 24
+height 2816
+
+fallen 1855
+piece 4
+move 34
+height 2816
+
+fallen 1856
+piece 0
+move 38
+height 2817
+
+fallen 1857
+piece 1
+move 3
+height 2819
+
+fallen 1858
+piece 2
+move 9
+height 2820
+
+fallen 1859
+piece 3
+move 15
+height 2822
+
+fallen 1860
+piece 4
+move 21
+height 2822
+
+fallen 1861
+piece 0
+move 25
+height 2823
+
+fallen 1862
+piece 1
+move 30
+height 2825
+
+fallen 1863
+piece 2
+move 36
+height 2826
+
+fallen 1864
+piece 3
+move 2
+height 2828
+
+fallen 1865
+piece 4
+move 10
+height 2828
+
+fallen 1866
+piece 0
+move 14
+height 2829
+
+fallen 1867
+piece 1
+move 18
+height 2832
+
+fallen 1868
+piece 2
+move 23
+height 2834
+
+fallen 1869
+piece 3
+move 36
+height 2834
+
+fallen 1870
+piece 4
+move 2
+height 2834
+
+fallen 1871
+piece 0
+move 6
+height 2835
+
+fallen 1872
+piece 1
+move 10
+height 2838
+
+fallen 1873
+piece 2
+move 14
+height 2841
+
+fallen 1874
+piece 3
+move 18
+height 2845
+
+fallen 1875
+piece 4
+move 28
+height 2845
+
+fallen 1876
+piece 0
+move 32
+height 2846
+
+fallen 1877
+piece 1
+move 37
+height 2848
+
+fallen 1878
+piece 2
+move 1
+height 2851
+
+fallen 1879
+piece 3
+move 10
+height 2851
+
+fallen 1880
+piece 4
+move 15
+height 2852
+
+fallen 1881
+piece 0
+move 19
+height 2853
+
+fallen 1882
+piece 1
+move 23
+height 2856
+
+fallen 1883
+piece 2
+move 28
+height 2858
+
+fallen 1884
+piece 3
+move 34
+height 2860
+
+fallen 1885
+piece 4
+move 5
+height 2860
+
+fallen 1886
+piece 0
+move 11
+height 2860
+
+fallen 1887
+piece 1
+move 16
+height 2862
+
+fallen 1888
+piece 2
+move 20
+height 2865
+
+fallen 1889
+piece 3
+move 24
+height 2869
+
+fallen 1890
+piece 4
+move 34
+height 2869
+
+fallen 1891
+piece 0
+move 38
+height 2870
+
+fallen 1892
+piece 1
+move 3
+height 2872
+
+fallen 1893
+piece 2
+move 9
+height 2873
+
+fallen 1894
+piece 3
+move 15
+height 2875
+
+fallen 1895
+piece 4
+move 21
+height 2875
+
+fallen 1896
+piece 0
+move 25
+height 2876
+
+fallen 1897
+piece 1
+move 30
+height 2878
+
+fallen 1898
+piece 2
+move 36
+height 2879
+
+fallen 1899
+piece 3
+move 2
+height 2881
+
+fallen 1900
+piece 4
+move 10
+height 2881
+
+fallen 1901
+piece 0
+move 14
+height 2882
+
+fallen 1902
+piece 1
+move 18
+height 2885
+
+fallen 1903
+piece 2
+move 23
+height 2887
+
+fallen 1904
+piece 3
+move 36
+height 2887
+
+fallen 1905
+piece 4
+move 2
+height 2887
+
+fallen 1906
+piece 0
+move 6
+height 2888
+
+fallen 1907
+piece 1
+move 10
+height 2891
+
+fallen 1908
+piece 2
+move 14
+height 2894
+
+fallen 1909
+piece 3
+move 18
+height 2898
+
+fallen 1910
+piece 4
+move 28
+height 2898
+
+fallen 1911
+piece 0
+move 32
+height 2899
+
+fallen 1912
+piece 1
+move 37
+height 2901
+
+fallen 1913
+piece 2
+move 1
+height 2904
+
+fallen 1914
+piece 3
+move 10
+height 2904
+
+fallen 1915
+piece 4
+move 15
+height 2905
+
+fallen 1916
+piece 0
+move 19
+height 2906
+
+fallen 1917
+piece 1
+move 23
+height 2909
+
+fallen 1918
+piece 2
+move 28
+height 2911
+
+fallen 1919
+piece 3
+move 34
+height 2913
+
+fallen 1920
+piece 4
+move 5
+height 2913
+
+fallen 1921
+piece 0
+move 11
+height 2913
+
+fallen 1922
+piece 1
+move 16
+height 2915
+
+fallen 1923
+piece 2
+move 20
+height 2918
+
+fallen 1924
+piece 3
+move 24
+height 2922
+
+fallen 1925
+piece 4
+move 34
+height 2922
+
+fallen 1926
+piece 0
+move 38
+height 2923
+
+fallen 1927
+piece 1
+move 3
+height 2925
+
+fallen 1928
+piece 2
+move 9
+height 2926
+
+fallen 1929
+piece 3
+move 15
+height 2928
+
+fallen 1930
+piece 4
+move 21
+height 2928
+
+fallen 1931
+piece 0
+move 25
+height 2929
+
+fallen 1932
+piece 1
+move 30
+height 2931
+
+fallen 1933
+piece 2
+move 36
+height 2932
+
+fallen 1934
+piece 3
+move 2
+height 2934
+
+fallen 1935
+piece 4
+move 10
+height 2934
+
+fallen 1936
+piece 0
+move 14
+height 2935
+
+fallen 1937
+piece 1
+move 18
+height 2938
+
+fallen 1938
+piece 2
+move 23
+height 2940
+
+fallen 1939
+piece 3
+move 36
+height 2940
+
+fallen 1940
+piece 4
+move 2
+height 2940
+
+fallen 1941
+piece 0
+move 6
+height 2941
+
+fallen 1942
+piece 1
+move 10
+height 2944
+
+fallen 1943
+piece 2
+move 14
+height 2947
+
+fallen 1944
+piece 3
+move 18
+height 2951
+
+fallen 1945
+piece 4
+move 28
+height 2951
+
+fallen 1946
+piece 0
+move 32
+height 2952
+
+fallen 1947
+piece 1
+move 37
+height 2954
+
+fallen 1948
+piece 2
+move 1
+height 2957
+
+fallen 1949
+piece 3
+move 10
+height 2957
+
+fallen 1950
+piece 4
+move 15
+height 2958
+
+fallen 1951
+piece 0
+move 19
+height 2959
+
+fallen 1952
+piece 1
+move 23
+height 2962
+
+fallen 1953
+piece 2
+move 28
+height 2964
+
+fallen 1954
+piece 3
+move 34
+height 2966
+
+fallen 1955
+piece 4
+move 5
+height 2966
+
+fallen 1956
+piece 0
+move 11
+height 2966
+
+fallen 1957
+piece 1
+move 16
+height 2968
+
+fallen 1958
+piece 2
+move 20
+height 2971
+
+fallen 1959
+piece 3
+move 24
+height 2975
+
+fallen 1960
+piece 4
+move 34
+height 2975
+
+fallen 1961
+piece 0
+move 38
+height 2976
+
+fallen 1962
+piece 1
+move 3
+height 2978
+
+fallen 1963
+piece 2
+move 9
+height 2979
+
+fallen 1964
+piece 3
+move 15
+height 2981
+
+fallen 1965
+piece 4
+move 21
+height 2981
+
+fallen 1966
+piece 0
+move 25
+height 2982
+
+fallen 1967
+piece 1
+move 30
+height 2984
+
+fallen 1968
+piece 2
+move 36
+height 2985
+
+fallen 1969
+piece 3
+move 2
+height 2987
+
+fallen 1970
+piece 4
+move 10
+height 2987
+
+fallen 1971
+piece 0
+move 14
+height 2988
+
+fallen 1972
+piece 1
+move 18
+height 2991
+
+fallen 1973
+piece 2
+move 23
+height 2993
+
+fallen 1974
+piece 3
+move 36
+height 2993
+
+fallen 1975
+piece 4
+move 2
+height 2993
+
+fallen 1976
+piece 0
+move 6
+height 2994
+
+fallen 1977
+piece 1
+move 10
+height 2997
+
+fallen 1978
+piece 2
+move 14
+height 3000
+
+fallen 1979
+piece 3
+move 18
+height 3004
+
+fallen 1980
+piece 4
+move 28
+height 3004
+
+fallen 1981
+piece 0
+move 32
+height 3005
+
+fallen 1982
+piece 1
+move 37
+height 3007
+
+fallen 1983
+piece 2
+move 1
+height 3010
+
+fallen 1984
+piece 3
+move 10
+height 3010
+
+fallen 1985
+piece 4
+move 15
+height 3011
+
+fallen 1986
+piece 0
+move 19
+height 3012
+
+fallen 1987
+piece 1
+move 23
+height 3015
+
+fallen 1988
+piece 2
+move 28
+height 3017
+
+fallen 1989
+piece 3
+move 34
+height 3019
+
+fallen 1990
+piece 4
+move 5
+height 3019
+
+fallen 1991
+piece 0
+move 11
+height 3019
+
+fallen 1992
+piece 1
+move 16
+height 3021
+
+fallen 1993
+piece 2
+move 20
+height 3024
+
+fallen 1994
+piece 3
+move 24
+height 3028
+
+fallen 1995
+piece 4
+move 34
+height 3028
+
+fallen 1996
+piece 0
+move 38
+height 3029
+
+fallen 1997
+piece 1
+move 3
+height 3031
+
+fallen 1998
+piece 2
+move 9
+height 3032
+
+fallen 1999
+piece 3
+move 15
+height 3034
+
+fallen 2000
+piece 4
+move 21
+height 3034
+
+fallen 2001
+piece 0
+move 25
+height 3035
+
+fallen 2002
+piece 1
+move 30
+height 3037
+
+fallen 2003
+piece 2
+move 36
+height 3038
+
+fallen 2004
+piece 3
+move 2
+height 3040
+
+fallen 2005
+piece 4
+move 10
+height 3040
+
+fallen 2006
+piece 0
+move 14
+height 3041
+
+fallen 2007
+piece 1
+move 18
+height 3044
+
+fallen 2008
+piece 2
+move 23
+height 3046
+
+fallen 2009
+piece 3
+move 36
+height 3046
+
+fallen 2010
+piece 4
+move 2
+height 3046
+
+---- last repeating cycle ---
+2011 - 1976 = 35
+only 12 rocks remaining
+-----
+
+fallen 2011
+piece 0
+move 6
+height 3047
+
+fallen 2012
+piece 1
+move 10
+height 3050
+
+fallen 2013
+piece 2
+move 14
+height 3053
+
+fallen 2014
+piece 3
+move 18
+height 3057
+
+fallen 2015
+piece 4
+move 28
+height 3057
+
+fallen 2016
+piece 0
+move 32
+height 3058
+
+fallen 2017
+piece 1
+move 37
+height 3060
+
+fallen 2018
+piece 2
+move 1
+height 3063
+
+fallen 2019
+piece 3
+move 10
+height 3063
+
+fallen 2020
+piece 4
+move 15
+height 3064
+
+fallen 2021
+piece 0
+move 19
+height 3065
+
+fallen 2022
+piece 1
+move 23
+height 3068
+

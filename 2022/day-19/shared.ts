@@ -8,6 +8,8 @@ export interface BluePrint {
   geodeRobot: Pick<Resources, "ore" | "obsidian">;
 }
 
+export type Costs = Omit<BluePrint, "blueprintId">;
+
 const regexOnlyNumbers = new RegExp("\\d+", "g");
 
 function parseLineToBp(str: string): BluePrint {

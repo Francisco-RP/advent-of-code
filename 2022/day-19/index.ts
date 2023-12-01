@@ -1,4 +1,4 @@
-import { parseInput, BluePrint, Resources } from "./shared.ts";
+import { parseInput, BluePrint, Costs, Resources } from "./shared.ts";
 
 const input = await Deno.readTextFile("./input.txt");
 
@@ -43,7 +43,7 @@ export class MaxGeodes {
 
     this.maxOreCost = Object.keys(bp)
       .filter((key) => key !== "blueprintId")
-      .map((key) => bp[key as keyof Omit<BluePrint, "blueprintId">])
+      .map((key) => bp[key as keyof Costs])
       .sort((a, b) => b.ore - a.ore)[0].ore;
 
     this.begin();
@@ -65,8 +65,17 @@ export class MaxGeodes {
     }
   }
 
+  nextBuilds() {
+    const nextOrebot = Math.max(this.bp.oreRobot.ore - this.res.ore, 0);
+    const nextClaybot = Math.max(this.bp.clayRobot.ore - this.res.ore, 0);
+    const nextObsOre = Math.max(this.bp.obsidianRobot.ore - this.res.ore, 0);
+    const nextObsClay = Math.max(this.bp.obsidianRobot.clay - this.res.clay, 0);
+    const nextGeoOre = Math.max(this.bp.geodeRobot.ore - this.res.ore, 0);
+    const nextGeoObs = Math.max(this.bp.geodeRobot.obsidian - this.res.obsidian, 0);
+  }
+
   spend() {
-    // try build geodeRobots first
+    // try build geode robot first
     if (
       this.res.ore >= this.bp.geodeRobot.ore &&
       this.res.obsidian >= this.bp.geodeRobot.obsidian
@@ -160,10 +169,11 @@ export class MaxGeodes {
     while (this.minute < this.maxMinutes) {
       this.minute += 1;
       this.verbose(`== Minute ${this.minute} ==`);
+      // this.log("before");
       this.spend();
       this.collect();
       this.built();
-      // this.log();
+      // this.log("after");
       this.verbose("");
     }
   }
@@ -176,8 +186,8 @@ export class MaxGeodes {
     return this.bp.blueprintId * this.res.geode;
   }
 
-  log() {
-    console.log(`
+  log(state = "") {
+    console.log(`${state}
 \tRobots\tResources
 ore:\t${this.robots.ore}\t${this.res.ore}
 clay:\t${this.robots.clay}\t${this.res.clay}

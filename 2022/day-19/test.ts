@@ -1,8 +1,7 @@
 import { assertStrictEquals } from "https://deno.land/std@0.167.0/testing/asserts.ts";
 import { MaxGeodes, part1 } from "./index.ts";
-// import { part2 } from ".";
 
-const input = await Deno.readTextFile("./input.txt");
+// const input = await Deno.readTextFile("./input.txt");
 
 const testInput = `
 Blueprint 1: Each ore robot costs 4 ore. Each clay robot costs 2 ore. Each obsidian robot costs 3 ore and 14 clay. Each geode robot costs 2 ore and 7 obsidian.
