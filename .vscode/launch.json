@@ -7,8 +7,8 @@
     {
       "request": "launch",
       "name": "Deno debug",
-      "type": "pwa-node",
-      "cwd": "${workspaceFolder}",
+      "type": "node",
+      "cwd": "${fileWorkspaceFolder}",
       "runtimeExecutable": "/usr/local/bin/deno",
       "runtimeArgs": ["run", "--inspect-brk", "-A", "${file}"],
       "attachSimplePort": 9229,
