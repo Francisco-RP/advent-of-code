@@ -2,6 +2,8 @@ import { assertStrictEquals } from "std/assert/mod.ts";
 import { part1 } from "./index.ts";
 import { part2 } from "./index.ts";
 
+Deno.env.set("TESTING", "true");
+
 Deno.test("part 1 example input", () => {
   const testInput = `
 1abc2
