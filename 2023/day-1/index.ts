@@ -42,43 +42,45 @@ const nums: { [key: string]: number } = {
   "eight": 8,
   "nine": 9,
 };
-const group = `(${Object.keys(nums).join("|")})`;
-const textRE = new RegExp(group, "g");
 const numRE = new RegExp("[0-9]", "g");
 
-function handleLine(line: string): number {
-  let startingN = 0;
-  let endingN = 0;
-  const textMatches = line.match(textRE);
-  const numMatches = line.match(numRE);
-
-  if (textMatches && numMatches) {
-    // two1nine: ["two", "nine"] ["1"]
-    // 4nineeightseven2 [ "nine", "eight", "seven" ] [ "4", "2" ]
-    // 7pqrstsixteen ["six"] ["7"]
-    const firstText = textMatches[0];
-    const firstNum = numMatches[0];
-    if (line.indexOf(firstText) < line.indexOf(firstNum)) {
-      startingN = nums[firstText];
-    } else {
-      startingN = parseInt(firstNum, 10);
+function getTextPositions(str: string): [number, number] {
+  let firstText = "";
+  let firstIndex = 9999;
+  let lastText = "";
+  let lastIndex = -1;
+  Object.keys(nums).forEach((key) => {
+    const i = str.indexOf(key);
+    if (i >= 0 && (!firstText || i < firstIndex)) {
+      firstText = key;
+      firstIndex = i;
     }
-
-    const lastText = textMatches.at(-1)!;
-    const lastNum = numMatches.at(-1)!;
-    if (line.lastIndexOf(lastText) > line.lastIndexOf(lastNum)) {
-      endingN = nums[lastText];
-    } else {
-      endingN = parseInt(lastNum, 10);
+    const j = str.lastIndexOf(key);
+    if (j >= 0 && (!lastText || j > lastIndex)) {
+      lastText = key;
+      lastIndex = j;
     }
-  } else if (!textMatches && numMatches) {
-    startingN = parseInt(numMatches[0], 10);
-    endingN = parseInt(numMatches.at(-1)!, 10);
-  } else if (textMatches && !numMatches) {
-    startingN = nums[textMatches[0]];
-    endingN = nums[textMatches.at(-1)!];
+  });
+
+  let startN = nums[firstText];
+  let endN = nums[lastText];
+
+  const numMatches = str.match(numRE);
+  if (numMatches) {
+    const first = numMatches[0];
+    const i = str.indexOf(first);
+    const last = numMatches.at(-1);
+    const j = str.lastIndexOf(last!);
+    if (i < firstIndex) startN = parseInt(first, 10);
+    if (j > lastIndex) endN = parseInt(last!, 10);
   }
 
+  return [startN, endN];
+}
+
+function handleLine(line: string): number {
+  line = line.trim();
+  const [startingN, endingN] = getTextPositions(line);
   return parseInt(`${startingN}${endingN}`);
 }
 
