@@ -1,6 +1,6 @@
 import { assertStrictEquals } from "std/assert/mod.ts";
-import { part1 } from "./index.ts";
-import { part2 } from "./index.ts";
+import { part1 } from "./part1.ts";
+import { part2 } from "./part2.ts";
 
 Deno.env.set("TESTING", "true");
 
@@ -87,7 +87,7 @@ humidity-to-location map:
   assertStrictEquals(part2(testInput), 46);
 });
 
-// Deno.test("Part 2 still produces the accepted answer", async () => {
-//   const input = await Deno.readTextFile("./input.txt");
-//   assertStrictEquals(part2(input), 111111111111111);
-// });
+Deno.test("Part 2 still produces the accepted answer", async () => {
+  const input = await Deno.readTextFile("./input.txt");
+  assertStrictEquals(part2(input), 27992443);
+});

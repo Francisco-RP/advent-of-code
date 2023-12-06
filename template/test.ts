@@ -2,8 +2,6 @@ import { assertStrictEquals } from "std/assert/mod.ts";
 import { part1 } from "./index.ts";
 import { part2 } from "./index.ts";
 
-Deno.env.set("TESTING", "true");
-
 Deno.test("part 1 example input", () => {
   const testInput = `
 1abc2
@@ -20,6 +18,12 @@ treb7uchet
 // });
 
 // Deno.test("part 2 example input", () => {
+//   const testInput = `
+// 1abc2
+// pqr3stu8vwx
+// a1b2c3d4e5f
+// treb7uchet
+// `.trim();
 //   assertStrictEquals(part2(testInput), 1111111111111);
 // });
 
