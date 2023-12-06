@@ -12,14 +12,18 @@ Distance:  9  40  200
   assertStrictEquals(part1(testInput), 288);
 });
 
-// Deno.test("Part 1 still produces the accepted answer", async () => {
-//   const input = await Deno.readTextFile("./input.txt");
-//   assertStrictEquals(part1(input), 111111111111111);
-// });
+Deno.test("Part 1 still produces the accepted answer", async () => {
+  const input = await Deno.readTextFile("./input.txt");
+  assertStrictEquals(part1(input), 252000);
+});
 
-// Deno.test("part 2 example input", () => {
-//   assertStrictEquals(part2(testInput), 1111111111111);
-// });
+Deno.test("part 2 example input", () => {
+  const testInput = `
+Time:      7  15   30
+Distance:  9  40  200
+`.trim();
+  assertStrictEquals(part2(testInput), 71503);
+});
 
 // Deno.test("Part 2 still produces the accepted answer", async () => {
 //   const input = await Deno.readTextFile("./input.txt");

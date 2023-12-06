@@ -21,6 +21,10 @@ interface Race {
   record: number;
 }
 
+/***********************************************************************
+ * Part 1
+ */
+
 function setup(str: string): Race[] {
   const races: Race[] = [];
   const [timeLine, distanceLine] = str.split(/\n/);
@@ -34,10 +38,6 @@ function setup(str: string): Race[] {
   }
   return races;
 }
-
-/***********************************************************************
- * Part 1
- */
 
 /**
  * find out how many ways to you can win the race
@@ -70,7 +70,14 @@ export function part1(str: string): number {
  */
 
 export function part2(str: string): number {
-  return 0;
+  const [timeLine, distanceLine] = str.split(/\n/);
+  const [time] = timeLine.replace(/\s+/g, "").match(/\d+/g)?.map(Number) || [];
+  const [distance] =
+    distanceLine.replace(/\s+/g, "").match(/\d+/g)?.map(Number) || [];
+
+  const result = checkRace({ time, record: distance });
+
+  return result;
 }
 
 if (!Deno.env.get("TESTING")) {
