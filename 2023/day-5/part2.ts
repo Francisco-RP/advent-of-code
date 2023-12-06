@@ -3,41 +3,7 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 let input: string;
 if (Deno.env.get("DEBUGGING")) {
-  input = `
-seeds: 79 14 55 13
-
-seed-to-soil map:
-50 98 2
-52 50 48
-
-soil-to-fertilizer map:
-0 15 37
-37 52 2
-39 0 15
-
-fertilizer-to-water map:
-49 53 8
-0 11 42
-42 0 7
-57 7 4
-
-water-to-light map:
-88 18 7
-18 25 70
-
-light-to-temperature map:
-45 77 23
-81 45 19
-68 64 13
-
-temperature-to-humidity map:
-0 69 1
-1 0 69
-
-humidity-to-location map:
-60 56 37
-56 93 4
-`.trim();
+  input = "";
 } else {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
@@ -139,11 +105,14 @@ function setNextResult(map: ConversionMap, source: number[][]) {
 export function part2(str: string): number {
   const [seedsOrignal, allMaps] = setup(str);
 
+  // replace the "lengths" with the actual end of the range (seed + length)
+  // example: [79 14 55 13] becomes [79, 92, 55, 67]
   for (let i = 0; i < seedsOrignal.length; i++) {
     if (i % 2 !== 0) {
       seedsOrignal[i] = seedsOrignal[i - 1] + (seedsOrignal[i] - 1);
     }
   }
+  // and we chunk them into tuples [[79, 92], [55, 67]]
   const seeds = chunk(seedsOrignal, 2);
 
   let source = seeds;
