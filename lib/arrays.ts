@@ -27,3 +27,12 @@ export function eachSurrounding<T = string>(
   callAt(x, y + 1, matrix, callback);
   callAt(x + 1, y + 1, matrix, callback);
 }
+
+export function chunk<T = number>(source: T[], size: 2): T[][] {
+  const copy = [...source];
+  const arr: T[][] = [];
+  while (copy.length) {
+    arr.push(copy.splice(0, size));
+  }
+  return arr;
+}

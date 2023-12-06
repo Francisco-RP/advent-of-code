@@ -4,6 +4,7 @@
   },
   "tasks": {
     "dev": "deno run --watch -A index.ts",
-    "run": "deno run  -A index.ts"
+    "run": "deno run  -A index.ts",
+    "test": "TESTING=true deno test -A --watch"
   }
 }
