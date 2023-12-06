@@ -25,7 +25,7 @@ Distance:  9  40  200
   assertStrictEquals(part2(testInput), 71503);
 });
 
-// Deno.test("Part 2 still produces the accepted answer", async () => {
-//   const input = await Deno.readTextFile("./input.txt");
-//   assertStrictEquals(part2(input), 111111111111111);
-// });
+Deno.test("Part 2 still produces the accepted answer", async () => {
+  const input = await Deno.readTextFile("./input.txt");
+  assertStrictEquals(part2(input), 36992486);
+});
