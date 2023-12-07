@@ -8,11 +8,8 @@ if (Deno.env.get("DEBUGGING")) {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
 
-/****************************************
- * Part 1
- */
-
 const camelCards = [
+  "J", // now the weakest card but is a wild card
   "2",
   "3",
   "4",
@@ -22,60 +19,60 @@ const camelCards = [
   "8",
   "9",
   "T",
-  "J",
   "Q",
   "K",
   "A",
 ];
 
 /**
- * Rankings:
- * Five of a kind = 6
- * Four of a kind = 5
- * Full house = 4
- * Three of a kind = 3
- * Two pair = 2
- * One pair = 1
- * High card = 0
+ * Rank: Hands
+ * 6: Five of a kind = 6
+ * 5: Four of a kind = 5
+ * 4: Full house = 4  (three of a kind + one pair)
+ * 3: Three of a kind = 3
+ * 2: Two pair = 2
+ * 1: One pair = 1
+ * 0: High card = 0 (no pairs)
  */
 function getRank(hand: string): number {
-  const set = new Set(hand);
-  if (set.size === 1) {
+  let wilds = 0;
+  const map: { [key: string]: number } = {};
+  for (const card of hand) {
+    if (card === "J") {
+      wilds++;
+      continue;
+    }
+    map[card] = (map[card] || 0) + 1;
+  }
+  const counts = Object.values(map).sort((a, b) => b - a);
+  let i = 0;
+  while (wilds > 0 && i < counts.length) {
+    const count = counts[i];
+    if (count < 4) {
+      counts[i] += 1;
+      wilds -= 1;
+    } else {
+      i++;
+    }
+  }
+
+  if (counts[0] === 5) {
     return 6; // five of a kind
   }
-  if (set.size === 2) {
-    // example: AA8AA or 23332
-    // can be either four of a kind or full house
-    let max = 0;
-    [...set].forEach((card) => {
-      max = Math.max(max, hand.split("").filter((c) => c === card).length);
-    });
-    if (max === 4) {
-      return 5; // four of a kind
-    } else {
-      return 4; // full house
-    }
+  if (counts[0] === 4) {
+    return 5; // four of a kind
   }
-  if (set.size === 3) {
-    // example: 23432 or TTT98
-    // can be either three of a kind or two pair
-    let max = 0;
-    [...set].forEach((card) => {
-      max = Math.max(max, hand.split("").filter((c) => c === card).length);
-    });
-    if (max === 3) {
-      return 3; // three of a kind
-    } else {
-      return 2; // two pair
-    }
+  if (counts[0] === 3 && counts[1] === 2) {
+    return 4; // full house
   }
-  if (set.size === 4) {
-    // example: A23A4
+  if (counts[0] === 3 && counts[1] === 1) {
+    return 3; // three of a kind
+  }
+  if (counts[0] === 2 && counts[1] === 2) {
+    return 2; // two pair
+  }
+  if (counts[0] === 2 && counts[1] === 1) {
     return 1; // one pair
-  }
-  if (set.size === 5) {
-    // example: 23456
-    return 0; // high card
   }
 
   return 0;
@@ -88,9 +85,9 @@ function compareSameRank(a: string, b: string): number {
     const aIndex = camelCards.indexOf(aCard);
     const bIndex = camelCards.indexOf(bCard);
     if (aIndex > bIndex) {
-      return 1;
+      return 1; // sort a after b
     } else if (aIndex < bIndex) {
-      return -1;
+      return -1; // sort a before b
     }
   }
   return 0;
@@ -109,7 +106,7 @@ function rankSorter(a: [string, number], b: [string, number]): number {
   }
 }
 
-export function part1(str: string): number {
+export function part2(str: string): number {
   const hands: Array<[string, number]> = str.trim().split("\n").map((line) => {
     const [hand, bet] = line.trim().split(/\s+/);
     return [hand, Number(bet)];
@@ -120,5 +117,5 @@ export function part1(str: string): number {
 }
 
 if (!Deno.env.get("TESTING")) {
-  console.log(part1(input));
+  console.log(part2(input));
 }
