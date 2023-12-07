@@ -3,7 +3,13 @@ const __dirname = new URL(".", import.meta.url).pathname;
 let input: string;
 if (Deno.env.get("DEBUGGING")) {
   // change the input specifically for debugging
-  input = "";
+  input = `
+AJAJA 10
+QJJQQ 20
+23222 30
+J1234 5
+JJJJJ 20
+`;
 } else {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
@@ -46,17 +52,27 @@ function getScore(hand: string): number {
   }
   const counts = Object.values(map).sort((a, b) => b - a);
 
-  // distribute wilds to create the best hand
-  let i = 0;
-  while (wilds > 0 && i < counts.length) {
-    const count = counts[i];
-    if (count < 4) {
-      counts[i] += 1;
-      wilds -= 1;
-    } else {
-      i++;
+  // console.log("BEFORE:", counts, wilds);
+
+  if (counts.length === 0) {
+    // edge case where all cards are wild "J"
+    counts[0] = 5;
+  } else {
+    // distribute wilds to create the best hand
+    let i = 0;
+    while (wilds > 0 && i < counts.length) {
+      const count = counts[i];
+      if (count < 5) {
+        counts[i] += 1;
+        wilds -= 1;
+      } else {
+        i++;
+      }
     }
   }
+
+  // console.log("AFTER:", counts, wilds);
+  // console.log("....");
 
   if (counts[0] === 5) {
     return 6; // five of a kind

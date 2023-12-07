@@ -39,43 +39,29 @@ const camelCards = [
  * High card = 0
  */
 function getRank(hand: string): number {
-  const set = new Set(hand);
-  if (set.size === 1) {
+  const map: { [key: string]: number } = {};
+  for (const card of hand) {
+    map[card] = (map[card] || 0) + 1;
+  }
+  const counts = Object.values(map).sort((a, b) => b - a);
+
+  if (counts[0] === 5) {
     return 6; // five of a kind
   }
-  if (set.size === 2) {
-    // example: AA8AA or 23332
-    // can be either four of a kind or full house
-    let max = 0;
-    [...set].forEach((card) => {
-      max = Math.max(max, hand.split("").filter((c) => c === card).length);
-    });
-    if (max === 4) {
-      return 5; // four of a kind
-    } else {
-      return 4; // full house
-    }
+  if (counts[0] === 4) {
+    return 5; // four of a kind
   }
-  if (set.size === 3) {
-    // example: 23432 or TTT98
-    // can be either three of a kind or two pair
-    let max = 0;
-    [...set].forEach((card) => {
-      max = Math.max(max, hand.split("").filter((c) => c === card).length);
-    });
-    if (max === 3) {
-      return 3; // three of a kind
-    } else {
-      return 2; // two pair
-    }
+  if (counts[0] === 3 && counts[1] === 2) {
+    return 4; // full house
   }
-  if (set.size === 4) {
-    // example: A23A4
+  if (counts[0] === 3 && counts[1] === 1) {
+    return 3; // three of a kind
+  }
+  if (counts[0] === 2 && counts[1] === 2) {
+    return 2; // two pair
+  }
+  if (counts[0] === 2 && counts[1] === 1) {
     return 1; // one pair
-  }
-  if (set.size === 5) {
-    // example: 23456
-    return 0; // high card
   }
 
   return 0;
