@@ -1,6 +1,6 @@
 import { assertStrictEquals } from "std/assert/mod.ts";
-import { part1 } from "./index.ts";
-import { part2 } from "./index.ts";
+import { part1 } from "./part1.ts";
+import { part2 } from "./part2.ts";
 
 Deno.test("part 1 example input", () => {
   const testInput = `
