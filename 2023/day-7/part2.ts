@@ -34,7 +34,7 @@ const camelCards = [
  * 1: One pair = 1
  * 0: High card = 0 (no pairs)
  */
-function getRank(hand: string): number {
+function getScore(hand: string): number {
   let wilds = 0;
   const map: { [key: string]: number } = {};
   for (const card of hand) {
@@ -45,6 +45,8 @@ function getRank(hand: string): number {
     map[card] = (map[card] || 0) + 1;
   }
   const counts = Object.values(map).sort((a, b) => b - a);
+
+  // distribute wilds to create the best hand
   let i = 0;
   while (wilds > 0 && i < counts.length) {
     const count = counts[i];
@@ -78,7 +80,7 @@ function getRank(hand: string): number {
   return 0;
 }
 
-function compareSameRank(a: string, b: string): number {
+function compareSameScore(a: string, b: string): number {
   for (let i = 0; i < 5; i++) {
     const aCard = a[i];
     const bCard = b[i];
@@ -93,16 +95,17 @@ function compareSameRank(a: string, b: string): number {
   return 0;
 }
 
-function rankSorter(a: [string, number], b: [string, number]): number {
-  const [aHand] = a;
-  const [bHand] = b;
-  const aRank = getRank(aHand);
-  const bRank = getRank(bHand);
-  if (aRank !== bRank) {
-    return aRank - bRank; // sort from low to highest rank
+function rankSorter(
+  [aHand]: [string, number],
+  [bHand]: [string, number],
+): number {
+  const aScore = getScore(aHand);
+  const bScore = getScore(bHand);
+  if (aScore !== bScore) {
+    return aScore - bScore; // sort from low to highest rank
   } else {
     // same rank, so we need to compare the cards
-    return compareSameRank(aHand, bHand);
+    return compareSameScore(aHand, bHand);
   }
 }
 
