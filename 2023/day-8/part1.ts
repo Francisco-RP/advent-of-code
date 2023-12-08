@@ -41,6 +41,25 @@ function setup(str: string): { instructions: Instrunction[]; map: Mappings } {
   };
 }
 
+/**
+ * this function generator will endlessly provide the next instruction
+ * looping back to the beginning when it reaches the end
+ */
+function* nextInstruction(i: number, instructions: Instrunction[]) {
+  const total = instructions.length;
+  yield instructions[i]; // first time will just return i which is 0
+
+  // every subsequent call to next().value will yield updated i
+  while (true) {
+    if (i === total - 1) {
+      i = 0;
+    } else {
+      i += 1;
+    }
+    yield instructions[i];
+  }
+}
+
 function getNextNode(inst: Instrunction, current: [string, string]): string {
   return inst === "L" ? current[0] : current[1];
 }
@@ -48,16 +67,12 @@ function getNextNode(inst: Instrunction, current: [string, string]): string {
 export function part1(str: string): number {
   const { instructions, map } = setup(str);
 
-  let i = 0;
-  let instruction: Instrunction;
+  const getInstruction = nextInstruction(0, instructions);
+
   let node = "AAA";
   let stepCount = 0;
   while (true) {
-    instruction = instructions[i];
-    i += 1;
-    if (i >= instructions.length) {
-      i = 0;
-    }
+    const instruction = getInstruction.next().value!;
     stepCount += 1;
     const nextNode = getNextNode(instruction, map[node]);
     if (nextNode === "ZZZ") break;
