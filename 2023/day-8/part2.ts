@@ -96,6 +96,18 @@ function checkTimeLimit() {
   }
 }
 
+function gcd(a: number, b: number): number {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+}
+function lcm(numbers: number[]): number {
+  return numbers.reduce((acc, n) => {
+    return (acc * n) / gcd(acc, n);
+  }, 1);
+}
+
 export function part2(str: string): number {
   const { instructions, map, start } = setup(str);
 
@@ -117,9 +129,8 @@ export function part2(str: string): number {
     }
   });
 
-  // now find the least common multiple out of all the numbers in moves
-  console.log(moves);
-  return moves.reduce((acc, n) => acc * n, 1);
+  // find least common multiple of all the moves
+  return lcm(moves);
 }
 
 if (!Deno.env.get("TESTING")) {
