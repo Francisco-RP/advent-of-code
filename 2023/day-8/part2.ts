@@ -25,7 +25,7 @@ XXX = (XXX, XXX)
 type Instrunction = "R" | "L";
 
 interface Mappings {
-  [key: string]: [string, string];
+  [key: string]: { L: string; R: string };
 }
 
 function setup(
@@ -45,7 +45,7 @@ function setup(
     const line = lines[i];
     const [node, left, right] = line.match(/[0-9A-Z]{3}/g) || [];
     if (node && left && right) {
-      map[node] = [left, right];
+      map[node] = { L: left, R: right };
     } else {
       // this should never happen, need to fix something if we see it
       console.log("line skipped", line);
@@ -62,10 +62,6 @@ function setup(
     map,
     start,
   };
-}
-
-function getNextNode(inst: Instrunction, current: [string, string]): string {
-  return inst === "L" ? current[0] : current[1];
 }
 
 /**
@@ -103,31 +99,27 @@ function checkTimeLimit() {
 export function part2(str: string): number {
   const { instructions, map, start } = setup(str);
 
-  let stepCount = 0;
-
-  // instead of one node, we have many to look at simultaneously
-  let nodes = start;
-
-  const getInstruction = nextInstruction(0, instructions);
-
-  while (true) {
-    const instruction = getInstruction.next().value!;
-    stepCount += 1;
-
-    const nextNodes: string[] = [];
-    let endsWithZCount = 0;
-    for (const node of nodes) {
-      const next = getNextNode(instruction, map[node]);
-      if (next.endsWith("Z")) endsWithZCount += 1;
-      nextNodes.push(next);
+  /**
+   * For each starting point individually, find how many
+   * steps it takes to get to the final spot
+   */
+  const moves: number[] = start.map((node) => {
+    let stepCount = 0;
+    const getInstruction = nextInstruction(0, instructions);
+    while (true) {
+      const instruction = getInstruction.next().value!;
+      stepCount += 1;
+      const nextNode = map[node][instruction];
+      if (nextNode.endsWith("Z")) {
+        return stepCount;
+      }
+      node = nextNode;
     }
-    console.log(nodes);
-    if (endsWithZCount === nextNodes.length) break;
-    nodes = nextNodes;
+  });
 
-    checkTimeLimit(); // throws and exits if takes too long
-  }
-  return stepCount;
+  // now find the least common multiple out of all the numbers in moves
+  console.log(moves);
+  return moves.reduce((acc, n) => acc * n, 1);
 }
 
 if (!Deno.env.get("TESTING")) {

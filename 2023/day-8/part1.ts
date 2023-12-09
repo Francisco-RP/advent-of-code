@@ -15,7 +15,7 @@ if (Deno.env.get("DEBUGGING")) {
 type Instrunction = "R" | "L";
 
 interface Mappings {
-  [key: string]: [string, string];
+  [key: string]: { L: string; R: string };
 }
 
 function setup(str: string): { instructions: Instrunction[]; map: Mappings } {
@@ -31,7 +31,7 @@ function setup(str: string): { instructions: Instrunction[]; map: Mappings } {
     const line = lines[i];
     const [node, left, right] = line.match(/[A-Z]{3}/g) || [];
     if (node && left && right) {
-      map[node] = [left, right];
+      map[node] = { L: left, R: right };
     }
   }
 
@@ -60,10 +60,6 @@ function* nextInstruction(i: number, instructions: Instrunction[]) {
   }
 }
 
-function getNextNode(inst: Instrunction, current: [string, string]): string {
-  return inst === "L" ? current[0] : current[1];
-}
-
 export function part1(str: string): number {
   const { instructions, map } = setup(str);
 
@@ -74,7 +70,7 @@ export function part1(str: string): number {
   while (true) {
     const instruction = getInstruction.next().value!;
     stepCount += 1;
-    const nextNode = getNextNode(instruction, map[node]);
+    const nextNode = map[node][instruction];
     if (nextNode === "ZZZ") break;
     node = nextNode;
   }
