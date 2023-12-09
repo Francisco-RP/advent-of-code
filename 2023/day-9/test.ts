@@ -25,7 +25,7 @@ Deno.test("part 2 example input", () => {
   assertStrictEquals(part2(testInput), 2);
 });
 
-// Deno.test("Part 2 still produces the accepted answer", async () => {
-//   const input = await Deno.readTextFile("./input.txt");
-//   assertStrictEquals(part2(input), 111111111111111);
-// });
+Deno.test("Part 2 still produces the accepted answer", async () => {
+  const input = await Deno.readTextFile("./input.txt");
+  assertStrictEquals(part2(input), 977);
+});
