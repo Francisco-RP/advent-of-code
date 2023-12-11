@@ -14,18 +14,27 @@ export function eachSurrounding<T = string>(
   y: number,
   matrix: T[][],
   callback: MatricCallback<T>,
+  includeDiagonals = true,
 ) {
-  callAt(x - 1, y - 1, matrix, callback);
+  if (includeDiagonals) {
+    // top left
+    callAt(x - 1, y - 1, matrix, callback);
+    // top right
+    callAt(x + 1, y - 1, matrix, callback);
+    // bottom left
+    callAt(x - 1, y + 1, matrix, callback);
+    // bottom right
+    callAt(x + 1, y + 1, matrix, callback);
+  }
+
+  // up
   callAt(x, y - 1, matrix, callback);
-  callAt(x + 1, y - 1, matrix, callback);
-
-  callAt(x - 1, y, matrix, callback);
-  // we skip x,y because this is the point being surrounded
+  // right
   callAt(x + 1, y, matrix, callback);
-
-  callAt(x - 1, y + 1, matrix, callback);
+  // down
   callAt(x, y + 1, matrix, callback);
-  callAt(x + 1, y + 1, matrix, callback);
+  // left
+  callAt(x - 1, y, matrix, callback);
 }
 
 export function chunk<T = number>(source: T[], size: 2): T[][] {
