@@ -43,22 +43,36 @@ const tiles: {
 
 function setup(
   str: string,
-): { field: string[][]; start: { x: number; y: number } } {
+): { field: string[][]; start: { x: number; y: number }; ground: number } {
   const start: { x: number; y: number } = { x: 0, y: 0 };
-  const field = str.trim().split("\n").map((line, i) => {
-    const cells = line.trim().split("");
-    const x = cells.indexOf("S");
-    if (x >= 0) {
-      start.x = x;
-      start.y = i;
+  let ground = 0;
+  const field: string[][] = [];
+  const lines = str.trim().split("\n");
+  for (let row = 0; row < lines.length; row++) {
+    field[row] = [];
+
+    const line = lines[row];
+    const cells = line.trim();
+
+    for (let col = 0; col < cells.length; col++) {
+      const cell = line[col];
+      field[row].push(cell);
+
+      if (cell === "S") {
+        start.x = col;
+        start.y = row;
+      }
+      if (cell === ".") {
+        ground += 1;
+      }
     }
-    return cells;
-  });
-  return { field, start };
+  }
+
+  return { field, start, ground };
 }
 
 export function part2(str: string): number {
-  const { field, start } = setup(str);
+  const { field, start, ground } = setup(str);
   return 0;
 }
 
