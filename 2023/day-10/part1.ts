@@ -1,9 +1,17 @@
+import { eachSurrounding } from "../../lib/arrays.ts";
+import { addFrame, draw, drawNow, setGrid } from "../../lib/animation.ts";
+
 const __dirname = new URL(".", import.meta.url).pathname;
-const { eachSurrounding } = await import("../../lib/arrays.ts");
 
 let input: string;
 if (Deno.env.get("DEBUGGING")) {
-  input = await Deno.readTextFile(__dirname + "/input.txt");
+  input = `
+.....
+.S-7.
+.|.|.
+.L-J.
+.....
+`.trim();
 } else {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
@@ -17,13 +25,22 @@ interface Point {
   y: number;
 }
 
+type CardinalDirections = "N" | "S" | "E" | "W";
+
 interface Direction extends Point {
   tile: string;
-  from: Point;
+  from: CardinalDirections;
+}
+
+interface TileConnect {
+  N: boolean;
+  S: boolean;
+  E: boolean;
+  W: boolean;
 }
 
 const tiles: {
-  [key: string]: { N: boolean; S: boolean; E: boolean; W: boolean };
+  [key: string]: TileConnect;
 } = {
   "|": { N: true, S: true, E: false, W: false },
   "-": { N: false, S: false, E: true, W: true },
@@ -52,59 +69,105 @@ function setup(
 function findNext(
   field: string[][],
   { x, y }: Point, // current position
-  from: Point, // last position
+  from: CardinalDirections, // last position
 ): Direction {
-  const next: Direction[] = [];
-  const canMove = tiles[field[y][x]] || { N: true, S: true, E: true, W: true };
-  eachSurrounding(x, y, field, (nextX, nextY, nextTile) => {
-    if (nextTile === ".") return;
-    if (nextX === from.x && nextY === from.y) {
-      return;
+  // where the current tile is allowed to move
+  const canMove = tiles[field[y][x]];
+
+  // each tile can only move in 2 directions. Remove the directions we don't need
+  const filtered: string[] = Object.keys(canMove).filter((d) =>
+    canMove[d as CardinalDirections]
+  );
+
+  for (const dir of filtered) {
+    if (dir === "N" && from !== "N") {
+      return {
+        x,
+        y: y - 1,
+        tile: field[y - 1][x],
+        from: "S",
+      };
     }
 
-    if (nextTile === "S") {
-      next.push({ x: nextX, y: nextY, tile: nextTile, from: { x, y } });
-      return;
+    if (dir === "S" && from !== "S") {
+      return {
+        x,
+        y: y + 1,
+        tile: field[y + 1][x],
+        from: "N",
+      };
     }
 
+    if (dir === "E" && from !== "E") {
+      return {
+        x: x + 1,
+        y,
+        tile: field[y][x + 1],
+        from: "W",
+      };
+    }
+
+    if (dir === "W" && from !== "W") {
+      return {
+        x: x - 1,
+        y,
+        tile: field[y][x - 1],
+        from: "E",
+      };
+    }
+  }
+
+  return {
+    x,
+    y,
+    tile: field[y][x],
+    from,
+  };
+}
+
+export async function part1(str: string): Promise<number> {
+  const { field, start } = setup(str);
+
+  setGrid(field);
+
+  const dirs: Direction[] = [];
+  eachSurrounding(start.x, start.y, field, (x, y, tile) => {
+    if (tile === ".") return;
     switch (true) {
       // can we go west?
-      case canMove.W && nextX === x - 1 && y === nextY && tiles[nextTile].E:
-        next.push({ x: nextX, y: nextY, tile: nextTile, from: { x, y } });
+      case x === start.x - 1 && start.y === y && tiles[tile].E:
+        dirs.push({ x, y, tile, from: "E" });
         break;
       // can we go east?
-      case canMove.E && nextX === x + 1 && y === nextY && tiles[nextTile].W:
-        next.push({ x: nextX, y: nextY, tile: nextTile, from: { x, y } });
+      case x === start.x + 1 && y === start.y && tiles[tile].W:
+        dirs.push({ x, y, tile, from: "W" });
         break;
       // can we go north?
-      case canMove.N && nextY === y - 1 && x === nextX && tiles[nextTile].S:
-        next.push({ x: nextX, y: nextY, tile: nextTile, from: { x, y } });
+      case y === start.y - 1 && x === start.x && tiles[tile].S:
+        dirs.push({ x, y, tile, from: "S" });
         break;
       // can we go south?
-      case canMove.S && nextY === y + 1 && x === nextX && tiles[nextTile].N:
-        next.push({ x: nextX, y: nextY, tile: nextTile, from: { x, y } });
+      case y === start.y + 1 && x === start.x && tiles[tile].N:
+        dirs.push({ x, y, tile, from: "N" });
         break;
     }
   }, false);
 
-  return next[0];
-}
-
-export function part1(str: string): number {
-  const { field, start } = setup(str);
-
-  // find the first direction
-  let dir1 = findNext(field, start, start);
-
+  let [dir1] = dirs;
   let steps = 1;
   while (dir1.tile !== "S") {
     dir1 = findNext(field, dir1, dir1.from);
     steps += 1;
+
+    // do not use for input.txt, it's too big
+    // addFrame(dir1.x, dir1.y, "█");
   }
+
+  // await draw(500);
 
   return steps / 2;
 }
 
 if (!Deno.env.get("TESTING")) {
-  console.log(part1(input));
+  part1(input).then(console.log);
 }
