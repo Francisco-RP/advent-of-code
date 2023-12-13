@@ -73,6 +73,7 @@ function setup(
 
 export function part2(str: string): number {
   const { field, start, ground } = setup(str);
+  console.log("🚀 ~ file: part2.ts:76 ~ part2 ~ start, ground:", start, ground);
   return 0;
 }
 

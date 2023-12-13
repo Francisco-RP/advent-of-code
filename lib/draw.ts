@@ -1,10 +1,22 @@
-export function drawGrid(grid: string[][], x: number, y: number, tile: string) {
-  let result = "";
-  for (let row = 0; row < grid.length; row++) {
-    for (let col = 0; col < grid[row].length; col++) {
-      result += grid[row][col];
+/**
+ * Pretty print a 2D grid to the console.
+ */
+export function drawGrid(grid: string[][]) {
+  const display = grid.map((row) => row.join("")).join("\n");
+  console.log(display);
+}
+
+/**
+ * Pretty print an array and include index numbers.
+ */
+export function drawArray(arr: Array<string | number | boolean>) {
+  let display = "[";
+  for (let i = 0; i < arr.length; i++) {
+    display += `${i}: ${arr[i]}`;
+    if (i < arr.length - 1) {
+      display += ", ";
     }
-    result += `\n`;
   }
-  console.log(result);
+  display += "]";
+  console.log(display);
 }
