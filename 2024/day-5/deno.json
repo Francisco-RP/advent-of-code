@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.208.0/"
+  },
+  "tasks": {
+    "part1": "deno run -A part1.ts",
+    "part2": "deno run -A part2.ts",
+    "test": "TESTING=true deno test -A --watch"
+  }
+}
