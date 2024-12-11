@@ -3,7 +3,7 @@ const __dirname = new URL(".", import.meta.url).pathname;
 let input: string;
 if (Deno.env.get("DEBUGGING")) {
   // change the input specifically for debugging
-  input = "";
+  input = "125 17";
 } else {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
@@ -12,44 +12,65 @@ if (Deno.env.get("DEBUGGING")) {
  * Part 1
  */
 
-function rmLead(stone: string): string {
-  if (/^0+$/.test(stone)) return "0";
-  return stone.replace(/^0+/, "");
+/**
+ * Remove leading zeros by double type coercion.
+ * Converting it to a Number will auto strip leading zeros
+ * then converting it back to a string
+ */
+function trim(stone: string): string {
+  return String(Number(stone));
 }
 
-function rules(stone: string): string[] {
-  // If the stone is engraved with the number 0, it is replaced by a stone engraved with the number 1.
-  if (stone === "0") return ["1"];
+/*
+125                             | 17
+253000                          | 1                      7
+253                   |0        | 2024                   14168
+512072                |1        | 20         24          28676032
+512       |72         |2024     | 2     0    2     4     2867    6032
+1036288   |7     |2   |20  |24  | 4048  1    4048  8096  28  67  60  32
+2097446912|14168 |4048|2|0 |2|4 | 40 48 2024 40 48 80 96 2 8 6 7 6 0 3 2
+*/
 
-  // If the stone is engraved with a number that has an even number of digits, it is replaced by two stones.
-  // The left half of the digits are engraved on the new left stone,
-  // and the right half of the digits are engraved on the new right stone.
-  // (The new numbers don't keep extra leading zeroes: 1000 would become stones 10 and 0.)
-  if (stone.length % 2 === 0) {
+/**
+ * Cache the number of stones each stone will
+ * get split into at a certain blink iteration
+ */
+const cache: Record<string, number[]> = {};
+
+const sum = (arr: number[]): number => arr.reduce((total, n) => (total += n), 0);
+
+function getStoneCount(stone: string, blinks: number): number {
+  if (blinks === 0) return 1;
+  if (cache[stone]?.[blinks]) {
+    return cache[stone]?.[blinks];
+  }
+  let result: number = 0;
+  if (stone === "0") {
+    result = getStoneCount("1", blinks - 1);
+  } else if (stone.length % 2 === 0) {
     const left = stone.substring(0, stone.length / 2);
-    const right = stone.substring(stone.length / 2);
-    return [rmLead(left), rmLead(right)];
+    const right = trim(stone.substring(stone.length / 2));
+    result = getStoneCount(left, blinks - 1) + getStoneCount(right, blinks - 1);
+  } else {
+    result = getStoneCount(String(Number(stone) * 2024), blinks - 1);
   }
-
-  // If none of the other rules apply, the stone is replaced by a new stone;
-  // the old stone's number multiplied by 2024 is engraved on the new stone.
-  return [String(Number(stone) * 2024)];
+  if (!cache[stone]) cache[stone] = [];
+  cache[stone][blinks] = result;
+  return result;
 }
 
-export function part1(str: string, blinks: number): number {
-  let stones = str.trim().split(" ");
-  let nextStones: string[] = [];
-  for (let i = 0; i < blinks; i++) {
-    nextStones = [];
-    for (const stone of stones) {
-      nextStones.push(...rules(stone));
-    }
-    stones = [...nextStones];
-    nextStones = [];
-  }
-  return stones.length;
+/**
+ *
+ * @param str The input string
+ * @param blinks the number of blinks to process
+ * @returns the new number of stones after processing all of the blinks
+ */
+export function solve(str: string, blinks: number): number {
+  const stones = str.trim().split(" ");
+  const results = sum(stones.map((s) => getStoneCount(s, blinks)));
+  return results;
 }
 
 if (!Deno.env.get("TESTING")) {
-  console.log(part1(input, 25));
+  console.log(solve(input, 6));
 }

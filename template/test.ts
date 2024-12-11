@@ -1,4 +1,4 @@
-import { assertStrictEquals } from "std/assert/mod.ts";
+import { assertStrictEquals } from "jsr:@std/assert";
 import { part1 } from "./part1.ts";
 import { part2 } from "./part2.ts";
 

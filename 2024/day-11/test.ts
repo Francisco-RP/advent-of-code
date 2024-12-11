@@ -1,26 +1,26 @@
-import { assertStrictEquals } from "std/assert/mod.ts";
-import { part1 } from "./solution.ts";
+import { assertStrictEquals } from "jsr:@std/assert";
+import { solve } from "./solution.ts";
 
 Deno.test("part 1 example - blink 6", () => {
   const testInput = `
 125 17
 `.trim();
-  assertStrictEquals(part1(testInput, 6), 22);
+  assertStrictEquals(solve(testInput, 6), 22);
 });
 
 Deno.test("part 1 example - blink 25", () => {
   const testInput = `
 125 17
 `.trim();
-  assertStrictEquals(part1(testInput, 25), 55312);
+  assertStrictEquals(solve(testInput, 25), 55312);
 });
 
 Deno.test("Part 1 still produces the accepted answer", async () => {
   const input = await Deno.readTextFile("./input.txt");
-  assertStrictEquals(part1(input, 25), 194557);
+  assertStrictEquals(solve(input, 25), 194557);
 });
 
-Deno.test("Part 2 still produces the accepted answer", async () => {
+Deno.test("Part 2", async () => {
   const input = await Deno.readTextFile("./input.txt");
-  assertStrictEquals(part1(input, 75), 111111111111111);
+  assertStrictEquals(solve(input, 75), 231532558973909);
 });
