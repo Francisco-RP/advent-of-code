@@ -1,8 +1,9 @@
 import { assertStrictEquals } from "std/assert/mod.ts";
-import { part1 } from "./part1.ts";
-import { part2 } from "./part2.ts";
+// import { part1 } from "./part1.ts";
+// import { part2 } from "./part2.ts";
+import { getLoops, getVisited, makeGrid, part1 } from "./both.ts";
 
-Deno.test("part 1 example input", () => {
+Deno.test("example input both parts", async () => {
   const testInput = `
 ....#.....
 .........#
@@ -15,31 +16,25 @@ Deno.test("part 1 example input", () => {
 #.........
 ......#...
 `.trim();
-  assertStrictEquals(part1(testInput), 41);
+
+  const [grid, start] = makeGrid(testInput);
+
+  // Part 1: get total unique visited positions in the grid
+  const visited = getVisited(grid, start);
+  assertStrictEquals(part1(visited), 41, "part 1");
+
+  // Part 2: how many loops can we create
+  const loops = await getLoops(grid, visited);
+  assertStrictEquals(loops, 6, "part 2");
 });
 
-Deno.test("Part 1 still produces the accepted answer", async () => {
+Deno.test("Main input both parts", async () => {
   const input = await Deno.readTextFile("./input.txt");
-  assertStrictEquals(part1(input), 4580);
-});
 
-Deno.test("part 2 example input", () => {
-  const testInput = `
-....#.....
-.........#
-..........
-..#.......
-.......#..
-..........
-.#..^.....
-........#.
-#.........
-......#...
-`.trim();
-  assertStrictEquals(part2(testInput), 6);
-});
+  const [grid, start] = makeGrid(input);
+  const visited = getVisited(grid, start);
+  assertStrictEquals(part1(visited), 4580, "part 1");
 
-Deno.test("Part 2 still produces the accepted answer", async () => {
-  const input = await Deno.readTextFile("./input.txt");
-  assertStrictEquals(part2(input), 111111111111111);
+  const loops = await getLoops(grid, visited);
+  assertStrictEquals(loops, 11111111111, "part 2");
 });

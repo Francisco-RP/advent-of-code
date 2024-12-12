@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        display: block;
+        aspect-ratio: 1/1;
+        height: calc(100vh - 30px);
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="fileInput" />
+
+    <canvas></canvas>
+    <script>
+      const canvas = document.querySelector("canvas");
+      const ctx = canvas.getContext("2d");
+      // ctx.fillStyle = "grey";
+      ctx.font = "10px sans-serif";
+      ctx.scale(2, 2);
+
+      class Spot {
+        // used only for barriers
+
+        /**
+         * @param {string} type
+         * @param {number} row
+         * @param {number} col
+         */
+        constructor(type, row, col) {
+          /**
+           * @type {boolean}
+           */
+          this.visited = false;
+          this.type = type;
+          this.row = row;
+          this.col = col;
+        }
+      }
+
+      /**
+       * @param {Spot[][]} grid
+       */
+      function draw(grid) {
+        const rows = grid.length;
+        const cols = grid[0].length;
+
+        ctx.width = cols * 10;
+        ctx.height = rows * 10;
+
+        const cellWidth = canvas.width / cols;
+        const cellHeight = canvas.height / rows;
+
+        for (const row of grid) {
+          for (const cell of row) {
+            const cornerX = cell.col * 10;
+            const cornerY = cell.row * 10;
+            ctx.fillText(cell.type, cornerX, cornerY);
+          }
+        }
+        ctx.scale(0.5, 0.5);
+      }
+
+      function makeGrid(str) {
+        let start;
+        const grid = str.trim().split(`\n`).map((line, row) => {
+          const cols = line.trim().split("").map((step, col) => {
+            const gridCell = new Spot(step, row, col);
+            if (step === "^") start = gridCell;
+            return gridCell;
+          });
+          return cols;
+        });
+        return [grid, start];
+      }
+
+      function solve(str) {
+        const [grid, start] = makeGrid(str);
+        draw(grid);
+      }
+
+      function loadFileAsString(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            resolve(event.target.result);
+          };
+
+          reader.onerror = (error) => {
+            reject(error);
+          };
+
+          reader.readAsText(file);
+        });
+      }
+
+      // Usage example:
+      const fileInput = document.getElementById("fileInput");
+
+      fileInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+
+        loadFileAsString(file)
+          .then((text) => {
+            console.log(text); // The content of the file as a string
+            solve(text);
+          })
+          .catch((error) => {
+            console.error("Error reading file:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
