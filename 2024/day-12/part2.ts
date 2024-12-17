@@ -1,28 +1,10 @@
-const __dirname = new URL(".", import.meta.url).pathname;
-
-let input: string;
-if (Deno.env.get("DEBUGGING")) {
-  // change the input specifically for debugging
-  input = `
-AAAA
-BBCD
-BBCC
-EEEC
-`;
-} else {
-  input = await Deno.readTextFile(__dirname + "/input.txt");
-}
+import { wait } from "../..//lib/utils.ts";
 
 /****************************************
  * Part 2
  */
 
 const sum = (arr: number[]): number => arr.reduce((total, n) => (total += n), 0);
-
-// area of a region is simply the number of garden plots
-// perimeter of a region is the number of outer sides
-// the price of fence required for a region is found by multiplying that region's area by its perimeter
-// The total price of fencing all regions on a map is found by adding together the price of fence for every region on the map.
 
 class Plot {
   visited = false;
@@ -43,20 +25,25 @@ class Plot {
   }
 
   getPerimeter(grid: Grid): number {
-    let perimeter = 0;
-    const up = this.getUp(grid);
-    if (!up || up.val !== this.val) perimeter += 1;
+    let corners = 0;
+    const up = this.getUp(grid)?.val;
+    const down = this.getDown(grid)?.val;
+    const left = this.getLeft(grid)?.val;
+    const right = this.getRight(grid)?.val;
 
-    const down = this.getDown(grid);
-    if (!down || down.val !== this.val) perimeter += 1;
-
-    const left = this.getLeft(grid);
-    if (!left || left.val !== this.val) perimeter += 1;
-
-    const right = this.getRight(grid);
-    if (!right || right.val !== this.val) perimeter += 1;
-
-    return perimeter;
+    if (up === left && up !== this.val) {
+      corners += 1;
+    }
+    if (up === right && up !== this.val) {
+      corners += 1;
+    }
+    if (down === right && down !== this.val) {
+      corners += 1;
+    }
+    if (down === left && down !== this.val) {
+      corners += 1;
+    }
+    return corners;
   }
 
   getSameRegionNeighbors(grid: Grid): Plot[] {
@@ -93,8 +80,24 @@ EEEEE
 E       XXXX
 EEEEE  
 
-0,0
-if (!above)
+if there's no same above and to the left, corner ++
+
+take a simple slice,  this has 6 sides
+EE
+E
+
+...
+.E. <- 4 corners
+...
+
+...
+.E. <- 4 corners
+...
+
+if both up and left are not val
+if both right and down ARE val, check if
+
+
 
 
 AAAAAA
@@ -113,16 +116,6 @@ AAAAAA
 
 */
 
-function calcPerimeter(region: Plot[]): number {
-  const xSides = new Set<number>();
-  const ySides = new Set<number>();
-  for (const plot of region) {
-    xSides.add(plot.col);
-    ySides.add(plot.row);
-  }
-  return xSides.size + ySides.size;
-}
-
 function getNextRegionStart(grid: Grid): Plot | undefined {
   for (let row = 0; row < grid.length; row++) {
     for (let col = 0; col < grid[0].length; col++) {
@@ -137,7 +130,7 @@ function getRegion(grid: Grid, start: Plot): Plot[] {
   const stack = [start];
 
   while (stack.length) {
-    const next = stack.pop();
+    const next = stack.shift();
     if (next) {
       if (next.visited) continue;
       next.visited = true;
@@ -167,18 +160,16 @@ function getAllRegions(grid: Grid): Plot[][] {
 
 function calcPrice(grid: Grid, regions: Plot[][]): number {
   const pricePer = regions.map((region) => {
-    const perimeter = calcPerimeter(region);
+    const perimeter = region.reduce((acc, plot) => {
+      const cellPermiter = plot.getPerimeter(grid);
+      return acc + cellPermiter;
+    }, 0);
     return perimeter * region.length;
   });
   return sum(pricePer);
 }
 
-// area of a region is simply the number of garden plots
-// perimeter of a region is the number of outer sides
-// the price of fence required for a region is found by multiplying that region's area by its perimeter
-// The total price of fencing all regions on a map is found by adding together the price of fence for every region on the map.
-
-export function part2(str: string): number {
+export async function part2(str: string): Promise<number> {
   const grid = str
     .trim()
     .split(`\n`)
@@ -191,10 +182,46 @@ export function part2(str: string): number {
         });
     });
   const regions = getAllRegions(grid);
-  // console.log(regions);
+  console.log(regions);
+  // await drawRegion(grid, regions[0]);
   return calcPrice(grid, regions);
+}
+
+/****************************************
+ * Ignore below
+ * it's for debugging
+ */
+
+const __dirname = new URL(".", import.meta.url).pathname;
+
+let input: string;
+if (Deno.env.get("DEBUGGING")) {
+  // change the input specifically for debugging
+  input = `
+AAAA
+BBCD
+BBCC
+EEEC
+`;
+} else {
+  input = await Deno.readTextFile(__dirname + "/input.txt");
 }
 
 if (!Deno.env.get("TESTING")) {
   console.log(part2(input));
+}
+
+async function drawRegion(grid: Grid, region: Plot[]) {
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const newGrid = Array(rows)
+    .fill(".")
+    .map(() => Array(cols).fill("."));
+
+  for (const plot of region) {
+    console.clear();
+    newGrid[plot.row][plot.col] = plot.val;
+    console.log(newGrid.map((line) => line.join("")).join(`\n`));
+    await wait(100);
+  }
 }

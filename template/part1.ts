@@ -1,3 +1,16 @@
+/****************************************
+ * Part 1
+ */
+
+export async function part1(str: string): Promise<number> {
+  return 0;
+}
+
+/****************************************
+ * Ignore below
+ * it's for debugging
+ */
+
 const __dirname = new URL(".", import.meta.url).pathname;
 
 let input: string;
@@ -8,14 +21,7 @@ if (Deno.env.get("DEBUGGING")) {
   input = await Deno.readTextFile(__dirname + "/input.txt");
 }
 
-/****************************************
- * Part 1
- */
-
-export function part1(str: string): number {
-  return 0;
-}
-
 if (!Deno.env.get("TESTING")) {
-  console.log(part1(input));
+  // running from the command line or vscode's debugger
+  console.log(await part1(input));
 }

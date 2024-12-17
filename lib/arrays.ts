@@ -1,11 +1,6 @@
 type MatricCallback<T = string> = (x: number, y: number, item: T) => void;
 
-function callAt<T = string>(
-  x: number,
-  y: number,
-  matrix: T[][],
-  callback: MatricCallback<T>,
-) {
+function callAt<T = string>(x: number, y: number, matrix: T[][], callback: MatricCallback<T>) {
   if (matrix[y]?.[x]) callback(x, y, matrix[y][x]);
 }
 
@@ -14,7 +9,7 @@ export function eachSurrounding<T = string>(
   y: number,
   matrix: T[][],
   callback: MatricCallback<T>,
-  includeDiagonals = true,
+  includeDiagonals = true
 ) {
   if (includeDiagonals) {
     // top left
@@ -45,3 +40,5 @@ export function chunk<T = number>(source: T[], size: 2): T[][] {
   }
   return arr;
 }
+
+export const sum = (arr: number[]): number => arr.reduce((total, n) => (total += n), 0);
