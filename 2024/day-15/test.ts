@@ -50,30 +50,30 @@ Deno.test("Part 1 still produces the accepted answer", async () => {
   assertStrictEquals(await part1(input), 1383666);
 });
 
-// Deno.test("part 2 example small", async () => {
-//   const testInput = `
-// #######
-// #...#.#
-// #.....#
-// #..OO@#
-// #..O..#
-// #.....#
-// #######
+Deno.test("part 2 example small", async () => {
+  const testInput = `
+#######
+#...#.#
+#.....#
+#..OO@#
+#..O..#
+#.....#
+#######
 
-// <vv<<^^<<^^
-// `.trim();
-//   /*
-// ends at
-// ##############
-// ##...[].##..## <-- 100*1 + 5 = 105
-// ##...@.[]...## <-- 100*2 + 7 = 207
-// ##....[]....## <-- 100*3 + 6 = 306
-// ##..........##
-// ##..........##
-// ##############
-// */
-//   assertStrictEquals(await part2(testInput), 105 + 207 + 306);
-// });
+<vv<<^^<<^^
+`.trim();
+  /*
+ends at
+##############
+##...[].##..## <-- 100*1 + 5 = 105
+##...@.[]...## <-- 100*2 + 7 = 207
+##....[]....## <-- 100*3 + 6 = 306
+##..........##
+##..........##
+##############
+*/
+  assertStrictEquals(await part2(testInput), 105 + 207 + 306);
+});
 
 Deno.test("part 2 example large", async () => {
   const testInput = `
@@ -102,7 +102,7 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
   assertStrictEquals(await part2(testInput), 9021);
 });
 
-// Deno.test("Part 2 still produces the accepted answer", async () => {
-//   const input = await Deno.readTextFile("./input.txt");
-//   assertStrictEquals(await part2(input), 111111111111111);
-// });
+Deno.test("Part 2 still produces the accepted answer", async () => {
+  const input = await Deno.readTextFile("./input.txt");
+  assertStrictEquals(await part2(input), 1412866);
+});

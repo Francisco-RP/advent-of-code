@@ -1,10 +1,11 @@
 import { wait } from "../../lib/utils.ts";
-import { sum } from "../../lib/arrays.ts";
 /****************************************
  * Part 2
  */
 
-type Map = (string | Box)[][];
+const animate = false;
+
+type Map = string[][];
 
 const UP = "^";
 const LEFT = "<";
@@ -24,32 +25,8 @@ const DIR: { [key: string]: { x: number; y: number } } = {
   [DOWN]: { x: 0, y: 1 },
 };
 
-class Box {
-  leftEdge: Box | undefined;
-  rightEdge: Box | undefined;
-  constructor(public x: number, public y: number, public char: string) {}
-
-  getNext(map: Map, dir: string): string | Box {
-    const moveCalc = DIR[dir];
-    const aboveThis = map[this.y + moveCalc.y][this.x + moveCalc.x];
-    return aboveThis;
-  }
-
-  // this is only use during up/down check to get what's above/below both sides
-  getNextBothSides(map: Map, dir: string): [string | Box, string | Box] {
-    return [
-      this.getNext(map, dir),
-      this.leftEdge?.getNext(map, dir) || this.rightEdge!.getNext(map, dir),
-    ];
-  }
-
-  /**
-   * The GPS coordinate of a box is equal to 100 times its distance from the top edge
-   * plus its distance from the left edge of the map.
-   */
-  gps() {
-    return 100 * this.y + this.x;
-  }
+function gps(x: number, y: number): number {
+  return 100 * y + x;
 }
 
 function checkLeft(map: Map, robotPos: number[]): boolean {
@@ -62,10 +39,6 @@ function checkLeft(map: Map, robotPos: number[]): boolean {
       // including the robot
       for (let i = col; i <= x; i++) {
         row[i] = row[i + 1];
-        const item = row[i];
-        if (item instanceof Box) {
-          item.x -= 1;
-        }
       }
       // and the original position of the robot is now empty
       row[x] = SPACE;
@@ -85,11 +58,7 @@ function checkRight(map: Map, robotPos: number[]) {
       // everything to the left between here and the robot can be moved right one space
       // including the robot
       for (let i = col; i >= x; i--) {
-        const toMove = row[i - 1];
-        row[i] = toMove;
-        if (toMove instanceof Box) {
-          toMove.x += 1;
-        }
+        row[i] = row[i - 1];
       }
       // and the original position of the robot is now empty
       row[x] = SPACE;
@@ -98,6 +67,10 @@ function checkRight(map: Map, robotPos: number[]) {
     col = col + 1;
   }
   return false;
+}
+
+function dupeCheck(x: number, y: number, boxes: number[][]): boolean {
+  return !!boxes.find((box) => box[0] === x && box[1] === y);
 }
 
 /**
@@ -124,48 +97,51 @@ if the move is ^, it becomes this:
 ...........
   */
   const calc = dir === UP ? -1 : 1;
-  const boxesAbove: Set<Box> = new Set();
+  const boxesAbove: number[][] = [];
   for (const item of items) {
     const [x, y] = item;
-    const thingAbove = map[y + calc][x];
+    const nextY = y + calc;
+    const thingAbove = map[nextY][x];
 
-    if (thingAbove === WALL) return false; // can't move up
-
-    if (thingAbove instanceof Box) {
-      boxesAbove.add(thingAbove);
-      if (thingAbove.leftEdge) boxesAbove.add(thingAbove.leftEdge);
-      else if (thingAbove.rightEdge) boxesAbove.add(thingAbove.rightEdge);
+    if (thingAbove === WALL) {
+      return false;
+    } else if (thingAbove === BOX_LEFT) {
+      if (!dupeCheck(x, nextY, boxesAbove)) {
+        boxesAbove.push([x, nextY]);
+      }
+      if (!dupeCheck(x + 1, nextY, boxesAbove)) {
+        boxesAbove.push([x + 1, nextY]);
+      }
+      // also push its right side
+    } else if (thingAbove === BOX_RIGHT) {
+      if (!dupeCheck(x, nextY, boxesAbove)) {
+        boxesAbove.push([x, nextY]);
+      }
+      if (!dupeCheck(x - 1, nextY, boxesAbove)) {
+        boxesAbove.push([x - 1, nextY]);
+      }
     }
   }
 
-  if (boxesAbove.size === 0) {
+  if (boxesAbove.length === 0) {
     // no boxes or wall above that means we can move all these up/down
     for (const item of items) {
       const [x, y] = item;
       const thing = map[y][x];
       map[y + calc][x] = thing;
-      if (thing instanceof Box) {
-        thing.y += calc;
-      }
       map[y][x] = SPACE;
+      // help me out here
     }
     return true;
   } else {
     // we need to check the next
-    const nextRow = checkVertical(
-      map,
-      [...boxesAbove].map((b) => [b.x, b.y]),
-      dir
-    );
+    const nextRow = checkVertical(map, boxesAbove, dir);
     if (nextRow) {
       for (const item of items) {
         const [x, y] = item;
         const thing = map[y][x];
         map[y + calc][x] = thing;
         map[y][x] = SPACE;
-        if (thing instanceof Box) {
-          thing.y += calc;
-        }
       }
     }
     return nextRow;
@@ -179,10 +155,13 @@ async function moveRobot(map: Map, start: number[], moves: string): Promise<Map>
   let moved = false;
   while (i < moves.length) {
     const nextMove = moves.charAt(i);
-    // console.clear();
-    // console.log("next move:", nextMove);
-    // draw(map);
-    // await wait(300);
+
+    if (animate) {
+      console.clear();
+      console.log("move index:", i);
+      draw(map, nextMove);
+      await wait(200);
+    }
 
     switch (nextMove) {
       case LEFT:
@@ -210,9 +189,8 @@ async function moveRobot(map: Map, start: number[], moves: string): Promise<Map>
   return map; // the updated map
 }
 
-function parseMap(str: string): { map: Map; start: number[]; boxes: Box[] } {
+function parseMap(str: string): { map: Map; start: number[] } {
   const start: number[] = [];
-  const boxes: Box[] = [];
   const map: Map = [];
 
   str
@@ -227,14 +205,7 @@ function parseMap(str: string): { map: Map; start: number[]; boxes: Box[] } {
         .forEach((cell) => {
           const newIndex = map.at(-1)!.length;
           if (cell === BOX) {
-            const bLeft = new Box(newIndex, y, BOX_LEFT);
-            const bRight = new Box(newIndex + 1, y, BOX_RIGHT);
-            // link the box sides to each other
-            bLeft.rightEdge = bRight;
-            bRight.leftEdge = bLeft;
-
-            boxes.push(bLeft); // we don't care about the right edges
-            map.at(-1)?.push(bLeft, bRight);
+            map.at(-1)?.push(BOX_LEFT, BOX_RIGHT);
             return;
           }
           if (cell === ROBOT) {
@@ -242,18 +213,31 @@ function parseMap(str: string): { map: Map; start: number[]; boxes: Box[] } {
             start.push(newIndex, y);
             return;
           }
+          // it's a wall
           map.at(-1)?.push(cell, cell);
         });
     });
-  return { map, start, boxes };
+  return { map, start };
+}
+
+function calcSolution(map: Map): number {
+  let result = 0;
+  map.forEach((row, y) => {
+    row.forEach((col, x) => {
+      if (col === BOX_LEFT) {
+        result += gps(x, y);
+      }
+    });
+  });
+  return result;
 }
 
 export async function part2(str: string): Promise<number> {
   const [mapRaw, movesRaw] = str.trim().split(`\n\n`);
-  const { map, start, boxes } = parseMap(mapRaw);
+  const { map, start } = parseMap(mapRaw);
   const moves = movesRaw.trim().replaceAll(/\n/g, "");
   await moveRobot(map, start, moves);
-  return sum(boxes.map((b) => b.gps()));
+  return calcSolution(map);
 }
 
 /****************************************
@@ -261,13 +245,13 @@ export async function part2(str: string): Promise<number> {
  * help visualize the map
  */
 
-function draw(map: Map) {
+function draw(map: Map, move: string) {
   const gridStr = map
     .map((row) => {
       return row
         .map((col) => {
-          if (col instanceof Box) {
-            return col.char;
+          if (col === ROBOT) {
+            return move;
           }
           return col;
         })
