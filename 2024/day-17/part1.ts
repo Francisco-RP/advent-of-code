@@ -11,17 +11,33 @@ class CPU {
     public regB: number,
     public regC: number,
     public pogram: number[]
-  ) {}
+  ) {
+    this.log();
+  }
+
+  log() {
+    const octal = this.regA.toString(8);
+    let bin = (this.regA >>> 0).toString(2).padStart(octal.length * 3, "0");
+    // put a space after every third character
+    bin = bin.replace(/(.{3})/g, "$1 ");
+
+    console.log("RegA:", this.regA);
+    console.log("- binary:", bin);
+    console.log("- octal:", octal);
+    console.log("RegB:", this.regB);
+    console.log("RegC:", this.regC);
+    console.log("output:", this.output.join(","));
+    console.log("");
+  }
+
   // eight instructions
   run() {
     while (this.pointer < this.pogram.length) {
       const opcode = this.pogram[this.pointer];
       const operand = this.pogram[this.pointer + 1];
-      const result = this.op(opcode, operand);
-      // @ts-ignore
-      if (result !== "jumped") {
-        this.pointer += 2;
-      }
+      console.log("opcode:", opcode, "operand:", operand);
+      this.op(opcode, operand);
+      this.log();
     }
   }
 
@@ -33,9 +49,40 @@ class CPU {
     return operand;
   }
 
-  op(opcode: number, operand: number) {
-    const ops = [this.adv, this.bxl, this.bst, this.jnz, this.bxc, this.out, this.bdv, this.cdv];
-    return ops[opcode].call(this, operand);
+  op(opcode: number, operand: number): void {
+    switch (opcode) {
+      case 0:
+        this.adv(operand);
+        this.pointer += 2;
+        break;
+      case 1:
+        this.bxl(operand);
+        this.pointer += 2;
+        break;
+      case 2:
+        this.bst(operand);
+        this.pointer += 2;
+        break;
+      case 3:
+        this.jnz(operand); // handles setting pointer
+        break;
+      case 4:
+        this.bxc();
+        this.pointer += 2;
+        break;
+      case 5:
+        this.out(operand);
+        this.pointer += 2;
+        break;
+      case 6:
+        this.bdv(operand);
+        this.pointer += 2;
+        break;
+      case 7:
+        this.cdv(operand);
+        this.pointer += 2;
+        break;
+    }
   }
 
   adv(operand: number) {
@@ -48,11 +95,13 @@ class CPU {
     this.regB = this.getCombo(operand) % 8;
   }
   jnz(operand: number) {
-    if (this.regA === 0) return;
-    this.pointer = operand;
-    return "jumped";
+    if (this.regA !== 0) {
+      this.pointer = operand;
+    } else {
+      this.pointer += 2;
+    }
   }
-  bxc(operand: number) {
+  bxc() {
     this.regB = this.regB ^ this.regC;
   }
 
